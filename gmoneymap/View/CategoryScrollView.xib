@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryScrollView" customModule="gmoneymap" customModuleProvider="target">
+            <connections>
+                <outlet property="stackView" destination="Asi-Gu-ifn" id="N0D-wD-f4I"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="5h9-vw-Ese" customClass="UIScrollView">
+            <rect key="frame" x="0.0" y="0.0" width="1089" height="219"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A29-Xp-JPH">
+                    <rect key="frame" x="0.0" y="0.0" width="1089" height="219"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Asi-Gu-ifn">
+                            <rect key="frame" x="0.0" y="-44" width="1089" height="219"/>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Asi-Gu-ifn" firstAttribute="top" secondItem="CRc-Vg-6Wy" secondAttribute="top" id="4yp-Gt-Wy5"/>
+                        <constraint firstItem="CRc-Vg-6Wy" firstAttribute="bottom" secondItem="Asi-Gu-ifn" secondAttribute="bottom" id="O19-Xb-fMf"/>
+                        <constraint firstAttribute="bottom" secondItem="Asi-Gu-ifn" secondAttribute="bottom" id="Opm-St-ysF"/>
+                        <constraint firstAttribute="trailing" secondItem="Asi-Gu-ifn" secondAttribute="trailing" id="Ytt-SM-WFd"/>
+                        <constraint firstItem="Asi-Gu-ifn" firstAttribute="leading" secondItem="eVT-Mr-ZKp" secondAttribute="leading" id="pKw-iq-Si3"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="eVT-Mr-ZKp"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="CRc-Vg-6Wy"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="qkb-rw-hQO"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="A29-Xp-JPH" firstAttribute="top" secondItem="5h9-vw-Ese" secondAttribute="top" id="9G9-5p-YBC"/>
+                <constraint firstItem="A29-Xp-JPH" firstAttribute="trailing" secondItem="qkb-rw-hQO" secondAttribute="trailing" id="AKQ-0h-znl"/>
+                <constraint firstAttribute="bottom" secondItem="A29-Xp-JPH" secondAttribute="bottom" id="eCp-nQ-fMV"/>
+                <constraint firstItem="A29-Xp-JPH" firstAttribute="leading" secondItem="qkb-rw-hQO" secondAttribute="leading" id="gGb-NW-WjS"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="512.31884057971024" y="-199.21875"/>
+        </view>
+    </objects>
+</document>

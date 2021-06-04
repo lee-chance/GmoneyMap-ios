@@ -9,16 +9,22 @@ import UIKit
 
 class MapViewController: UIViewController, MTMapViewDelegate {
     
+    @IBOutlet weak var mapViewField: UIView!
+    
     var mapView: MTMapView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initMap()
+    }
+    
+    private func initMap() {
         mapView = MTMapView(frame: self.view.bounds)
         if let mapView = mapView {
             mapView.delegate = self
             mapView.baseMapType = .standard
-            self.view.addSubview(mapView)
+            mapViewField.addSubview(mapView)
         }
     }
 

@@ -14,6 +14,8 @@ class CategoryScrollView: BaseViewWithXIB {
     override func setupView() {
         super.setupView()
         
+        addPaddingView(width: 16.ratioConstant)
+        
         let categoryList = ["모두보기", "음식점1", "음식점2", "상가1", "상가2", "가게1", "가게2", "카페/마트/편의점", "병원/약국/기타의료", "숙박/여행", "레저", "도서/미용/문화", "가전/가구/의류", "학원/교육", "서비스", "제조업", "주유소", "꽃/과일/떡/농업", "건축/건설", "기타"]
 
         for category in categoryList {
@@ -22,6 +24,13 @@ class CategoryScrollView: BaseViewWithXIB {
             stackView.addArrangedSubview(cell)
         }
         
+        addPaddingView(width: 16.ratioConstant)
+    }
+    
+    private func addPaddingView(width: CGFloat) {
+        let view = UIView()
+        view.widthAnchor.constraint(equalToConstant: width).isActive = true
+        stackView.addArrangedSubview(view)
     }
     
 }

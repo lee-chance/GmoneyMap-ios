@@ -16,12 +16,16 @@ class CSUILabel: DynamicUILabel {
     @IBInspectable var rightInset: CGFloat = 0
     
     override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        let insets = UIEdgeInsets.init(top: topInset.ratioConstant,
+                                       left: leftInset.ratioConstant,
+                                       bottom: bottomInset.ratioConstant,
+                                       right: rightInset.ratioConstant)
         super.drawText(in: rect.inset(by: insets))
     }
     
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
-        return CGSize(width: size.width + leftInset + rightInset, height: size.height + topInset + bottomInset)
+        return CGSize(width: (size.width + leftInset + rightInset).ratioConstant,
+                      height: (size.height + topInset + bottomInset).ratioConstant)
     }
 }

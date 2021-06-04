@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewCell" customModule="gmoneymap" customModuleProvider="target">
             <connections>
                 <outlet property="categoryName" destination="YNo-gt-mMT" id="Igd-jP-gNT"/>
+                <outlet property="parentView" destination="OQV-x5-xh5" id="l4W-qt-nwP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -29,10 +30,10 @@
                                     <rect key="frame" x="0.0" y="-0.5" width="22" height="20"/>
                                     <color key="tintColor" systemColor="systemYellowColor"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="모두보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNo-gt-mMT" customClass="CSUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="모두보기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNo-gt-mMT" customClass="CSUILabel" customModule="gmoneymap" customModuleProvider="target">
                                     <rect key="frame" x="30" y="0.0" width="56" height="20"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="20" id="qfh-GX-HPk"/>
+                                        <constraint firstAttribute="height" constant="20" id="qfh-GX-HPk" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <nil key="textColor"/>
@@ -40,22 +41,22 @@
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="5RZ-Ry-ras" firstAttribute="leading" secondItem="r5R-Ev-giV" secondAttribute="leading" id="Hwm-4L-Hn5"/>
-                                <constraint firstItem="YNo-gt-mMT" firstAttribute="leading" secondItem="5RZ-Ry-ras" secondAttribute="trailing" constant="8" id="O3K-tr-iF1"/>
-                                <constraint firstAttribute="trailing" secondItem="YNo-gt-mMT" secondAttribute="trailing" id="Q6c-7U-iMf"/>
-                                <constraint firstItem="5RZ-Ry-ras" firstAttribute="centerY" secondItem="r5R-Ev-giV" secondAttribute="centerY" id="QuG-oh-D61"/>
-                                <constraint firstItem="YNo-gt-mMT" firstAttribute="top" secondItem="r5R-Ev-giV" secondAttribute="top" id="ZIw-sK-Bgx"/>
-                                <constraint firstAttribute="bottom" secondItem="YNo-gt-mMT" secondAttribute="bottom" id="nXh-ul-I6n"/>
-                                <constraint firstItem="YNo-gt-mMT" firstAttribute="centerY" secondItem="r5R-Ev-giV" secondAttribute="centerY" id="qV2-Ld-9an"/>
+                                <constraint firstItem="5RZ-Ry-ras" firstAttribute="leading" secondItem="r5R-Ev-giV" secondAttribute="leading" id="Hwm-4L-Hn5" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                <constraint firstItem="YNo-gt-mMT" firstAttribute="leading" secondItem="5RZ-Ry-ras" secondAttribute="trailing" constant="8" id="O3K-tr-iF1" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                <constraint firstAttribute="trailing" secondItem="YNo-gt-mMT" secondAttribute="trailing" id="Q6c-7U-iMf" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                <constraint firstItem="5RZ-Ry-ras" firstAttribute="centerY" secondItem="r5R-Ev-giV" secondAttribute="centerY" id="QuG-oh-D61" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                <constraint firstItem="YNo-gt-mMT" firstAttribute="top" secondItem="r5R-Ev-giV" secondAttribute="top" id="ZIw-sK-Bgx" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                <constraint firstAttribute="bottom" secondItem="YNo-gt-mMT" secondAttribute="bottom" id="nXh-ul-I6n" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                <constraint firstItem="YNo-gt-mMT" firstAttribute="centerY" secondItem="r5R-Ev-giV" secondAttribute="centerY" id="qV2-Ld-9an" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="r5R-Ev-giV" secondAttribute="bottom" constant="8" id="Hej-rl-RtL"/>
-                        <constraint firstItem="r5R-Ev-giV" firstAttribute="top" secondItem="OQV-x5-xh5" secondAttribute="top" constant="8" id="gVU-lm-3Gw"/>
-                        <constraint firstAttribute="trailing" secondItem="r5R-Ev-giV" secondAttribute="trailing" constant="16" id="rKt-M8-Yi8"/>
-                        <constraint firstItem="r5R-Ev-giV" firstAttribute="leading" secondItem="OQV-x5-xh5" secondAttribute="leading" constant="16" id="uVN-se-yPz"/>
+                        <constraint firstAttribute="bottom" secondItem="r5R-Ev-giV" secondAttribute="bottom" constant="8" id="Hej-rl-RtL" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                        <constraint firstItem="r5R-Ev-giV" firstAttribute="top" secondItem="OQV-x5-xh5" secondAttribute="top" constant="8" id="gVU-lm-3Gw" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                        <constraint firstAttribute="trailing" secondItem="r5R-Ev-giV" secondAttribute="trailing" constant="16" id="rKt-M8-Yi8" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                        <constraint firstItem="r5R-Ev-giV" firstAttribute="leading" secondItem="OQV-x5-xh5" secondAttribute="leading" constant="16" id="uVN-se-yPz" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -67,19 +68,16 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                             <real key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="18"/>
-                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="OQV-x5-xh5" secondAttribute="trailing" constant="8" id="7nG-EH-kmT"/>
-                <constraint firstItem="OQV-x5-xh5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="RaS-0k-nni"/>
-                <constraint firstAttribute="bottom" secondItem="OQV-x5-xh5" secondAttribute="bottom" constant="12" id="Y9L-XQ-VLS"/>
-                <constraint firstItem="OQV-x5-xh5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="12" id="n0U-ZI-D7w"/>
+                <constraint firstAttribute="trailing" secondItem="OQV-x5-xh5" secondAttribute="trailing" constant="8" id="7nG-EH-kmT" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="OQV-x5-xh5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="RaS-0k-nni" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstAttribute="bottom" secondItem="OQV-x5-xh5" secondAttribute="bottom" constant="12" id="Y9L-XQ-VLS" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="OQV-x5-xh5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="12" id="n0U-ZI-D7w" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -89,7 +87,7 @@
     </objects>
     <designables>
         <designable name="YNo-gt-mMT">
-            <size key="intrinsicContentSize" width="55.5" height="19.5"/>
+            <size key="intrinsicContentSize" width="61.272000000000006" height="21.528000000000002"/>
         </designable>
     </designables>
     <resources>

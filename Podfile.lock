@@ -1,0 +1,16 @@
+PODS:
+  - UBottomSheet (1.0.9)
+
+DEPENDENCIES:
+  - UBottomSheet
+
+SPEC REPOS:
+  trunk:
+    - UBottomSheet
+
+SPEC CHECKSUMS:
+  UBottomSheet: a1c528d907b60e7ec65e1f0987fe6074b2ad3762
+
+PODFILE CHECKSUM: 54142655ac0532d8f2981098219a27907c7296c7
+
+COCOAPODS: 1.10.1

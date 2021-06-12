@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aWN-tP-Eik">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Map View Controller-->
         <scene sceneID="uvc-Z1-z3Q">
             <objects>
-                <viewController id="aWN-tP-Eik" customClass="MapViewController" customModule="gmoneymap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aWN-tP-Eik" customClass="MapViewController" customModule="gmoneymap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mge-XP-Fl0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSf-PO-odD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHp-zI-IDb">
-                                <rect key="frame" x="30" y="60" width="315" height="43.333333333333343"/>
+                                <rect key="frame" x="30" y="60" width="354" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current address 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR3-4p-Rmr" customClass="CSUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="43.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -68,16 +70,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdg-Y0-1pz">
-                                <rect key="frame" x="30" y="115.33333333333331" width="315" height="30"/>
+                                <rect key="frame" x="30" y="120" width="354" height="32"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-3e-fd0" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="32"/>
                                         <state key="normal" title="내주변검색">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8I-BF-nKz" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
-                                        <rect key="frame" x="157.66666666666663" y="0.0" width="157.33333333333337" height="30"/>
+                                        <rect key="frame" x="177" y="0.0" width="177" height="32"/>
                                         <state key="normal" title="현재위치검색">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
@@ -99,7 +101,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKI-TG-DX6" customClass="CategoryScrollView" customModule="gmoneymap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="145.33333333333334" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="152" width="414" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="KL5-Za-z6f" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
@@ -110,16 +112,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zJJ-ge-0BG" firstAttribute="trailing" secondItem="PHp-zI-IDb" secondAttribute="trailing" constant="30" id="4Y0-g0-gdf" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="RSf-PO-odD" firstAttribute="leading" secondItem="zJJ-ge-0BG" secondAttribute="leading" id="6ut-Px-ATy"/>
                             <constraint firstItem="PHp-zI-IDb" firstAttribute="leading" secondItem="zJJ-ge-0BG" secondAttribute="leading" constant="30" id="9KT-da-Fcb" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
-                            <constraint firstAttribute="bottom" secondItem="RSf-PO-odD" secondAttribute="bottom" id="DgK-Kf-5Ih" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
-                            <constraint firstItem="RSf-PO-odD" firstAttribute="top" secondItem="mge-XP-Fl0" secondAttribute="top" id="ELp-dS-QRP" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="PHp-zI-IDb" firstAttribute="top" secondItem="zJJ-ge-0BG" secondAttribute="top" constant="16" id="JVJ-v8-TCF" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="gdg-Y0-1pz" firstAttribute="top" secondItem="PHp-zI-IDb" secondAttribute="bottom" constant="12" id="YVs-Pp-7Em" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
-                            <constraint firstItem="RSf-PO-odD" firstAttribute="leading" secondItem="zJJ-ge-0BG" secondAttribute="leading" id="f6o-mC-Xzd" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
-                            <constraint firstItem="zJJ-ge-0BG" firstAttribute="trailing" secondItem="RSf-PO-odD" secondAttribute="trailing" id="jBE-i8-yIb" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="RSf-PO-odD" firstAttribute="top" secondItem="mge-XP-Fl0" secondAttribute="top" id="art-ul-230"/>
                             <constraint firstItem="qKI-TG-DX6" firstAttribute="top" secondItem="gdg-Y0-1pz" secondAttribute="bottom" id="jEw-CG-phJ" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="gdg-Y0-1pz" firstAttribute="leading" secondItem="zJJ-ge-0BG" secondAttribute="leading" constant="30" id="kBG-nZ-345" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="RSf-PO-odD" firstAttribute="bottom" secondItem="mge-XP-Fl0" secondAttribute="bottom" id="q2d-Eh-7x0"/>
                             <constraint firstItem="qKI-TG-DX6" firstAttribute="leading" secondItem="zJJ-ge-0BG" secondAttribute="leading" id="tbI-9U-lOZ" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="RSf-PO-odD" firstAttribute="trailing" secondItem="zJJ-ge-0BG" secondAttribute="trailing" id="uDb-Gq-zKn"/>
                             <constraint firstItem="zJJ-ge-0BG" firstAttribute="trailing" secondItem="qKI-TG-DX6" secondAttribute="trailing" id="vdl-LR-jo8" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="zJJ-ge-0BG" firstAttribute="trailing" secondItem="gdg-Y0-1pz" secondAttribute="trailing" constant="30" id="wZa-0D-GcU" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                         </constraints>
@@ -134,41 +136,88 @@
             <point key="canvasLocation" x="438" y="13"/>
         </scene>
         <!--Bottom Sheet View Controller-->
-        <scene sceneID="ahW-jB-5tP">
+        <scene sceneID="pUc-gz-g9t">
             <objects>
-                <viewController storyboardIdentifier="BottomSheetViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eMR-oM-858" customClass="BottomSheetViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o26-xq-FXS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                <viewController storyboardIdentifier="BottomSheetViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EjP-W3-IWF" customClass="BottomSheetViewController" customModule="gmoneymap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nhB-g3-eaZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="XcD-PJ-29W"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="무야~호~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuS-hr-zvk">
+                                <rect key="frame" x="174.5" y="437.5" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D4W-mk-jE7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                <color key="backgroundColor" name="GMapBackBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4nE-Hh-YRi"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UgU-6N-q1u">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mOL-M9-dGY">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="B7P-0h-vaR">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vEb-Xq-Zql"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="JuS-hr-zvk" firstAttribute="centerX" secondItem="nhB-g3-eaZ" secondAttribute="centerX" id="7x9-zU-Eoj" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="D4W-mk-jE7" firstAttribute="top" secondItem="nhB-g3-eaZ" secondAttribute="top" id="TGw-ob-JJS" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="vEb-Xq-Zql" firstAttribute="trailing" secondItem="D4W-mk-jE7" secondAttribute="trailing" id="YlD-QD-gFP" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="JuS-hr-zvk" firstAttribute="centerY" secondItem="nhB-g3-eaZ" secondAttribute="centerY" id="a3W-M1-mVZ" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="D4W-mk-jE7" firstAttribute="leading" secondItem="vEb-Xq-Zql" secondAttribute="leading" id="agU-dy-S4z" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tabBarHeight" destination="4nE-Hh-YRi" id="etR-gh-SfT"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YSw-Lb-Q4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSM-sl-sBq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="13"/>
+            <point key="canvasLocation" x="1210" y="13"/>
         </scene>
     </scenes>
     <designables>
         <designable name="P1G-3e-fd0">
-            <size key="intrinsicContentSize" width="65" height="30"/>
+            <size key="intrinsicContentSize" width="72" height="32"/>
         </designable>
         <designable name="qR3-4p-Rmr">
-            <size key="intrinsicContentSize" width="152.66666666666666" height="43.333333333333329"/>
+            <size key="intrinsicContentSize" width="168.36000000000001" height="48.024000000000001"/>
         </designable>
         <designable name="t8I-BF-nKz">
-            <size key="intrinsicContentSize" width="78" height="30"/>
+            <size key="intrinsicContentSize" width="86" height="32"/>
         </designable>
     </designables>
     <resources>
+        <namedColor name="GMapBackBlue">
+            <color red="0.030999999493360519" green="0.28200000524520874" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

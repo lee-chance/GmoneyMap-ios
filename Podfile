@@ -6,6 +6,5 @@ target 'gmoneymap' do
   use_frameworks!
 
   # Pods for gmoneymap
-  pod 'UBottomSheet'
 
 end

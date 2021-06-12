@@ -7,10 +7,10 @@
 
 import Foundation
 
-class GMapDefine: NSObject {
+struct GMapDefine {
     
-    static let shared = GMapDefine()
-    
-    
+    enum Storyboard: String {
+        case Main
+    }
     
 }

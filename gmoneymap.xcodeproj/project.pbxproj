@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0E96674ED66961AE7D6E29D3 /* Pods_gmoneymap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B7F19941F55A771B633267 /* Pods_gmoneymap.framework */; };
 		2E204A5126710961002C03C1 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E204A5026710961002C03C1 /* Screen.swift */; };
+		2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34A1022674A8F4002F31BF /* TabBarCell.swift */; };
+		2E34A1052674A8F4002F31BF /* TabBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E34A1032674A8F4002F31BF /* TabBarCell.xib */; };
+		2E34A1072674B90B002F31BF /* UICollectionViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */; };
 		2E68E62C266F9BA600172E6F /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68E62B266F9BA600172E6F /* Keyboard.swift */; };
 		2E9D79BB2667171D00D8625A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9D79BA2667171D00D8625A /* OpenGLES.framework */; };
 		2E9D79BD2667172F00D8625A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9D79BC2667172F00D8625A /* SystemConfiguration.framework */; };
@@ -51,6 +54,8 @@
 		2E9D7A1A26671BB800D8625A /* DynamicSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D7A1526671BB800D8625A /* DynamicSize.swift */; };
 		2E9D7A1C26671C4500D8625A /* CSUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D7A1B26671C4500D8625A /* CSUILabel.swift */; };
 		2E9D7A20266741BE00D8625A /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D7A1F266741BE00D8625A /* UIViewExt.swift */; };
+		2EA338912676683E00D8E9FA /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA338902676683E00D8E9FA /* DownloadView.swift */; };
+		2EA3389426766AE100D8E9FA /* DownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EA338922676684D00D8E9FA /* DownloadView.xib */; };
 		2EC11DDB26652A2B007C85F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC11DDA26652A2B007C85F2 /* AppDelegate.swift */; };
 		2EC11DE226652A2B007C85F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC11DE026652A2B007C85F2 /* Main.storyboard */; };
 		2EC11DE426652A2C007C85F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC11DE326652A2C007C85F2 /* Assets.xcassets */; };
@@ -72,6 +77,9 @@
 /* Begin PBXFileReference section */
 		1D7E68B229E83DB032524148 /* Pods-gmoneymap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gmoneymap.release.xcconfig"; path = "Target Support Files/Pods-gmoneymap/Pods-gmoneymap.release.xcconfig"; sourceTree = "<group>"; };
 		2E204A5026710961002C03C1 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		2E34A1022674A8F4002F31BF /* TabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCell.swift; sourceTree = "<group>"; };
+		2E34A1032674A8F4002F31BF /* TabBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCell.xib; sourceTree = "<group>"; };
+		2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExt.swift; sourceTree = "<group>"; };
 		2E68E62B266F9BA600172E6F /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		2E9D79BA2667171D00D8625A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2E9D79BC2667172F00D8625A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -123,6 +131,8 @@
 		2E9D7A1526671BB800D8625A /* DynamicSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicSize.swift; sourceTree = "<group>"; };
 		2E9D7A1B26671C4500D8625A /* CSUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSUILabel.swift; sourceTree = "<group>"; };
 		2E9D7A1F266741BE00D8625A /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		2EA338902676683E00D8E9FA /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		2EA338922676684D00D8E9FA /* DownloadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadView.xib; sourceTree = "<group>"; };
 		2EC11DD726652A2B007C85F2 /* gmoneymap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gmoneymap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC11DDA26652A2B007C85F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EC11DE126652A2B007C85F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -253,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				2E9D7A1026671BB800D8625A /* UITableViewExt.swift */,
+				2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */,
 				2E9D7A1126671BB800D8625A /* NSObjectExt.swift */,
 				2E9D7A1226671BB800D8625A /* DynamicSizeExt.swift */,
 				2E9D7A1526671BB800D8625A /* DynamicSize.swift */,
@@ -263,6 +274,15 @@
 				2EFE23B1267474E800AFF2D1 /* UIViewControllerExt.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		2EA338932676685D00D8E9FA /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				2EA338902676683E00D8E9FA /* DownloadView.swift */,
+				2EA338922676684D00D8E9FA /* DownloadView.xib */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		2EC11DCE26652A2B007C85F2 = {
@@ -324,10 +344,13 @@
 		2EF7A14D26675FA800732BC3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EA338932676685D00D8E9FA /* Menu */,
 				2EF7A14E26675FE800732BC3 /* CategoryScrollView.swift */,
 				2EF7A14F26675FE800732BC3 /* CategoryScrollView.xib */,
 				2ED976D126678601009CCCC1 /* CategoryViewCell.swift */,
 				2ED976D226678601009CCCC1 /* CategoryViewCell.xib */,
+				2E34A1022674A8F4002F31BF /* TabBarCell.swift */,
+				2E34A1032674A8F4002F31BF /* TabBarCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,6 +425,7 @@
 				2E9D79FE2667196000D8625A /* map_pin@3x.png in Resources */,
 				2E9D79FC2667196000D8625A /* map_pin_red@3x.png in Resources */,
 				2E9D7A072667196000D8625A /* map_pin.png in Resources */,
+				2E34A1052674A8F4002F31BF /* TabBarCell.xib in Resources */,
 				2E9D7A002667196000D8625A /* map_pin_red.png in Resources */,
 				2E9D79F22667196000D8625A /* map_pinup_custom@3x.png in Resources */,
 				2E9D79FA2667196000D8625A /* copyright.png in Resources */,
@@ -426,6 +450,7 @@
 				2E9D7A052667196000D8625A /* noimage256.png in Resources */,
 				2EF7A15126675FE800732BC3 /* CategoryScrollView.xib in Resources */,
 				2E9D79F42667196000D8625A /* shadow_balloon.png in Resources */,
+				2EA3389426766AE100D8E9FA /* DownloadView.xib in Resources */,
 				2EC11DE426652A2C007C85F2 /* Assets.xcassets in Resources */,
 				2EC11DE226652A2B007C85F2 /* Main.storyboard in Resources */,
 				2E9D7A0B2667196000D8625A /* daum_th_line.png in Resources */,
@@ -472,6 +497,7 @@
 				2E9D7A20266741BE00D8625A /* UIViewExt.swift in Sources */,
 				2EFE23AC26745CB000AFF2D1 /* BottomSheetContainerViewController.swift in Sources */,
 				2EFE23AE267470D300AFF2D1 /* BottomSheetViewController.swift in Sources */,
+				2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */,
 				2EC11DDB26652A2B007C85F2 /* AppDelegate.swift in Sources */,
 				2E9D7A1726671BB800D8625A /* NSObjectExt.swift in Sources */,
 				2E204A5126710961002C03C1 /* Screen.swift in Sources */,
@@ -482,6 +508,8 @@
 				2E9D7A1A26671BB800D8625A /* DynamicSize.swift in Sources */,
 				2EF7A15026675FE800732BC3 /* CategoryScrollView.swift in Sources */,
 				2EC38FE2266E6CCC008D2CE4 /* GMapDefine.swift in Sources */,
+				2E34A1072674B90B002F31BF /* UICollectionViewExt.swift in Sources */,
+				2EA338912676683E00D8E9FA /* DownloadView.swift in Sources */,
 				2E68E62C266F9BA600172E6F /* Keyboard.swift in Sources */,
 				2ED976D326678601009CCCC1 /* CategoryViewCell.swift in Sources */,
 			);

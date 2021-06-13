@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DownloadView" customModule="gmoneymap" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="h0m-E4-y6F">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자주 사용하는 지역의 데이터를 다운로드 받아 검색 속도를 높일 수 있습니다!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewB-BL-M3V" customClass="CSUILabel" customModule="gmoneymap">
+                    <rect key="frame" x="16" y="60" width="382" height="38.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-W5-MBC">
+                    <rect key="frame" x="0.0" y="131" width="414" height="216"/>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHT-MX-a3g" customClass="DynamicUIButton" customModule="gmoneymap">
+                    <rect key="frame" x="181" y="362.5" width="52" height="30"/>
+                    <state key="normal" title="다운로드"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Ofa-lY-meF"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ewB-BL-M3V" firstAttribute="leading" secondItem="Ofa-lY-meF" secondAttribute="leading" constant="16" id="6hf-6R-27o"/>
+                <constraint firstItem="dlp-W5-MBC" firstAttribute="trailing" secondItem="Ofa-lY-meF" secondAttribute="trailing" id="I8g-Hf-O8A"/>
+                <constraint firstItem="Ofa-lY-meF" firstAttribute="trailing" secondItem="ewB-BL-M3V" secondAttribute="trailing" constant="16" id="Q5F-Ya-DgO"/>
+                <constraint firstItem="dlp-W5-MBC" firstAttribute="leading" secondItem="Ofa-lY-meF" secondAttribute="leading" id="RIk-Ya-h7N"/>
+                <constraint firstItem="xHT-MX-a3g" firstAttribute="centerX" secondItem="h0m-E4-y6F" secondAttribute="centerX" id="alD-1A-kex"/>
+                <constraint firstItem="xHT-MX-a3g" firstAttribute="top" secondItem="dlp-W5-MBC" secondAttribute="bottom" constant="16" id="ly9-O6-D1Q"/>
+                <constraint firstItem="ewB-BL-M3V" firstAttribute="top" secondItem="Ofa-lY-meF" secondAttribute="top" constant="16" id="vQi-OP-RZb"/>
+                <constraint firstItem="dlp-W5-MBC" firstAttribute="top" secondItem="ewB-BL-M3V" secondAttribute="bottom" constant="32" id="zRK-bE-Lh6"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="177" y="-254"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

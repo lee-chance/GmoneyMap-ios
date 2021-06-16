@@ -13,6 +13,8 @@
 		2E34A1052674A8F4002F31BF /* TabBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E34A1032674A8F4002F31BF /* TabBarCell.xib */; };
 		2E34A1072674B90B002F31BF /* UICollectionViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */; };
 		2E68E62C266F9BA600172E6F /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68E62B266F9BA600172E6F /* Keyboard.swift */; };
+		2E9D5B57267A400A0071589C /* BottomSheetViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */; };
+		2E9D5B59267A403B0071589C /* BottomSheetViewController+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */; };
 		2E9D79BB2667171D00D8625A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9D79BA2667171D00D8625A /* OpenGLES.framework */; };
 		2E9D79BD2667172F00D8625A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9D79BC2667172F00D8625A /* SystemConfiguration.framework */; };
 		2E9D79BF2667173600D8625A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9D79BE2667173600D8625A /* CoreLocation.framework */; };
@@ -81,6 +83,8 @@
 		2E34A1032674A8F4002F31BF /* TabBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCell.xib; sourceTree = "<group>"; };
 		2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExt.swift; sourceTree = "<group>"; };
 		2E68E62B266F9BA600172E6F /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+UICollectionView.swift"; sourceTree = "<group>"; };
+		2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+UIScrollView.swift"; sourceTree = "<group>"; };
 		2E9D79BA2667171D00D8625A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2E9D79BC2667172F00D8625A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2E9D79BE2667173600D8625A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -327,6 +331,8 @@
 				2EFE23AF267470EC00AFF2D1 /* ContainerViewController.swift */,
 				2EC38FDA266CD6F0008D2CE4 /* MapViewController.swift */,
 				2EFE23AD267470D300AFF2D1 /* BottomSheetViewController.swift */,
+				2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */,
+				2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -501,8 +507,10 @@
 				2EC11DDB26652A2B007C85F2 /* AppDelegate.swift in Sources */,
 				2E9D7A1726671BB800D8625A /* NSObjectExt.swift in Sources */,
 				2E204A5126710961002C03C1 /* Screen.swift in Sources */,
+				2E9D5B59267A403B0071589C /* BottomSheetViewController+UIScrollView.swift in Sources */,
 				2E9D7A1826671BB800D8625A /* DynamicSizeExt.swift in Sources */,
 				2EC38FDB266CD6F0008D2CE4 /* MapViewController.swift in Sources */,
+				2E9D5B57267A400A0071589C /* BottomSheetViewController+UICollectionView.swift in Sources */,
 				2E9D7A1626671BB800D8625A /* UITableViewExt.swift in Sources */,
 				2E9D7A1C26671C4500D8625A /* CSUILabel.swift in Sources */,
 				2E9D7A1A26671BB800D8625A /* DynamicSize.swift in Sources */,

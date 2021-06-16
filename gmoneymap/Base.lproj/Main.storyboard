@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -172,7 +173,15 @@
                                     <constraint firstAttribute="height" constant="20" id="s7i-LF-zzg"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nt-V8-nx6">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6t-PP-A5g">
+                                <rect key="frame" x="0.0" y="60" width="200" height="3"/>
+                                <color key="backgroundColor" name="PrimaryLighter"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="FiK-Ur-8Os"/>
+                                    <constraint firstAttribute="height" constant="3" id="Xk7-Rm-t5Y"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nt-V8-nx6">
                                 <rect key="frame" x="0.0" y="80" width="414" height="816"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5c-Kd-eN7">
@@ -180,6 +189,16 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoj-21-E36" customClass="DownloadView" customModule="gmoneymap" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="816"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6e7-p4-lcY" customClass="DownloadView" customModule="gmoneymap" customModuleProvider="target">
+                                                <rect key="frame" x="414" y="0.0" width="414" height="816"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HK2-Y9-tyY" customClass="DownloadView" customModule="gmoneymap" customModuleProvider="target">
+                                                <rect key="frame" x="414" y="0.0" width="414" height="816"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -204,6 +223,8 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vEb-Xq-Zql"/>
                         <constraints>
+                            <constraint firstItem="D6t-PP-A5g" firstAttribute="top" secondItem="D4W-mk-jE7" secondAttribute="bottom" id="NCw-AO-KYo"/>
+                            <constraint firstItem="D6t-PP-A5g" firstAttribute="leading" secondItem="nhB-g3-eaZ" secondAttribute="leading" id="PAy-8v-1fa"/>
                             <constraint firstItem="D4W-mk-jE7" firstAttribute="top" secondItem="nhB-g3-eaZ" secondAttribute="top" id="TGw-ob-JJS" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="1Nt-V8-nx6" firstAttribute="leading" secondItem="vEb-Xq-Zql" secondAttribute="leading" id="Txb-N9-my0"/>
                             <constraint firstItem="hoj-21-E36" firstAttribute="width" secondItem="nhB-g3-eaZ" secondAttribute="width" id="Ty7-hW-ZR4"/>
@@ -222,8 +243,11 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="bottomSafeAreaHeight" destination="s7i-LF-zzg" id="9vY-ot-lrQ"/>
+                        <outlet property="bottomSafeAreaHeight" destination="s7i-LF-zzg" id="LFr-uT-2aZ"/>
+                        <outlet property="scrollView" destination="1Nt-V8-nx6" id="5TM-c1-2AS"/>
                         <outlet property="tabBar" destination="D4W-mk-jE7" id="wH7-g6-l4N"/>
+                        <outlet property="tabBarIndicatorLeadingMargin" destination="PAy-8v-1fa" id="aQc-PA-5mP"/>
+                        <outlet property="tabBarIndicatorWidth" destination="FiK-Ur-8Os" id="z0J-IV-SDS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xSM-sl-sBq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -243,6 +267,9 @@
         </designable>
     </designables>
     <resources>
+        <namedColor name="PrimaryLighter">
+            <color red="0.011764705882352941" green="0.4823529411764706" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

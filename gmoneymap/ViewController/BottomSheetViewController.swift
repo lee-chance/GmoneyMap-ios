@@ -18,6 +18,9 @@ class BottomSheetViewController: UIViewController {
     let tabName = ["데이터", "검색", "메뉴"]
     let tabIcon = [UIImage(systemName: "square.and.arrow.down"), UIImage(systemName: "magnifyingglass"), UIImage(systemName: "line.horizontal.3")]
     
+    var showBottomSheet: (()->Void)?
+    var hideBottomSheet: (()->Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +42,21 @@ class BottomSheetViewController: UIViewController {
         
         bottomSafeAreaHeight.constant = Screen.bottomSafeArea
         tabBarIndicatorWidth.constant = Screen.width / 3
+    }
+    
+    func onClickTab(index: Int) {
+        for i in 0..<3 {
+            tabBar.cellForItem(at: IndexPath(item: i, section: 0))?.isSelected = false
+        }
+        tabBar.cellForItem(at: IndexPath(item: index, section: 0))?.isSelected = true
+    }
+    
+    func onClickTabClosure() -> (Int)->Void {
+        return { [weak self] index in
+            self?.onClickTab(index: index)
+            self?.scrollView.setContentOffset(CGPoint(x: index * Int(Screen.width), y: 0), animated: true)
+            self?.showBottomSheet?()
+        }
     }
 
 }

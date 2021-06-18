@@ -191,6 +191,16 @@ open class BottomSheetContainerViewController<
         }
     }
     
+    /// showBottomSheetClosure for external
+    public func showBottomSheetClosure() -> ()->Void {
+        return { [weak self] in
+            self?.topConstraint.constant = -(self?.configuration.height)!
+            self?.animate { _ in
+                self?.state = .full
+            }
+        }
+    }
+    
     /// hideBottomSheet
     public func hideBottomSheet(animated: Bool = true) {
         self.topConstraint.constant = -configuration.initialOffset
@@ -202,6 +212,16 @@ open class BottomSheetContainerViewController<
         } else {
             self.view.layoutIfNeeded()
             self.state = .initial
+        }
+    }
+    
+    /// hideBottomSheetClosure for external
+    public func hideBottomSheetClosure() -> ()->Void {
+        return { [weak self] in
+            self?.topConstraint.constant = -(self?.configuration.initialOffset)!
+            self?.animate { _ in
+                self?.state = .initial
+            }
         }
     }
     

@@ -49,13 +49,23 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzS-o5-LtJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
+                                        <connections>
+                                            <action selector="onClick:" destination="aWN-tP-Eik" eventType="touchUpInside" id="4dO-An-l90"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XzS-o5-LtJ" secondAttribute="trailing" id="1gT-Iq-Wkh"/>
                                     <constraint firstItem="qR3-4p-Rmr" firstAttribute="top" secondItem="PHp-zI-IDb" secondAttribute="top" id="SYD-hX-0ug" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                                     <constraint firstAttribute="bottom" secondItem="qR3-4p-Rmr" secondAttribute="bottom" id="jit-UT-psI" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstAttribute="bottom" secondItem="XzS-o5-LtJ" secondAttribute="bottom" id="lAO-zn-DLv"/>
                                     <constraint firstItem="qR3-4p-Rmr" firstAttribute="leading" secondItem="PHp-zI-IDb" secondAttribute="leading" id="tvF-Gc-gkD" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                                     <constraint firstAttribute="trailing" secondItem="qR3-4p-Rmr" secondAttribute="trailing" id="umw-7H-ulY" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="XzS-o5-LtJ" firstAttribute="top" secondItem="PHp-zI-IDb" secondAttribute="top" id="vXP-Tz-cP0"/>
+                                    <constraint firstItem="XzS-o5-LtJ" firstAttribute="leading" secondItem="PHp-zI-IDb" secondAttribute="leading" id="wHi-Av-z1w"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -191,21 +201,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="816"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6e7-p4-lcY" customClass="DownloadView" customModule="gmoneymap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6e7-p4-lcY" customClass="SearchView" customModule="gmoneymap" customModuleProvider="target">
                                                 <rect key="frame" x="414" y="0.0" width="414" height="816"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HK2-Y9-tyY" customClass="DownloadView" customModule="gmoneymap" customModuleProvider="target">
-                                                <rect key="frame" x="414" y="0.0" width="414" height="816"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HK2-Y9-tyY" customClass="MenuView" customModule="gmoneymap" customModuleProvider="target">
+                                                <rect key="frame" x="828" y="0.0" width="414" height="816"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="HK2-Y9-tyY" firstAttribute="top" secondItem="u5c-Kd-eN7" secondAttribute="top" id="0fU-bf-JYs"/>
+                                            <constraint firstAttribute="bottom" secondItem="6e7-p4-lcY" secondAttribute="bottom" id="1Kl-Sl-m3s"/>
+                                            <constraint firstItem="6e7-p4-lcY" firstAttribute="top" secondItem="u5c-Kd-eN7" secondAttribute="top" id="BEb-Vg-3Ly"/>
                                             <constraint firstAttribute="bottom" secondItem="hoj-21-E36" secondAttribute="bottom" id="OBy-jP-1TI"/>
                                             <constraint firstItem="hoj-21-E36" firstAttribute="leading" secondItem="u5c-Kd-eN7" secondAttribute="leading" id="RLI-MP-zCm"/>
+                                            <constraint firstAttribute="bottom" secondItem="HK2-Y9-tyY" secondAttribute="bottom" id="TSS-UR-U2j"/>
+                                            <constraint firstItem="6e7-p4-lcY" firstAttribute="leading" secondItem="hoj-21-E36" secondAttribute="trailing" id="a1b-JN-cEH"/>
+                                            <constraint firstItem="HK2-Y9-tyY" firstAttribute="leading" secondItem="6e7-p4-lcY" secondAttribute="trailing" id="frf-SN-mr6"/>
                                             <constraint firstItem="hoj-21-E36" firstAttribute="top" secondItem="u5c-Kd-eN7" secondAttribute="top" id="sxc-XH-mXB"/>
                                         </constraints>
                                     </view>
@@ -223,6 +237,8 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vEb-Xq-Zql"/>
                         <constraints>
+                            <constraint firstItem="6e7-p4-lcY" firstAttribute="width" secondItem="nhB-g3-eaZ" secondAttribute="width" id="AcA-vR-2UO"/>
+                            <constraint firstAttribute="width" secondItem="HK2-Y9-tyY" secondAttribute="width" id="Jgr-sY-PBP"/>
                             <constraint firstItem="D6t-PP-A5g" firstAttribute="top" secondItem="D4W-mk-jE7" secondAttribute="bottom" id="NCw-AO-KYo"/>
                             <constraint firstItem="D6t-PP-A5g" firstAttribute="leading" secondItem="nhB-g3-eaZ" secondAttribute="leading" id="PAy-8v-1fa"/>
                             <constraint firstItem="D4W-mk-jE7" firstAttribute="top" secondItem="nhB-g3-eaZ" secondAttribute="top" id="TGw-ob-JJS" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>

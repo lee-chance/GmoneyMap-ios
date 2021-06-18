@@ -12,8 +12,11 @@ extension BottomSheetViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // FIXME: 클로저로 변경 필요.. 어떻게 하지?
+//        onClickTabClosure
+        onClickTab(index: indexPath.row)
         scrollView.setContentOffset(CGPoint(x: indexPath.row * Int(Screen.width), y: 0), animated: true)
-        // TODO: 바텀뷰 올려야됨
+        showBottomSheet?()
     }
 }
 
@@ -26,7 +29,11 @@ extension BottomSheetViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarCell.rawString, for: indexPath) as! TabBarCell
         
         cell.setText(tabName[indexPath.row])
-        cell.setIcon(tabIcon[indexPath.row] ?? UIImage(imageLiteralResourceName: "logo"))
+        cell.setIcon(tabIcon[indexPath.row] ?? UIImage(imageLiteralResourceName: "logo")) // FIXME: 디폴트 이미지
+        
+        if indexPath.row == 0 {
+            cell.isSelected = true
+        }
         
         return cell
     }

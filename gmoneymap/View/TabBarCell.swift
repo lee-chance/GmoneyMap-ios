@@ -12,6 +12,13 @@ class TabBarCell: UICollectionViewCell {
     @IBOutlet var icon: UIImageView!
     @IBOutlet var tab: UILabel!
     
+    override var isSelected: Bool {
+        didSet {
+            tab.textColor = isSelected ? UIColor.appColor(.PrimaryLighter) : .black
+            icon.tintColor = isSelected ? UIColor.appColor(.PrimaryLighter) : .black
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

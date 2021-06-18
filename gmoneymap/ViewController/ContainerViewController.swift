@@ -13,6 +13,12 @@ class ContainerViewController: BottomSheetContainerViewController<MapViewControl
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        contentViewController.showBottomSheet = showBottomSheetClosure()
+        contentViewController.hideBottomSheet = hideBottomSheetClosure()
+        contentViewController.onClickTab = bottomSheetViewController.onClickTabClosure()
+        
+        bottomSheetViewController.showBottomSheet = showBottomSheetClosure()
+        bottomSheetViewController.hideBottomSheet = hideBottomSheetClosure()
     }
 
 }

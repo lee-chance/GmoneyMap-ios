@@ -13,6 +13,10 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     @IBOutlet weak var findConditionField: UIView!
     
     var mapView: MTMapView?
+    
+    var showBottomSheet: (()->Void)?
+    var hideBottomSheet: (()->Void)?
+    var onClickTab: ((Int)->Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,4 +38,15 @@ class MapViewController: UIViewController, MTMapViewDelegate {
         }
     }
 
+    @IBAction func onClick(_ sender: UIButton) {
+        switch sender.tag {
+        // current address field click
+        case 101:
+            showBottomSheet?()
+            onClickTab?(1)
+        default:
+            break
+        }
+    }
+    
 }

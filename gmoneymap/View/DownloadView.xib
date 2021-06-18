@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,21 +15,21 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자주 사용하는 지역의 데이터를 다운로드 받아 검색 속도를 높일 수 있습니다!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewB-BL-M3V" customClass="CSUILabel" customModule="gmoneymap">
-                    <rect key="frame" x="16" y="60" width="382" height="38.5"/>
+                    <rect key="frame" x="16" y="60" width="382" height="42.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-W5-MBC">
-                    <rect key="frame" x="0.0" y="131" width="414" height="216"/>
+                    <rect key="frame" x="0.0" y="134.5" width="414" height="216"/>
                 </pickerView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHT-MX-a3g" customClass="DynamicUIButton" customModule="gmoneymap">
-                    <rect key="frame" x="181" y="362.5" width="52" height="30"/>
+                    <rect key="frame" x="178" y="366.5" width="58" height="32"/>
                     <state key="normal" title="다운로드"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Ofa-lY-meF"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ewB-BL-M3V" firstAttribute="leading" secondItem="Ofa-lY-meF" secondAttribute="leading" constant="16" id="6hf-6R-27o"/>
                 <constraint firstItem="dlp-W5-MBC" firstAttribute="trailing" secondItem="Ofa-lY-meF" secondAttribute="trailing" id="I8g-Hf-O8A"/>
@@ -47,9 +46,12 @@
             <point key="canvasLocation" x="177" y="-254"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
+    <designables>
+        <designable name="ewB-BL-M3V">
+            <size key="intrinsicContentSize" width="313.536" height="42.504000000000005"/>
+        </designable>
+        <designable name="xHT-MX-a3g">
+            <size key="intrinsicContentSize" width="58" height="32"/>
+        </designable>
+    </designables>
 </document>

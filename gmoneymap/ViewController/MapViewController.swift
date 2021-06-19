@@ -126,6 +126,7 @@ class MapViewController: UIViewController {
             print("location button")
 //            locationManager.requestWhenInUseAuthorization()
             setMapCenter()
+            sender.tintColor = UIColor(rgb: 0xFF1730)
         default:
             break
         }

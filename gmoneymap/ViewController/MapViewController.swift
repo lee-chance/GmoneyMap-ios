@@ -12,6 +12,8 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     @IBOutlet weak var mapViewField: UIView!
     @IBOutlet weak var searchFromMeButton: DynamicUIButton!
     @IBOutlet weak var searchByMapButton: DynamicUIButton!
+    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var locationButtonHeight: NSLayoutConstraint!
     
     var mapView: MTMapView?
     
@@ -34,6 +36,8 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     
     private func initView() {
         setupSearchButton()
+        locationButtonHeight.constant = Screen.bottomSafeArea + 76.ratioConstant
+//        locationButton.roundCorners(radius: locationButton.bounds.height / 2, corner: .all)
     }
     
     private func initMap() {
@@ -46,7 +50,7 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     }
     
     private func setupSearchButton() {
-        searchFromMeButton.roundCorners(radius: searchFromMeButton.bounds.height / 2, corner: [.left])
+        searchFromMeButton.roundCorners(radius: searchFromMeButton.bounds.height / 2, corner: .left)
         searchFromMeButton.setTitleColor(.white, for: .selected)
         searchFromMeButton.setTitleColor(.black, for: .normal)
         searchFromMeButton.backgroundColor = UIColor.appColor(.PrimaryLighter) // initialize background color

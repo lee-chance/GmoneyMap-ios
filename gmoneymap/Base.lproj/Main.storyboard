@@ -24,10 +24,10 @@
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHp-zI-IDb">
-                                <rect key="frame" x="30" y="60" width="354" height="30"/>
+                                <rect key="frame" x="30" y="60" width="354" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current address 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR3-4p-Rmr" customClass="CSUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzS-o5-LtJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
                                         <connections>
                                             <action selector="onClick:" destination="aWN-tP-Eik" eventType="touchUpInside" id="4dO-An-l90"/>
                                         </connections>
@@ -79,8 +79,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" tag="102" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-3e-fd0" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
-                                <rect key="frame" x="30" y="102" width="177" height="30"/>
+                            <button opaque="NO" tag="102" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-3e-fd0" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
+                                <rect key="frame" x="30" y="120" width="177" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="내주변검색">
@@ -90,8 +90,8 @@
                                     <action selector="onClick:" destination="aWN-tP-Eik" eventType="touchUpInside" id="qbf-57-08W"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8I-BF-nKz" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
-                                <rect key="frame" x="207" y="102" width="177" height="30"/>
+                            <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8I-BF-nKz" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
+                                <rect key="frame" x="207" y="120" width="177" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="현재위치검색">
@@ -102,12 +102,36 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKI-TG-DX6" customClass="CategoryScrollView" customModule="gmoneymap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="132" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="156" width="414" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="KL5-Za-z6f" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eb-Zj-cJ4">
+                                <rect key="frame" x="342" y="764" width="56" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="Vh1-E9-FGN"/>
+                                    <constraint firstAttribute="width" secondItem="1eb-Zj-cJ4" secondAttribute="height" multiplier="1:1" id="XNb-WE-4dS"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="location.fill" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zJJ-ge-0BG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -119,6 +143,7 @@
                             <constraint firstItem="t8I-BF-nKz" firstAttribute="leading" secondItem="P1G-3e-fd0" secondAttribute="trailing" id="DZ5-33-hpv" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="P1G-3e-fd0" firstAttribute="top" secondItem="PHp-zI-IDb" secondAttribute="bottom" constant="12" id="EXt-Fr-tD2" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="P1G-3e-fd0" firstAttribute="leading" secondItem="zJJ-ge-0BG" secondAttribute="leading" constant="30" id="GSZ-qo-Vgl" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstAttribute="bottom" secondItem="1eb-Zj-cJ4" secondAttribute="bottom" constant="76" id="J0x-3v-ZUE"/>
                             <constraint firstItem="PHp-zI-IDb" firstAttribute="top" secondItem="zJJ-ge-0BG" secondAttribute="top" constant="16" id="JVJ-v8-TCF" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="t8I-BF-nKz" firstAttribute="top" secondItem="P1G-3e-fd0" secondAttribute="top" id="XDR-yp-q80" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="RSf-PO-odD" firstAttribute="top" secondItem="mge-XP-Fl0" secondAttribute="top" id="art-ul-230" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
@@ -129,9 +154,12 @@
                             <constraint firstItem="RSf-PO-odD" firstAttribute="trailing" secondItem="zJJ-ge-0BG" secondAttribute="trailing" id="uDb-Gq-zKn" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="zJJ-ge-0BG" firstAttribute="trailing" secondItem="qKI-TG-DX6" secondAttribute="trailing" id="vdl-LR-jo8" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="qKI-TG-DX6" firstAttribute="top" secondItem="P1G-3e-fd0" secondAttribute="bottom" id="xKF-SL-Pmm" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="zJJ-ge-0BG" firstAttribute="trailing" secondItem="1eb-Zj-cJ4" secondAttribute="trailing" constant="16" id="zkI-27-vsB" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="locationButton" destination="1eb-Zj-cJ4" id="sb8-I0-yLw"/>
+                        <outlet property="locationButtonHeight" destination="J0x-3v-ZUE" id="M14-sf-EzW"/>
                         <outlet property="mapViewField" destination="RSf-PO-odD" id="Sm8-xy-694"/>
                         <outlet property="searchByMapButton" destination="t8I-BF-nKz" id="nEG-s5-DHA"/>
                         <outlet property="searchFromMeButton" destination="P1G-3e-fd0" id="0jD-CN-Vb4"/>
@@ -269,16 +297,17 @@
     </scenes>
     <designables>
         <designable name="P1G-3e-fd0">
-            <size key="intrinsicContentSize" width="65" height="30"/>
+            <size key="intrinsicContentSize" width="86" height="36"/>
         </designable>
         <designable name="qR3-4p-Rmr">
-            <size key="intrinsicContentSize" width="128.5" height="19.5"/>
+            <size key="intrinsicContentSize" width="168.36000000000001" height="48.024000000000001"/>
         </designable>
         <designable name="t8I-BF-nKz">
-            <size key="intrinsicContentSize" width="78" height="30"/>
+            <size key="intrinsicContentSize" width="104" height="36"/>
         </designable>
     </designables>
     <resources>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
         <namedColor name="PrimaryLighter">
             <color red="0.011764705882352941" green="0.4823529411764706" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

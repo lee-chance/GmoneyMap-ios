@@ -7,13 +7,51 @@
 
 extension UIView {
     
+    enum CSCornerMask {
+        case all
+        case top
+        case left
+        case right
+        case bottom
+        case topLeft
+        case topRight
+        case bottomLeft
+        case bottomRight
+        
+        func toCACornerMask() -> CACornerMask {
+            switch self {
+            case .all:
+                return [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+            case .top:
+                return [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+            case .left:
+                return [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+            case .right:
+                return [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+            case .bottom:
+                return [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+            case .topLeft:
+                return [.layerMinXMinYCorner]
+            case .topRight:
+                return [.layerMaxXMinYCorner]
+            case .bottomLeft:
+                return [.layerMinXMaxYCorner]
+            case .bottomRight:
+                return [.layerMaxXMaxYCorner]
+            }
+        }
+    }
     
-    // ex) view.roundCorners(corners: [.topLeft, .topRight], radius: 20, rect: rect)
-    func roundCorners(corners: UIRectCorner, radius: CGFloat, rect: CGRect) {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        layer.mask = mask
+    func roundCorners(radius: CGFloat, corner: CSCornerMask) {
+        clipsToBounds = true
+        layer.cornerRadius = radius
+        layer.maskedCorners = CACornerMask(arrayLiteral: corner.toCACornerMask())
+    }
+    
+    func roundCorners(radius: CGFloat, corner: CACornerMask) {
+        clipsToBounds = true
+        layer.cornerRadius = radius
+        layer.maskedCorners = CACornerMask(arrayLiteral: corner)
     }
     
     @IBInspectable

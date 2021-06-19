@@ -50,11 +50,21 @@
                                 <constraint firstItem="YNo-gt-mMT" firstAttribute="centerY" secondItem="r5R-Ev-giV" secondAttribute="centerY" id="qV2-Ld-9an" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLt-Ip-Nes">
+                            <rect key="frame" x="0.0" y="0.0" width="118" height="36"/>
+                            <connections>
+                                <action selector="onClick:" destination="-1" eventType="touchUpInside" id="HW4-BW-fgm"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="jLt-Ip-Nes" firstAttribute="leading" secondItem="OQV-x5-xh5" secondAttribute="leading" id="DSm-9F-X4Y" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                         <constraint firstAttribute="bottom" secondItem="r5R-Ev-giV" secondAttribute="bottom" constant="8" id="Hej-rl-RtL" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                        <constraint firstAttribute="bottom" secondItem="jLt-Ip-Nes" secondAttribute="bottom" id="UTO-Uw-A68" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                         <constraint firstItem="r5R-Ev-giV" firstAttribute="top" secondItem="OQV-x5-xh5" secondAttribute="top" constant="8" id="gVU-lm-3Gw" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                        <constraint firstItem="jLt-Ip-Nes" firstAttribute="top" secondItem="OQV-x5-xh5" secondAttribute="top" id="hnv-b8-G9A" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                        <constraint firstAttribute="trailing" secondItem="jLt-Ip-Nes" secondAttribute="trailing" id="iFS-GW-jnV" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                         <constraint firstAttribute="trailing" secondItem="r5R-Ev-giV" secondAttribute="trailing" constant="16" id="rKt-M8-Yi8" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                         <constraint firstItem="r5R-Ev-giV" firstAttribute="leading" secondItem="OQV-x5-xh5" secondAttribute="leading" constant="16" id="uVN-se-yPz" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                     </constraints>

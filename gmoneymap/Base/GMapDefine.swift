@@ -13,4 +13,27 @@ struct GMapDefine {
         case Main
     }
     
+    enum Category: String, CaseIterable {
+        case all = "모두보기"
+        case restaurant1 = "음식점1"
+        case restaurant2 = "음식점2"
+        case store1 = "상가1"
+        case store2 = "상가2"
+        case building1 = "가게1"
+        case building2 = "가게2"
+        case cafeMartCon = "카페/마트/편의점"
+        case medical = "병원/약국/기타의료"
+        case travel = "숙박/여행"
+        case leisure = "레저"
+        case culture = "도서/미용/문화"
+        case home = "가전/가구/의류"
+        case study = "학원/교육"
+        case service = "서비스"
+        case manufacturing = "제조업"
+        case oil = "주유소"
+        case agriculture = "꽃/과일/떡/농업"
+        case construct = "건축/건설"
+        case etc = "기타"
+    }
+    
 }

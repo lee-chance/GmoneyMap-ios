@@ -12,6 +12,8 @@ class CategoryViewCell: BaseViewWithXIB {
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var categoryName: CSUILabel!
     
+    var onClick: (()->Void)?
+    
     override func setupView() {
         super.setupView()
         parentView.cornerRadius = parentView.bounds.height / 2
@@ -20,5 +22,9 @@ class CategoryViewCell: BaseViewWithXIB {
     func setupCell(category: String) {
         categoryName.text = category
     }
-
+    
+    @IBAction func onClick(_ sender: UIButton) {
+        onClick?()
+    }
+    
 }

@@ -35,10 +35,8 @@ class BottomSheetViewController: UIViewController {
         tabBar.registerCustomCollectionViewCell(reuseIdentifier: TabBarCell.rawString)
         
         // 상단 코너 radius
-        let f = self.view.frame
-        let rect = CGRect(x: f.minX, y: f.minY-Screen.statusBar, width: f.width, height: f.height)
-        tabBar.roundCorners(corners: [.topLeft, .topRight], radius: 20, rect: rect)
-        view.roundCorners(corners: [.topLeft, .topRight], radius: 20, rect: rect)
+        tabBar.roundCorners(radius: 20, corner: .top)
+        view.roundCorners(radius: 20, corner: .top)
         
         bottomSafeAreaHeight.constant = Screen.bottomSafeArea
         tabBarIndicatorWidth.constant = Screen.width / 3

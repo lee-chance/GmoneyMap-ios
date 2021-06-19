@@ -75,6 +75,9 @@
 		2ED976D026677CCE009CCCC1 /* BaseViewWithXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */; };
 		2ED976D326678601009CCCC1 /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED976D126678601009CCCC1 /* CategoryViewCell.swift */; };
 		2ED976D426678601009CCCC1 /* CategoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED976D226678601009CCCC1 /* CategoryViewCell.xib */; };
+		2EE040E6267E14FE005D917D /* MapViewController+MTMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE040E5267E14FE005D917D /* MapViewController+MTMapView.swift */; };
+		2EE040E8267E1AE8005D917D /* MapViewController+CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE040E7267E1AE8005D917D /* MapViewController+CLLocationManager.swift */; };
+		2EE040EA267E1D37005D917D /* TestLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2EE040E9267E1D37005D917D /* TestLocation.gpx */; };
 		2EF7A15026675FE800732BC3 /* CategoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF7A14E26675FE800732BC3 /* CategoryScrollView.swift */; };
 		2EF7A15126675FE800732BC3 /* CategoryScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF7A14F26675FE800732BC3 /* CategoryScrollView.xib */; };
 		2EFE23AC26745CB000AFF2D1 /* BottomSheetContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE23AB26745CB000AFF2D1 /* BottomSheetContainerViewController.swift */; };
@@ -163,6 +166,9 @@
 		2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewWithXIB.swift; sourceTree = "<group>"; };
 		2ED976D126678601009CCCC1 /* CategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewCell.swift; sourceTree = "<group>"; };
 		2ED976D226678601009CCCC1 /* CategoryViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewCell.xib; sourceTree = "<group>"; };
+		2EE040E5267E14FE005D917D /* MapViewController+MTMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MTMapView.swift"; sourceTree = "<group>"; };
+		2EE040E7267E1AE8005D917D /* MapViewController+CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+CLLocationManager.swift"; sourceTree = "<group>"; };
+		2EE040E9267E1D37005D917D /* TestLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestLocation.gpx; sourceTree = "<group>"; };
 		2EF7A14E26675FE800732BC3 /* CategoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScrollView.swift; sourceTree = "<group>"; };
 		2EF7A14F26675FE800732BC3 /* CategoryScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryScrollView.xib; sourceTree = "<group>"; };
 		2EFE23AB26745CB000AFF2D1 /* BottomSheetContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetContainerViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +356,7 @@
 				2EC11DE826652A2C007C85F2 /* Info.plist */,
 				2E9D79C72667180300D8625A /* Bridging-Header.h */,
 				2EFE23AA26745C8F00AFF2D1 /* Library */,
+				2EE040E9267E1D37005D917D /* TestLocation.gpx */,
 			);
 			path = gmoneymap;
 			sourceTree = "<group>";
@@ -359,6 +366,8 @@
 			children = (
 				2EFE23AF267470EC00AFF2D1 /* ContainerViewController.swift */,
 				2EC38FDA266CD6F0008D2CE4 /* MapViewController.swift */,
+				2EE040E5267E14FE005D917D /* MapViewController+MTMapView.swift */,
+				2EE040E7267E1AE8005D917D /* MapViewController+CLLocationManager.swift */,
 				2EFE23AD267470D300AFF2D1 /* BottomSheetViewController.swift */,
 				2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */,
 				2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */,
@@ -456,6 +465,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE040EA267E1D37005D917D /* TestLocation.gpx in Resources */,
 				2E9D7A082667196000D8625A /* map_present.png in Resources */,
 				2E9D79FE2667196000D8625A /* map_pin@3x.png in Resources */,
 				2E9D79FC2667196000D8625A /* map_pin_red@3x.png in Resources */,
@@ -533,11 +543,13 @@
 				2E9D5B5F267A41060071589C /* MenuView.swift in Sources */,
 				2ED976D026677CCE009CCCC1 /* BaseViewWithXIB.swift in Sources */,
 				2EFE23B0267470EC00AFF2D1 /* ContainerViewController.swift in Sources */,
+				2EE040E6267E14FE005D917D /* MapViewController+MTMapView.swift in Sources */,
 				2E0251E5267CDFCF00396486 /* UIColorExt.swift in Sources */,
 				2EFE23B2267474E800AFF2D1 /* UIViewControllerExt.swift in Sources */,
 				2E9D7A20266741BE00D8625A /* UIViewExt.swift in Sources */,
 				2EFE23AC26745CB000AFF2D1 /* BottomSheetContainerViewController.swift in Sources */,
 				2EFE23AE267470D300AFF2D1 /* BottomSheetViewController.swift in Sources */,
+				2EE040E8267E1AE8005D917D /* MapViewController+CLLocationManager.swift in Sources */,
 				2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */,
 				2EC11DDB26652A2B007C85F2 /* AppDelegate.swift in Sources */,
 				2E9D7A1726671BB800D8625A /* NSObjectExt.swift in Sources */,

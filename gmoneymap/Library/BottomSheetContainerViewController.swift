@@ -49,6 +49,7 @@ open class BottomSheetContainerViewController<
     var state: BottomSheetState = .initial
     
     public enum BottomSheetState {
+        case none
         case initial
         case full
     }
@@ -98,13 +99,14 @@ open class BottomSheetContainerViewController<
         
         switch sender.state {
         case .began, .changed:
-            if self.state == .full {
+            switch self.state {
+            case .full:
                 guard yTranslation > 0 else { return }
                 
                 topConstraint.constant = -(configuration.height - yTranslation)
                 
                 self.view.layoutIfNeeded()
-            } else {
+            case .initial:
                 let newConstant = -(configuration.initialOffset - yTranslation)
                 
                 guard yTranslation < 0 else { return }
@@ -117,26 +119,29 @@ open class BottomSheetContainerViewController<
                 topConstraint.constant = newConstant
                 
                 self.view.layoutIfNeeded()
+            default: break
             }
         case .ended:
-            if self.state == .full {
+            switch self.state {
+            case .full:
                 if yTranslation >= configuration.height / 2 || velocity.y > 1000 {
-                    self.hideBottomSheet()
+                    self.initBottomSheet()
                 } else {
                     self.showBottomSheet()
                 }
-            } else {
+            case .initial:
                 if -yTranslation >= configuration.height / 2 || velocity.y < -1000 {
                     self.showBottomSheet()
                 } else {
-                    self.hideBottomSheet()
+                    self.initBottomSheet()
                 }
+            default: break
             }
         case .failed:
-            if self.state == .full {
-                self.showBottomSheet()
-            } else {
-                self.hideBottomSheet()
+            switch self.state {
+            case .full: self.showBottomSheet()
+            case .initial: self.initBottomSheet()
+            default: break
             }
         default: break
         }
@@ -202,7 +207,7 @@ open class BottomSheetContainerViewController<
     }
     
     /// hideBottomSheet
-    public func hideBottomSheet(animated: Bool = true) {
+    public func initBottomSheet(animated: Bool = true) {
         self.topConstraint.constant = -configuration.initialOffset
         
         if animated {
@@ -216,11 +221,21 @@ open class BottomSheetContainerViewController<
     }
     
     /// hideBottomSheetClosure for external
-    public func hideBottomSheetClosure() -> ()->Void {
+    public func initBottomSheetClosure() -> ()->Void {
         return { [weak self] in
             self?.topConstraint.constant = -(self?.configuration.initialOffset)!
             self?.animate { _ in
                 self?.state = .initial
+            }
+        }
+    }
+    
+    /// hideBottomSheetClosure for external
+    public func hideBottomSheetClosure() -> ()->Void {
+        return { [weak self] in
+            self?.topConstraint.constant = 0
+            self?.animate { _ in
+                self?.state = .none
             }
         }
     }

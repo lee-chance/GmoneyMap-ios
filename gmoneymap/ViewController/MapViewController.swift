@@ -6,21 +6,27 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MapViewController: UIViewController, MTMapViewDelegate {
+class MapViewController: UIViewController {
     
     @IBOutlet weak var mapViewField: UIView!
+    @IBOutlet weak var currentAddressView: UIView!
     @IBOutlet weak var searchFromMeButton: DynamicUIButton!
     @IBOutlet weak var searchByMapButton: DynamicUIButton!
+    @IBOutlet weak var categoryView: CategoryScrollView!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var locationButtonHeight: NSLayoutConstraint!
     
     var mapView: MTMapView?
+    var locationManager: CLLocationManager!
     
     var showBottomSheet: (()->Void)?
+    var initBottomSheet: (()->Void)?
     var hideBottomSheet: (()->Void)?
     var onClickTab: ((Int)->Void)?
     var selectedSearchButton: SearchButton = .fromMe
+    var isFullScreen: Bool = false
     
     enum SearchButton {
         case fromMe
@@ -37,14 +43,31 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     private func initView() {
         setupSearchButton()
         locationButtonHeight.constant = Screen.bottomSafeArea + 76.ratioConstant
-//        locationButton.roundCorners(radius: locationButton.bounds.height / 2, corner: .all)
     }
     
     private func initMap() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        
         mapView = MTMapView(frame: self.view.bounds)
         if let mapView = mapView {
             mapView.delegate = self
             mapView.baseMapType = .standard
+            
+            setMapCenter()
+            
+            // 현재 위치 트래킹
+            mapView.showCurrentLocationMarker = true
+            mapView.currentLocationTrackingMode = .onWithoutHeading
+            
+            // 마커 추가
+            let mapPoint1 = MTMapPoint(geoCoord: MTMapPointGeo(latitude:  37.2725511, longitude: 127.2034024))
+            let poiItem1 = MTMapPOIItem()
+            poiItem1.markerType = MTMapPOIItemMarkerType.bluePin
+            poiItem1.mapPoint = mapPoint1
+            poiItem1.itemName = "아무데나 찍어봄"
+            mapView.add(poiItem1)
+            
             mapViewField.addSubview(mapView)
         }
     }
@@ -58,6 +81,24 @@ class MapViewController: UIViewController, MTMapViewDelegate {
         searchByMapButton.roundCorners(radius: searchFromMeButton.bounds.height / 2, corner: .right)
         searchByMapButton.setTitleColor(.white, for: .selected)
         searchByMapButton.setTitleColor(.black, for: .normal)
+    }
+    
+    private func setMapCenter() {
+        if let lat = locationManager.location?.coordinate.latitude,
+           let lon = locationManager.location?.coordinate.longitude {
+            mapView?.setMapCenter(.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon)), animated: true)
+        }
+    }
+    
+    func toggleFullScreen() {
+        currentAddressView.isHidden = !isFullScreen
+        searchFromMeButton.isHidden = !isFullScreen
+        searchByMapButton.isHidden = !isFullScreen
+        categoryView.isHidden = !isFullScreen
+        locationButton.isHidden = !isFullScreen
+        isFullScreen ? initBottomSheet?() : hideBottomSheet?()
+        
+        isFullScreen = !isFullScreen
     }
 
     @IBAction func onClick(_ sender: UIButton) {
@@ -80,6 +121,11 @@ class MapViewController: UIViewController, MTMapViewDelegate {
             searchFromMeButton.backgroundColor = .white
             searchByMapButton.backgroundColor = UIColor.appColor(.PrimaryLighter)
             selectedSearchButton = .byMap
+        // current location
+        case 104:
+            print("location button")
+//            locationManager.requestWhenInUseAuthorization()
+            setMapCenter()
         default:
             break
         }

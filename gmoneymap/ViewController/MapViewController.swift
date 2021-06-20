@@ -60,7 +60,7 @@ class MapViewController: UIViewController {
             mapView.showCurrentLocationMarker = true
             mapView.currentLocationTrackingMode = .onWithoutHeading
             
-            // 마커 추가
+            // DEBUG: 마커 추가
             let mapPoint1 = MTMapPoint(geoCoord: MTMapPointGeo(latitude:  37.2725511, longitude: 127.2034024))
             let poiItem1 = MTMapPOIItem()
             poiItem1.markerType = MTMapPOIItemMarkerType.bluePin
@@ -95,7 +95,6 @@ class MapViewController: UIViewController {
         if let lat = locationManager.location?.coordinate.latitude,
            let lon = locationManager.location?.coordinate.longitude {
             mapView?.setMapCenter(.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon)), animated: true)
-            getCurrentAddress(location: CLLocation(latitude: lat, longitude: lon))
         }
     }
     

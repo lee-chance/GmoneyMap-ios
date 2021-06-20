@@ -23,7 +23,6 @@ extension MapViewController: MTMapViewDelegate {
     func mapView(_ mapView: MTMapView!, finishedMapMoveAnimation mapCenterPoint: MTMapPoint!) {
         let lat = mapCenterPoint.mapPointGeo().latitude
         let lon = mapCenterPoint.mapPointGeo().longitude
-        // TODO: 상단 주소 변경
         getCurrentAddress(location: CLLocation(latitude: lat, longitude: lon))
     }
     

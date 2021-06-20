@@ -115,7 +115,7 @@
                                     <constraint firstAttribute="width" constant="56" id="Vh1-E9-FGN"/>
                                     <constraint firstAttribute="width" secondItem="1eb-Zj-cJ4" secondAttribute="height" multiplier="1:1" id="XNb-WE-4dS"/>
                                 </constraints>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="1" green="0.090196078431372548" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="location.fill" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

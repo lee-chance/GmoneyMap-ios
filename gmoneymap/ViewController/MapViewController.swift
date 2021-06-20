@@ -12,6 +12,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapViewField: UIView!
     @IBOutlet weak var currentAddressView: UIView!
+    @IBOutlet weak var currentAddressLabel: CSUILabel!
     @IBOutlet weak var searchFromMeButton: DynamicUIButton!
     @IBOutlet weak var searchByMapButton: DynamicUIButton!
     @IBOutlet weak var categoryView: CategoryScrollView!
@@ -46,8 +47,7 @@ class MapViewController: UIViewController {
     }
     
     private func initMap() {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
+        setupLocationManager()
         
         mapView = MTMapView(frame: self.view.bounds)
         if let mapView = mapView {
@@ -83,10 +83,63 @@ class MapViewController: UIViewController {
         searchByMapButton.setTitleColor(.black, for: .normal)
     }
     
+    private func setupLocationManager() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest // 배터리에 맞게 권장되는 최적의 정확도
+        locationManager.startUpdatingLocation()
+    }
+    
     private func setMapCenter() {
         if let lat = locationManager.location?.coordinate.latitude,
            let lon = locationManager.location?.coordinate.longitude {
             mapView?.setMapCenter(.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon)), animated: true)
+            getCurrentAddress(location: CLLocation(latitude: lat, longitude: lon))
+        }
+    }
+    
+    func getCurrentAddress(location: CLLocation) {
+        let geoCoder = CLGeocoder()
+        let locale = Locale(identifier: "Ko-kr")
+        geoCoder.reverseGeocodeLocation(location, preferredLocale: locale) { placemarks, error -> Void in
+            guard error == nil else {
+                print("error: \(String(describing: error))")
+                self.currentAddressLabel.text = "위치를 찾을 수 없습니다."
+                return
+            }
+            
+            guard let placemark = placemarks?.first else {
+                self.currentAddressLabel.text = "위치를 찾을 수 없습니다."
+                return
+            }
+            
+            guard let administrativeArea = placemark.administrativeArea,
+                  administrativeArea.contains("경기도") else {
+                self.currentAddressLabel.text = "현 위치는 경기도가 아닙니다."
+                return
+            }
+            
+            var address = "\(administrativeArea)"
+            
+            if let locality = placemark.locality {
+                address += " \(locality)"
+            }
+            
+            if let subLocality = placemark.subLocality {
+                address += " \(subLocality)"
+            }
+            
+            if let thoroughfare = placemark.thoroughfare,
+               placemark.subLocality != placemark.thoroughfare {
+                address += " \(thoroughfare)"
+            }
+            
+            if let subThoroughfare = placemark.subThoroughfare {
+                address += " \(subThoroughfare)"
+            }
+            
+            self.currentAddressLabel.text = address
         }
     }
     

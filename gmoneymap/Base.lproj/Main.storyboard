@@ -24,10 +24,10 @@
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHp-zI-IDb">
-                                <rect key="frame" x="30" y="60" width="354" height="30"/>
+                                <rect key="frame" x="30" y="60" width="354" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current address 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR3-4p-Rmr" customClass="CSUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzS-o5-LtJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
                                         <connections>
                                             <action selector="onClick:" destination="aWN-tP-Eik" eventType="touchUpInside" id="4dO-An-l90"/>
                                         </connections>
@@ -80,7 +80,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" tag="102" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-3e-fd0" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
-                                <rect key="frame" x="30" y="102" width="177" height="34"/>
+                                <rect key="frame" x="30" y="120" width="177" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="내주변검색">
@@ -91,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8I-BF-nKz" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
-                                <rect key="frame" x="207" y="102" width="177" height="34"/>
+                                <rect key="frame" x="207" y="120" width="177" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="현재위치검색">
@@ -102,7 +102,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKI-TG-DX6" customClass="CategoryScrollView" customModule="gmoneymap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="156" width="414" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="KL5-Za-z6f" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
@@ -162,6 +162,7 @@
                     </view>
                     <connections>
                         <outlet property="categoryView" destination="qKI-TG-DX6" id="qMo-xX-L6F"/>
+                        <outlet property="currentAddressLabel" destination="qR3-4p-Rmr" id="LGh-Q6-8B3"/>
                         <outlet property="currentAddressView" destination="PHp-zI-IDb" id="xAH-i5-5lf"/>
                         <outlet property="locationButton" destination="1eb-Zj-cJ4" id="U2P-yE-Qt2"/>
                         <outlet property="locationButtonHeight" destination="J0x-3v-ZUE" id="M14-sf-EzW"/>
@@ -302,13 +303,13 @@
     </scenes>
     <designables>
         <designable name="P1G-3e-fd0">
-            <size key="intrinsicContentSize" width="78" height="34"/>
+            <size key="intrinsicContentSize" width="86" height="36"/>
         </designable>
         <designable name="qR3-4p-Rmr">
-            <size key="intrinsicContentSize" width="128.5" height="19.5"/>
+            <size key="intrinsicContentSize" width="168.36000000000001" height="48.024000000000001"/>
         </designable>
         <designable name="t8I-BF-nKz">
-            <size key="intrinsicContentSize" width="94" height="34"/>
+            <size key="intrinsicContentSize" width="104" height="36"/>
         </designable>
     </designables>
     <resources>

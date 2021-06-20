@@ -5,7 +5,7 @@
 //  Created by Changsu Lee on 2021/06/19.
 //
 
-import Foundation
+import CoreLocation
 
 extension MapViewController: MTMapViewDelegate {
     
@@ -21,10 +21,10 @@ extension MapViewController: MTMapViewDelegate {
     // MARK: - Map View Event
     // [Map View Event] 지도 화면의 이동이 끝난 뒤 호출된다.
     func mapView(_ mapView: MTMapView!, finishedMapMoveAnimation mapCenterPoint: MTMapPoint!) {
-        let latitude = mapCenterPoint.mapPointGeo().latitude
-        let longitude = mapCenterPoint.mapPointGeo().longitude
+        let lat = mapCenterPoint.mapPointGeo().latitude
+        let lon = mapCenterPoint.mapPointGeo().longitude
         // TODO: 상단 주소 변경
-        print("finishedMapMoveAnimation (\(latitude),\(longitude))")
+        getCurrentAddress(location: CLLocation(latitude: lat, longitude: lon))
     }
     
     // [Map View Event] 사용자가 지도 위를 터치한 경우 호출된다.

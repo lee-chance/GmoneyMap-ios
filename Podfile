@@ -6,5 +6,7 @@ target 'gmoneymap' do
   use_frameworks!
 
   # Pods for gmoneymap
+  pod 'Alamofire'
+  pod 'Moya'
 
 end

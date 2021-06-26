@@ -3,19 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0E96674ED66961AE7D6E29D3 /* Pods_gmoneymap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B7F19941F55A771B633267 /* Pods_gmoneymap.framework */; };
 		2E0251E5267CDFCF00396486 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0251E4267CDFCF00396486 /* UIColorExt.swift */; };
+		2E1D775A267F270F00ED58F2 /* GMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D7759267F270F00ED58F2 /* GMapService.swift */; };
+		2E1D775C267F27DF00ED58F2 /* GMapService+TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D775B267F27DF00ED58F2 /* GMapService+TargetType.swift */; };
 		2E204A5126710961002C03C1 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E204A5026710961002C03C1 /* Screen.swift */; };
 		2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34A1022674A8F4002F31BF /* TabBarCell.swift */; };
 		2E34A1052674A8F4002F31BF /* TabBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E34A1032674A8F4002F31BF /* TabBarCell.xib */; };
 		2E34A1072674B90B002F31BF /* UICollectionViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */; };
+		2E46576826872A010078727B /* GMapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E46576726872A010078727B /* GMapManager.swift */; };
+		2E466671267F48DE00A57B8B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466670267F48DE00A57B8B /* SearchViewModel.swift */; };
+		2E466673267F494500A57B8B /* VerbosePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466672267F494500A57B8B /* VerbosePlugin.swift */; };
+		2E466676267F58E600A57B8B /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466675267F58E600A57B8B /* SearchModel.swift */; };
 		2E68E62C266F9BA600172E6F /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68E62B266F9BA600172E6F /* Keyboard.swift */; };
 		2E76B5F6267A46BB00E033EB /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76B5F4267A46BB00E033EB /* MenuTableViewCell.swift */; };
 		2E76B5F7267A46BB00E033EB /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E76B5F5267A46BB00E033EB /* MenuTableViewCell.xib */; };
+		2E9889D9268757AD00CC433F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9889D8268757AD00CC433F /* BaseViewController.swift */; };
 		2E9D5B57267A400A0071589C /* BottomSheetViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */; };
 		2E9D5B59267A403B0071589C /* BottomSheetViewController+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */; };
 		2E9D5B5C267A41020071589C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D5B5B267A41020071589C /* SearchView.swift */; };
@@ -89,13 +96,20 @@
 /* Begin PBXFileReference section */
 		1D7E68B229E83DB032524148 /* Pods-gmoneymap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gmoneymap.release.xcconfig"; path = "Target Support Files/Pods-gmoneymap/Pods-gmoneymap.release.xcconfig"; sourceTree = "<group>"; };
 		2E0251E4267CDFCF00396486 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		2E1D7759267F270F00ED58F2 /* GMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapService.swift; sourceTree = "<group>"; };
+		2E1D775B267F27DF00ED58F2 /* GMapService+TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMapService+TargetType.swift"; sourceTree = "<group>"; };
 		2E204A5026710961002C03C1 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		2E34A1022674A8F4002F31BF /* TabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCell.swift; sourceTree = "<group>"; };
 		2E34A1032674A8F4002F31BF /* TabBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCell.xib; sourceTree = "<group>"; };
 		2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExt.swift; sourceTree = "<group>"; };
+		2E46576726872A010078727B /* GMapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapManager.swift; sourceTree = "<group>"; };
+		2E466670267F48DE00A57B8B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		2E466672267F494500A57B8B /* VerbosePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbosePlugin.swift; sourceTree = "<group>"; };
+		2E466675267F58E600A57B8B /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		2E68E62B266F9BA600172E6F /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		2E76B5F4267A46BB00E033EB /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		2E76B5F5267A46BB00E033EB /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		2E9889D8268757AD00CC433F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+UIScrollView.swift"; sourceTree = "<group>"; };
 		2E9D5B5A267A41020071589C /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
@@ -219,6 +233,43 @@
 				2E9D7A1126671BB800D8625A /* NSObjectExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2E1D7757267F26EE00ED58F2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2E1D7758267F270200ED58F2 /* HTTP */,
+				2ED976CE26677CB5009CCCC1 /* Base */,
+				2E9D7A0F26671BB800D8625A /* Util */,
+				2E46576726872A010078727B /* GMapManager.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2E1D7758267F270200ED58F2 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				2E1D7759267F270F00ED58F2 /* GMapService.swift */,
+				2E1D775B267F27DF00ED58F2 /* GMapService+TargetType.swift */,
+				2E466672267F494500A57B8B /* VerbosePlugin.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		2E46666F267F48A600A57B8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E466670267F48DE00A57B8B /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2E466674267F58DA00A57B8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E466675267F58E600A57B8B /* SearchModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2E9D79B92667171D00D8625A /* Frameworks */ = {
@@ -345,10 +396,11 @@
 		2EC11DD926652A2B007C85F2 /* gmoneymap */ = {
 			isa = PBXGroup;
 			children = (
+				2E466674267F58DA00A57B8B /* Model */,
+				2E46666F267F48A600A57B8B /* ViewModel */,
 				2EC59883266692F8001C969D /* ViewController */,
 				2EF7A14D26675FA800732BC3 /* View */,
-				2ED976CE26677CB5009CCCC1 /* Base */,
-				2E9D7A0F26671BB800D8625A /* Util */,
+				2E1D7757267F26EE00ED58F2 /* Common */,
 				2EC11DDA26652A2B007C85F2 /* AppDelegate.swift */,
 				2EC11DE026652A2B007C85F2 /* Main.storyboard */,
 				2EC11DE326652A2C007C85F2 /* Assets.xcassets */,
@@ -381,6 +433,7 @@
 				2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */,
 				2ED224FE266A806100031090 /* hanullim.ttf */,
 				2EC38FE1266E6CCC008D2CE4 /* GMapDefine.swift */,
+				2E9889D8268757AD00CC433F /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -418,6 +471,7 @@
 				2EC11DD326652A2B007C85F2 /* Sources */,
 				2EC11DD426652A2B007C85F2 /* Frameworks */,
 				2EC11DD526652A2B007C85F2 /* Resources */,
+				DD656F03B7BEDB83A07F1E45 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -510,6 +564,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		DD656F03B7BEDB83A07F1E45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gmoneymap/Pods-gmoneymap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gmoneymap/Pods-gmoneymap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gmoneymap/Pods-gmoneymap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EC3F0F3BAFB9ED9B97FC9BD0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -542,13 +613,16 @@
 				2E9D5B5C267A41020071589C /* SearchView.swift in Sources */,
 				2E9D5B5F267A41060071589C /* MenuView.swift in Sources */,
 				2ED976D026677CCE009CCCC1 /* BaseViewWithXIB.swift in Sources */,
+				2E1D775C267F27DF00ED58F2 /* GMapService+TargetType.swift in Sources */,
 				2EFE23B0267470EC00AFF2D1 /* ContainerViewController.swift in Sources */,
+				2E9889D9268757AD00CC433F /* BaseViewController.swift in Sources */,
 				2EE040E6267E14FE005D917D /* MapViewController+MTMapView.swift in Sources */,
 				2E0251E5267CDFCF00396486 /* UIColorExt.swift in Sources */,
 				2EFE23B2267474E800AFF2D1 /* UIViewControllerExt.swift in Sources */,
 				2E9D7A20266741BE00D8625A /* UIViewExt.swift in Sources */,
 				2EFE23AC26745CB000AFF2D1 /* BottomSheetContainerViewController.swift in Sources */,
 				2EFE23AE267470D300AFF2D1 /* BottomSheetViewController.swift in Sources */,
+				2E466676267F58E600A57B8B /* SearchModel.swift in Sources */,
 				2EE040E8267E1AE8005D917D /* MapViewController+CLLocationManager.swift in Sources */,
 				2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */,
 				2EC11DDB26652A2B007C85F2 /* AppDelegate.swift in Sources */,
@@ -556,17 +630,21 @@
 				2E204A5126710961002C03C1 /* Screen.swift in Sources */,
 				2E9D5B59267A403B0071589C /* BottomSheetViewController+UIScrollView.swift in Sources */,
 				2E9D7A1826671BB800D8625A /* DynamicSizeExt.swift in Sources */,
+				2E466671267F48DE00A57B8B /* SearchViewModel.swift in Sources */,
 				2EC38FDB266CD6F0008D2CE4 /* MapViewController.swift in Sources */,
 				2E9D5B57267A400A0071589C /* BottomSheetViewController+UICollectionView.swift in Sources */,
 				2E9D7A1626671BB800D8625A /* UITableViewExt.swift in Sources */,
 				2E9D7A1C26671C4500D8625A /* CSUILabel.swift in Sources */,
 				2E9D7A1A26671BB800D8625A /* DynamicSize.swift in Sources */,
+				2E46576826872A010078727B /* GMapManager.swift in Sources */,
 				2EF7A15026675FE800732BC3 /* CategoryScrollView.swift in Sources */,
 				2EC38FE2266E6CCC008D2CE4 /* GMapDefine.swift in Sources */,
 				2E34A1072674B90B002F31BF /* UICollectionViewExt.swift in Sources */,
+				2E466673267F494500A57B8B /* VerbosePlugin.swift in Sources */,
 				2E76B5F6267A46BB00E033EB /* MenuTableViewCell.swift in Sources */,
 				2EA338912676683E00D8E9FA /* DownloadView.swift in Sources */,
 				2E68E62C266F9BA600172E6F /* Keyboard.swift in Sources */,
+				2E1D775A267F270F00ED58F2 /* GMapService.swift in Sources */,
 				2ED976D326678601009CCCC1 /* CategoryViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

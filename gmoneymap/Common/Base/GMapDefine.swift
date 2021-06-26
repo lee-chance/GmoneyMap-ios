@@ -36,4 +36,38 @@ struct GMapDefine {
         case etc = "기타"
     }
     
+    enum City: String {
+        case 가평군
+        case 고양시
+        case 과천시
+        case 광명시
+        case 광주시
+        case 구리시
+        case 군포시
+        case 김포시
+        case 남양주시
+        case 동두천시
+        case 부천시
+        case 성남시
+        case 수원시
+        case 시흥시
+        case 안산시
+        case 안성시
+        case 안양시
+        case 양주시
+        case 양평군
+        case 여주시
+        case 연천군
+        case 오산시
+        case 용인시
+        case 의왕시
+        case 의정부시
+        case 이천시
+        case 파주시
+        case 평택시
+        case 포천시
+        case 하남시
+        case 화성시
+    }
+    
 }

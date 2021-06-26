@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: BaseViewController {
     
     @IBOutlet weak var mapViewField: UIView!
     @IBOutlet weak var currentAddressView: UIView!
@@ -29,6 +29,10 @@ class MapViewController: UIViewController {
     var selectedSearchButton: SearchButton = .fromMe
     var isFullScreen: Bool = false
     
+    var stringList: [String] = []
+    var map: [String:Int] = [:]
+    var overlapCount: Int = 0
+    
     enum SearchButton {
         case fromMe
         case byMap
@@ -42,8 +46,55 @@ class MapViewController: UIViewController {
     }
     
     private func initView() {
+        categoryView.setNewMarker = setNewMarker(row:)
+        categoryView.setCircle = setCircle(radius:)
         setupSearchButton()
         locationButtonHeight.constant = Screen.bottomSafeArea + 76.ratioConstant
+    }
+    
+    private func setCircle(radius: Int) {
+        let circle = MTMapCircle()
+        circle.circleCenterPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude: GMapManager.shared.latitude!, longitude: GMapManager.shared.longitude!))
+        circle.circleRadius = Float(radius * 2)
+        circle.circleLineColor = UIColor(red: 1/255, green: 104/255, blue: 179/255, alpha: 0.7)
+        circle.circleFillColor = UIColor(red: 1/255, green: 104/255, blue: 179/255, alpha: 0.3)
+        circle.tag = 5678
+        mapView?.addCircle(circle)
+    }
+    
+    private func setNewMarker(row: RowVO) {
+//        rowList.add(row)
+        let marker = MTMapPOIItem()
+//        marker.userObject = row
+//        marker.tag = tagNum
+        if let latString = row.REFINE_WGS84_LAT,
+           let lonString = row.REFINE_WGS84_LOGT,
+           let lat = Double(latString),
+           let lon = Double(lonString) {
+            let mapPoint = MTMapPoint.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon))
+            let xyString = "\(latString) - \(lonString)"
+            if stringList.contains(xyString) {
+                // 2개 이상의 검색결과는 옐로우핀으로 찍음
+                if let count = map[xyString] {
+                    overlapCount = count
+                } else {
+                    overlapCount = 1
+                }
+                overlapCount += 1
+                map[xyString] = overlapCount
+                marker.itemName = "\(overlapCount)개의 검색결과"
+                marker.markerType = .yellowPin
+            } else {
+                // 단일 검색결과는 레드핀으로 찍음
+                stringList.append(xyString)
+                marker.itemName = row.CMPNM_NM
+                marker.markerType = .redPin
+            }
+            marker.mapPoint = mapPoint
+            marker.customImageAnchorPointOffset = MTMapImageOffset(offsetX: Int32(0.5), offsetY: Int32(1.0))
+            mapView?.add(marker)
+//            tagNum += 1
+        }
     }
     
     private func initMap() {

@@ -8,18 +8,53 @@
 import Foundation
 
 class BaseViewController: UIViewController {
-    //Toast Message
-    //How To Use : showToast(controller: self, message : "This is a test", seconds: 2.0)
-    func showToast(controller: UIViewController, message : String, seconds: Double) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.view.backgroundColor = UIColor.black
-        alert.view.alpha = 0.6
-        alert.view.layer.cornerRadius = 15
-        
-        controller.present(alert, animated: true)
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
-            alert.dismiss(animated: true)
-        }
+    
+    // MARK: - indicator
+    var indicator = UIAlertController()
+    
+    func showIndicator(_ message: String) {
+        let indicator = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.startAnimating();
+        indicator.view.addSubview(loadingIndicator)
+        present(indicator, animated: true, completion: nil)
     }
+    
+    func hideIndicator() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Toast
+    enum ToastInterval: Double {
+        case short = 5.0
+        case long = 10.0
+    }
+    
+    func showToast(_ message: String, duration: ToastInterval) {
+        let textWidth = (message as NSString).size(withAttributes: [NSAttributedString.Key.font : UILabel().font!]).width
+        let labelWidth = textWidth + 30 // 좌우 15 마진
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - labelWidth/2,
+                                               y: self.view.frame.size.height - Screen.bottomSafeArea - 100.ratioConstant,
+                                               width: labelWidth,
+                                               height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        self.view.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: duration.rawValue,
+                       delay: 0.1,
+                       options: .curveEaseIn,
+                       animations: { toastLabel.alpha = 0.0 },
+                       completion: { (isCompleted) in
+                        toastLabel.removeFromSuperview()
+                       })
+    }
+    
 }

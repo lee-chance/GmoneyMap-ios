@@ -21,6 +21,7 @@ class MapViewController: BaseViewController {
     
     var mapView: MTMapView?
     var locationManager: CLLocationManager!
+    let viewModel = SearchViewModel()
     
     var showBottomSheet: (()->Void)?
     var initBottomSheet: (()->Void)?
@@ -46,10 +47,79 @@ class MapViewController: BaseViewController {
     }
     
     private func initView() {
-        categoryView.setNewMarker = setNewMarker(row:)
-        categoryView.setCircle = setCircle(radius:)
+        categoryView.search = search
         setupSearchButton()
         locationButtonHeight.constant = Screen.bottomSafeArea + 76.ratioConstant
+    }
+    
+    private func search() {
+        // TODO: 프로그래스바, 데이터 초기화(?)
+        var rowCount = 0
+        let radius = 300
+        
+        showIndicator("불러오는 중...")
+        
+        guard let selectedCity = GMapManager.shared.selectedCity else {
+            print("검색 중 오류가 발생했습니다.")
+            hideIndicator()
+            return
+        }
+        self.viewModel.checkHasData(city: selectedCity) { [weak self] vo in
+            guard let heads = vo.head,
+                  let listTotalCount = heads[0].list_total_count else {
+                self?.hideIndicator()
+                return
+            }
+            let index = listTotalCount / 100 + 1
+
+            // 원 생성
+            self?.setCircle(radius: radius)
+            
+            for i in 1...index {
+                self?.viewModel.requestAll(index: i, city: selectedCity) { vo in
+
+                    // 결과코드가 성공인지 확인
+                    guard let heads = vo.RegionMnyFacltStus?[0].head,
+                          let code = heads[1].RESULT?.CODE,
+                          code == "INFO-000" else {
+                        print("code error") // FIXME: Fix me here
+                        self?.hideIndicator()
+                        return
+                    }
+
+                    // rows 데이터가 있는지 확인
+                    guard let rows = vo.RegionMnyFacltStus?[1].row else {
+                        print("no data")
+                        self?.hideIndicator()
+                        return
+                    }
+
+                    // 한 데이터씩 확인
+                    for row in rows {
+                        rowCount += 1
+                        // 좌표값 확인
+                        if let latString = row.REFINE_WGS84_LAT,
+                           let lonString = row.REFINE_WGS84_LOGT,
+                           let lat = Double(latString),
+                           let lon = Double(lonString) {
+                            // 내 위치와 거리 비교
+                            let distance = Int(sqrt(pow(lat-GMapManager.shared.latitude!, 2) + pow(lon-GMapManager.shared.longitude!, 2)) * 100000)
+                            // 거리가 radius 이내에 있는 값만 마커표시
+                            if distance < radius {
+                                self?.setNewMarker(row: row)
+                            }
+                        }
+                        if rowCount == listTotalCount {
+                            self?.hideIndicator()
+                            self?.showToast("검색을 완료했습니다.", duration: .short)
+                        }
+                    }
+                } failed: {
+                    self?.hideIndicator()
+                    print("error occurred!")
+                }
+            }
+        }
     }
     
     private func setCircle(radius: Int) {
@@ -110,14 +180,6 @@ class MapViewController: BaseViewController {
             // 현재 위치 트래킹
             mapView.showCurrentLocationMarker = true
             mapView.currentLocationTrackingMode = .onWithoutHeading
-            
-            // DEBUG: 마커 추가
-            let mapPoint1 = MTMapPoint(geoCoord: MTMapPointGeo(latitude:  37.2725511, longitude: 127.2034024))
-            let poiItem1 = MTMapPOIItem()
-            poiItem1.markerType = MTMapPOIItemMarkerType.bluePin
-            poiItem1.mapPoint = mapPoint1
-            poiItem1.itemName = "아무데나 찍어봄"
-            mapView.add(poiItem1)
             
             mapViewField.addSubview(mapView)
         }

@@ -32,7 +32,7 @@ class MapViewController: BaseViewController {
     
     var stringList: [String] = []
     var map: [String:Int] = [:]
-    var overlapCount: Int = 0
+//    var overlapCount: Int = 0
     
     enum SearchButton {
         case fromMe
@@ -47,84 +47,47 @@ class MapViewController: BaseViewController {
     }
     
     private func initView() {
-        categoryView.search = search
+        categoryView.search = search(tag:)
         setupSearchButton()
         locationButtonHeight.constant = Screen.bottomSafeArea + 76.ratioConstant
     }
     
-    private func search() {
-        // TODO: 프로그래스바, 데이터 초기화(?)
-        var rowCount = 0
-        let radius = 300
+    private func search(tag category: Int) {
         
-        showIndicator("불러오는 중...")
+        print("tag: \(category)") // 100 ~ 119
+        
+        if selectedSearchButton == .fromMe {
+            setMapCenter()
+        } else {
+            if let latitude = mapView?.mapCenterPoint.mapPointGeo().latitude,
+               let longitude = mapView?.mapCenterPoint.mapPointGeo().longitude {
+                GMapManager.shared.setCoordinate(latitude: latitude, longitude: longitude)
+            }
+        }
+        
+        // TODO: 데이터 초기화(?)
+        // 서클, 마커 삭제
+        mapView?.removeAllCircles()
+        mapView?.removeAllPOIItems()
+        // 겹치는 마커 정보 데이터 리스트 삭제
+        stringList = []
+        map = [:]
+        
+        showIndicator("불러오는 중...", tapToDismiss: false)
         
         guard let selectedCity = GMapManager.shared.selectedCity else {
-            print("검색 중 오류가 발생했습니다.")
+            print("현재위치는 경기도가 아닙니다.")
             hideIndicator()
             return
         }
-        self.viewModel.checkHasData(city: selectedCity) { [weak self] vo in
-            guard let heads = vo.head,
-                  let listTotalCount = heads[0].list_total_count else {
-                self?.hideIndicator()
-                return
-            }
-            let index = listTotalCount / 100 + 1
-
-            // 원 생성
-            self?.setCircle(radius: radius)
-            
-            for i in 1...index {
-                self?.viewModel.requestAll(index: i, city: selectedCity) { vo in
-
-                    // 결과코드가 성공인지 확인
-                    guard let heads = vo.RegionMnyFacltStus?[0].head,
-                          let code = heads[1].RESULT?.CODE,
-                          code == "INFO-000" else {
-                        print("code error") // FIXME: Fix me here
-                        self?.hideIndicator()
-                        return
-                    }
-
-                    // rows 데이터가 있는지 확인
-                    guard let rows = vo.RegionMnyFacltStus?[1].row else {
-                        print("no data")
-                        self?.hideIndicator()
-                        return
-                    }
-
-                    // 한 데이터씩 확인
-                    for row in rows {
-                        rowCount += 1
-                        // 좌표값 확인
-                        if let latString = row.REFINE_WGS84_LAT,
-                           let lonString = row.REFINE_WGS84_LOGT,
-                           let lat = Double(latString),
-                           let lon = Double(lonString) {
-                            // 내 위치와 거리 비교
-                            let distance = Int(sqrt(pow(lat-GMapManager.shared.latitude!, 2) + pow(lon-GMapManager.shared.longitude!, 2)) * 100000)
-                            // 거리가 radius 이내에 있는 값만 마커표시
-                            if distance < radius {
-                                self?.setNewMarker(row: row)
-                            }
-                        }
-                        if rowCount == listTotalCount {
-                            self?.hideIndicator()
-                            self?.showToast("검색을 완료했습니다.", duration: .short)
-                        }
-                    }
-                } failed: {
-                    self?.hideIndicator()
-                    print("error occurred!")
-                }
-            }
-        }
+        
+        searchThroughNetwork(city: selectedCity)
+//        searchThroughLocalDB()
     }
     
     private func setCircle(radius: Int) {
         let circle = MTMapCircle()
-        circle.circleCenterPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude: GMapManager.shared.latitude!, longitude: GMapManager.shared.longitude!))
+        circle.circleCenterPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude: GMapManager.shared.latitude, longitude: GMapManager.shared.longitude))
         circle.circleRadius = Float(radius * 2)
         circle.circleLineColor = UIColor(red: 1/255, green: 104/255, blue: 179/255, alpha: 0.7)
         circle.circleFillColor = UIColor(red: 1/255, green: 104/255, blue: 179/255, alpha: 0.3)
@@ -133,6 +96,7 @@ class MapViewController: BaseViewController {
     }
     
     private func setNewMarker(row: RowVO) {
+        var overlapCount: Int
 //        rowList.add(row)
         let marker = MTMapPOIItem()
 //        marker.userObject = row
@@ -166,6 +130,70 @@ class MapViewController: BaseViewController {
 //            tagNum += 1
         }
     }
+    
+    private func searchThroughNetwork(city: String) {
+        var rowCount = 0
+        let radius = 300
+        
+        self.viewModel.checkHasData(city: city) { [weak self] vo in
+            guard let heads = vo.head,
+                  let listTotalCount = heads[0].list_total_count else {
+                self?.hideIndicator()
+                return
+            }
+            let index = listTotalCount / 100 + 1
+
+            // 원 생성
+             self?.setCircle(radius: radius)
+            
+            for i in 1...index {
+                self?.viewModel.requestAll(index: i, city: city) { vo in
+                    
+                    // 결과코드가 성공인지 확인
+                    guard let heads = vo.RegionMnyFacltStus?[0].head,
+                          let code = heads[1].RESULT?.CODE,
+                          code == "INFO-000" else {
+                        print("code error")
+                        self?.hideIndicator()
+                        return
+                    }
+
+                    // rows 데이터가 있는지 확인
+                    guard let rows = vo.RegionMnyFacltStus?[1].row else {
+                        print("no data")
+                        self?.hideIndicator()
+                        return
+                    }
+
+                    // 한 데이터씩 확인
+                    for row in rows {
+                        rowCount += 1
+                        // 좌표값 확인
+                        if let latString = row.REFINE_WGS84_LAT,
+                           let lonString = row.REFINE_WGS84_LOGT,
+                           let lat = Double(latString),
+                           let lon = Double(lonString) {
+                            // 내 위치와 거리 비교
+                            let distance = Int(sqrt(pow(lat-GMapManager.shared.latitude, 2) + pow(lon-GMapManager.shared.longitude, 2)) * 100000)
+                            // 거리가 radius 이내에 있는 값만 마커표시
+                            if distance < radius {
+                                self?.setNewMarker(row: row)
+                            }
+                        }
+                        if rowCount == listTotalCount {
+                            self?.hideIndicator()
+                            self?.showToast("검색을 완료했습니다.", duration: .short)
+                        }
+                    }
+                } failed: {
+                    self?.hideIndicator()
+                    print("error occurred!")
+                }
+            }
+        }
+    }
+    
+    private func searchThroughLocalDB() {}
     
     private func initMap() {
         setupLocationManager()
@@ -208,6 +236,9 @@ class MapViewController: BaseViewController {
         if let lat = locationManager.location?.coordinate.latitude,
            let lon = locationManager.location?.coordinate.longitude {
             mapView?.setMapCenter(.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon)), animated: true)
+            getCurrentAddress(location: CLLocation(latitude: lat, longitude: lon))
+            GMapManager.shared.setCoordinate(latitude: lat, longitude: lon)
+            locationButton.tintColor = UIColor(rgb: 0xFF1730)
         }
     }
     
@@ -229,6 +260,7 @@ class MapViewController: BaseViewController {
             guard let administrativeArea = placemark.administrativeArea,
                   administrativeArea.contains("경기도") else {
                 self.currentAddressLabel.text = "현 위치는 경기도가 아닙니다."
+                GMapManager.shared.selectedCity = nil
                 return
             }
             
@@ -236,6 +268,9 @@ class MapViewController: BaseViewController {
             
             if let locality = placemark.locality {
                 address += " \(locality)"
+                if let _ = GMapDefine.City.init(rawValue: locality) {
+                    GMapManager.shared.selectedCity = locality
+                }
             }
             
             if let subLocality = placemark.subLocality {
@@ -278,6 +313,7 @@ class MapViewController: BaseViewController {
             searchByMapButton.isSelected = false
             searchFromMeButton.backgroundColor = UIColor.appColor(.PrimaryLighter)
             searchByMapButton.backgroundColor = .white
+            categoryView.resetCells()
             selectedSearchButton = .fromMe
         // search by map
         case 103:
@@ -285,13 +321,13 @@ class MapViewController: BaseViewController {
             searchByMapButton.isSelected = true
             searchFromMeButton.backgroundColor = .white
             searchByMapButton.backgroundColor = UIColor.appColor(.PrimaryLighter)
+            categoryView.resetCells()
             selectedSearchButton = .byMap
         // current location
         case 104:
             print("location button")
 //            locationManager.requestWhenInUseAuthorization()
             setMapCenter()
-            sender.tintColor = UIColor(rgb: 0xFF1730)
         default:
             break
         }

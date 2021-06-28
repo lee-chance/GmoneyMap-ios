@@ -10,20 +10,30 @@ import Foundation
 class BaseViewController: UIViewController {
     
     // MARK: - indicator
-    var indicator = UIAlertController()
-    
-    func showIndicator(_ message: String) {
+    func showIndicator(_ message: String, tapToDismiss: Bool = false) {
         let indicator = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = .medium
         loadingIndicator.startAnimating();
         indicator.view.addSubview(loadingIndicator)
-        present(indicator, animated: true, completion: nil)
+        present(indicator, animated: true) {
+            if tapToDismiss {
+                // 바깥클릭으로 닫기
+                let tap = UITapGestureRecognizer(target: self, action: #selector(self.didTappedOutside(_:)))
+                indicator.view.superview?.isUserInteractionEnabled = true
+                indicator.view.superview?.addGestureRecognizer(tap)
+            }
+        }
     }
     
     func hideIndicator() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc
+    private func didTappedOutside(_ sender: UITapGestureRecognizer) {
+        hideIndicator()
     }
     
     // MARK: - Toast

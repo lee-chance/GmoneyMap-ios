@@ -26,7 +26,6 @@ extension GMapService: TargetType {
         switch self {
         case .getList(let index, let city):
             var parameters: [String:Any] = ["Type":"json", "KEY":GMapManager.shared.key]
-//            var parameters: [String:Any] = ["Type":"json"]
             if let index = index {
                 parameters["pIndex"] = index
             }

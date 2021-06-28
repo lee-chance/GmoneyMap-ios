@@ -13,7 +13,7 @@ class CategoryScrollView: BaseViewWithXIB {
     
     let categoryList = GMapDefine.Category.allCases
     
-    var search: (()->Void)?
+    var search: ((Int)->Void)?
     
     override func setupView() {
         super.setupView()
@@ -30,7 +30,7 @@ class CategoryScrollView: BaseViewWithXIB {
                 c?.parentView.backgroundColor = .appColor(.PrimaryLighter)
                 c?.categoryName.textColor = .white
                 
-                self.search?()
+                self.search?(cell.tag)
             }
             stackView.addArrangedSubview(cell)
         }
@@ -44,7 +44,7 @@ class CategoryScrollView: BaseViewWithXIB {
         stackView.addArrangedSubview(view)
     }
     
-    private func resetCells() {
+    func resetCells() {
         for i in 0..<categoryList.count {
             let tag = 100 + i
             let cell = viewWithTag(tag) as? CategoryViewCell

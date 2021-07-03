@@ -36,4 +36,19 @@ extension MapViewController: MTMapViewDelegate {
         locationButton.tintColor = .lightGray
     }
     
+    // MARK: - POI Item
+    // [POI Item] 단말 사용자가 POI Item 아이콘(마커) 위에 나타난 말풍선(Callout Balloon)을 터치한 경우 호출된다.
+    func mapView(_ mapView: MTMapView!, touchedCalloutBalloonOf poiItem: MTMapPOIItem!) {
+        // TODO: 마커 클릭 이벤트 처리
+        switch poiItem.markerType {
+        case MTMapPOIItemMarkerType.redPin:
+            print("redPin")
+        case MTMapPOIItemMarkerType.yellowPin:
+            print("yellowPin")
+        case MTMapPOIItemMarkerType.bluePin:
+            print("bluePin")
+        default: break
+        }
+    }
+    
 }

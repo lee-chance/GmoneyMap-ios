@@ -101,8 +101,8 @@ class MapViewController: BaseViewController {
         let marker = MTMapPOIItem()
 //        marker.userObject = row
 //        marker.tag = tagNum
-        if let latString = row.REFINE_WGS84_LAT,
-           let lonString = row.REFINE_WGS84_LOGT,
+        if let latString = row.latitude,
+           let lonString = row.longitude,
            let lat = Double(latString),
            let lon = Double(lonString) {
             let mapPoint = MTMapPoint.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon))
@@ -121,7 +121,7 @@ class MapViewController: BaseViewController {
             } else {
                 // 단일 검색결과는 레드핀으로 찍음
                 stringList.append(xyString)
-                marker.itemName = row.CMPNM_NM
+                marker.itemName = row.shopName
                 marker.markerType = .redPin
             }
             marker.mapPoint = mapPoint
@@ -169,8 +169,8 @@ class MapViewController: BaseViewController {
                     for row in rows {
                         rowCount += 1
                         // 좌표값 확인
-                        if let latString = row.REFINE_WGS84_LAT,
-                           let lonString = row.REFINE_WGS84_LOGT,
+                        if let latString = row.latitude,
+                           let lonString = row.longitude,
                            let lat = Double(latString),
                            let lon = Double(lonString) {
                             // 내 위치와 거리 비교
@@ -190,11 +190,17 @@ class MapViewController: BaseViewController {
                     print("error occurred!")
                 }
             }
+        } failed: {
+            self.hideIndicator()
         }
     }
     
     // TODO: 로컬DB에 저장된 데이터 불러오기
-    private func searchThroughLocalDB() {}
+    private func searchThroughLocalDB(city: String) {
+        let radius = 300
+        
+        setCircle(radius: radius)
+    }
     
     private func initMap() {
         setupLocationManager()

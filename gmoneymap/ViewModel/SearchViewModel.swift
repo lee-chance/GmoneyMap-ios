@@ -24,7 +24,7 @@ class SearchViewModel {
     
     func checkHasData(city: String,
                       completion: @escaping (RegionMnyFacltStusVO)->Void,
-                      failed: (()->Void)? = nil) {
+                      failed: (()->Void)?) {
         provider.request(.getList(index: 1, city: city)) { result in
             switch result {
             case .success(let response):
@@ -53,7 +53,7 @@ class SearchViewModel {
     func requestAll(index: Int,
                     city: String,
                     completion: @escaping (ResponseVO)->Void,
-                    failed: (()->Void)? = nil) {
+                    failed: (()->Void)?) {
         provider.request(.getList(index: index, city: city)) { result in
             switch result {
             case .success(let response):

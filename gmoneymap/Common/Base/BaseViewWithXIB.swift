@@ -7,7 +7,8 @@
 
 class BaseViewWithXIB: UIView {
     
-    var view:UIView?
+    var view: UIView?
+    var parentVC: BaseViewController = BaseViewController()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

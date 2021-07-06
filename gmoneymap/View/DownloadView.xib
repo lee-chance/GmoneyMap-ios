@@ -5,40 +5,70 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DownloadView" customModule="gmoneymap" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DownloadView" customModule="gmoneymap" customModuleProvider="target">
+            <connections>
+                <outlet property="downloadedCityListTableView" destination="DLM-qN-oyK" id="ZTt-8b-xqb"/>
+                <outlet property="selectedCity" destination="BV0-bZ-yF2" id="TbB-7C-gct"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="h0m-E4-y6F">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자주 사용하는 지역의 데이터를 다운로드 받아 검색 속도를 높일 수 있습니다!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewB-BL-M3V" customClass="CSUILabel" customModule="gmoneymap">
-                    <rect key="frame" x="16" y="60" width="382" height="42.5"/>
+                    <rect key="frame" x="16" y="44" width="382" height="42.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-W5-MBC">
-                    <rect key="frame" x="0.0" y="134.5" width="414" height="216"/>
-                </pickerView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHT-MX-a3g" customClass="DynamicUIButton" customModule="gmoneymap">
-                    <rect key="frame" x="178" y="366.5" width="58" height="32"/>
+                    <rect key="frame" x="178" y="168.5" width="58" height="32"/>
                     <state key="normal" title="다운로드"/>
+                    <connections>
+                        <action selector="downloadButton:" destination="-1" eventType="touchUpInside" id="pKA-Kw-SAd"/>
+                    </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BV0-bZ-yF2" customClass="BottomPickerViewTextField" customModule="gmoneymap" customModuleProvider="target">
+                    <rect key="frame" x="16" y="118.5" width="382" height="34"/>
+                    <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNy-pp-PKB">
+                    <rect key="frame" x="0.0" y="220.5" width="414" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="D2a-kA-sJO"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DLM-qN-oyK">
+                    <rect key="frame" x="16" y="241.5" width="382" height="620.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Ofa-lY-meF"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ewB-BL-M3V" firstAttribute="leading" secondItem="Ofa-lY-meF" secondAttribute="leading" constant="16" id="6hf-6R-27o"/>
-                <constraint firstItem="dlp-W5-MBC" firstAttribute="trailing" secondItem="Ofa-lY-meF" secondAttribute="trailing" id="I8g-Hf-O8A"/>
-                <constraint firstItem="Ofa-lY-meF" firstAttribute="trailing" secondItem="ewB-BL-M3V" secondAttribute="trailing" constant="16" id="Q5F-Ya-DgO"/>
-                <constraint firstItem="dlp-W5-MBC" firstAttribute="leading" secondItem="Ofa-lY-meF" secondAttribute="leading" id="RIk-Ya-h7N"/>
-                <constraint firstItem="xHT-MX-a3g" firstAttribute="centerX" secondItem="h0m-E4-y6F" secondAttribute="centerX" id="alD-1A-kex"/>
-                <constraint firstItem="xHT-MX-a3g" firstAttribute="top" secondItem="dlp-W5-MBC" secondAttribute="bottom" constant="16" id="ly9-O6-D1Q"/>
-                <constraint firstItem="ewB-BL-M3V" firstAttribute="top" secondItem="Ofa-lY-meF" secondAttribute="top" constant="16" id="vQi-OP-RZb"/>
-                <constraint firstItem="dlp-W5-MBC" firstAttribute="top" secondItem="ewB-BL-M3V" secondAttribute="bottom" constant="32" id="zRK-bE-Lh6"/>
+                <constraint firstItem="Ofa-lY-meF" firstAttribute="bottom" secondItem="DLM-qN-oyK" secondAttribute="bottom" id="2Sh-0M-RD0" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="XNy-pp-PKB" firstAttribute="top" secondItem="xHT-MX-a3g" secondAttribute="bottom" constant="20" id="5QQ-Sa-9BJ" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="ewB-BL-M3V" firstAttribute="top" secondItem="Ofa-lY-meF" secondAttribute="top" id="5Uu-us-v0D" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="ewB-BL-M3V" firstAttribute="leading" secondItem="Ofa-lY-meF" secondAttribute="leading" constant="16" id="6hf-6R-27o" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="BV0-bZ-yF2" firstAttribute="leading" secondItem="Ofa-lY-meF" secondAttribute="leading" constant="16" id="FP1-xD-WoK" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="xHT-MX-a3g" firstAttribute="top" secondItem="BV0-bZ-yF2" secondAttribute="bottom" constant="16" id="JnQ-wb-Vsz" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="XNy-pp-PKB" firstAttribute="leading" secondItem="Ofa-lY-meF" secondAttribute="leading" id="NRc-RA-iTZ" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="Ofa-lY-meF" firstAttribute="trailing" secondItem="ewB-BL-M3V" secondAttribute="trailing" constant="16" id="Q5F-Ya-DgO" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="DLM-qN-oyK" firstAttribute="leading" secondItem="Ofa-lY-meF" secondAttribute="leading" constant="16" id="RVL-c6-U0T" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="Ofa-lY-meF" firstAttribute="trailing" secondItem="BV0-bZ-yF2" secondAttribute="trailing" constant="16" id="aQR-qf-t7K" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="xHT-MX-a3g" firstAttribute="centerX" secondItem="h0m-E4-y6F" secondAttribute="centerX" id="alD-1A-kex" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="Ofa-lY-meF" firstAttribute="trailing" secondItem="DLM-qN-oyK" secondAttribute="trailing" constant="16" id="bSW-zW-adS" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="BV0-bZ-yF2" firstAttribute="top" secondItem="ewB-BL-M3V" secondAttribute="bottom" constant="32" id="djp-0I-Ppb" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="Ofa-lY-meF" firstAttribute="trailing" secondItem="XNy-pp-PKB" secondAttribute="trailing" id="nax-a5-5Y5" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                <constraint firstItem="DLM-qN-oyK" firstAttribute="top" secondItem="XNy-pp-PKB" secondAttribute="bottom" constant="20" id="rOu-kY-k77" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -54,4 +84,12 @@
             <size key="intrinsicContentSize" width="58" height="32"/>
         </designable>
     </designables>
+    <resources>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -9,6 +9,25 @@ import Foundation
 
 class BaseViewController: UIViewController {
     
+    // MARK: - Alert
+    func customAlert(title: String? = "",
+                     message: String? = "",
+                     okTitle: String = "확인",
+                     okHandler: ((UIAlertAction)->Void)? = nil,
+                     hasCancel: Bool = true,
+                     cancelTitle: String = "취소",
+                     cancelHandler: ((UIAlertAction)->Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: okTitle, style: .default, handler: okHandler)
+        alert.addAction(okAction)
+        if hasCancel {
+            let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelHandler)
+            alert.addAction(cancelAction)
+        }
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - indicator
     func showIndicator(_ message: String, tapToDismiss: Bool = false) {
         let indicator = UIAlertController(title: nil, message: message, preferredStyle: .alert)

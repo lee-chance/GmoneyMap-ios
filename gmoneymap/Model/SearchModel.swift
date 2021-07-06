@@ -23,16 +23,28 @@ struct HeadVO: Codable {
 }
 
 struct RowVO: Codable {
-    var CMPNM_NM: String?
-    var INDUTYPE_NM: String?
-    var DATA_STD_DE: String?
-    var REFINE_LOTNO_ADDR: String?
-    var REFINE_ROADNM_ADDR: String?
-    var REFINE_ZIP_CD: String?
-    var REFINE_WGS84_LOGT: String?
-    var REFINE_WGS84_LAT: String?
-    var SIGUN_CD: String?
-    var SIGUN_NM: String?
+    var shopName: String?
+    var categoryName: String?
+    var telNumber: String?
+    var locationAddress: String?
+    var roadAddress: String?
+    var longitude: String?
+    var latitude: String?
+    var cityCode: String?
+    var cityName: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case shopName = "CMPNM_NM"
+        case categoryName = "INDUTYPE_NM"
+//        case telNumber = "CMPNM_NM"
+        case locationAddress = "REFINE_LOTNO_ADDR"
+        case roadAddress = "REFINE_ROADNM_ADDR"
+        case longitude = "REFINE_WGS84_LOGT"
+        case latitude = "REFINE_WGS84_LAT"
+        case cityCode = "SIGUN_CD"
+        case cityName = "SIGUN_NM"
+    }
+    
 }
 
 struct ResultVO: Codable {

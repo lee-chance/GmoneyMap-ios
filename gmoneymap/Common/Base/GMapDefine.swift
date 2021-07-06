@@ -13,6 +13,11 @@ struct GMapDefine {
         case Main
     }
     
+    enum UserDefaultsKey: String {
+        case downloadedDatas
+        case downloadedCityList
+    }
+    
     enum Category: String, CaseIterable {
         case all = "모두보기"
         case restaurant1 = "음식점1"
@@ -36,7 +41,7 @@ struct GMapDefine {
         case etc = "기타"
     }
     
-    enum City: String {
+    enum City: String, CaseIterable {
         case 가평군
         case 고양시
         case 과천시

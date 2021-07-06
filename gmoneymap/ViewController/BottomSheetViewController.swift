@@ -7,10 +7,13 @@
 
 import UIKit
 
-class BottomSheetViewController: UIViewController {
+class BottomSheetViewController: BaseViewController {
 
     @IBOutlet var tabBar: UICollectionView!
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var downloadView: DownloadView!
+    @IBOutlet var searchView: SearchView!
+    @IBOutlet var menuView: MenuView!
     @IBOutlet var bottomSafeAreaHeight: NSLayoutConstraint!
     @IBOutlet var tabBarIndicatorWidth: NSLayoutConstraint!
     @IBOutlet var tabBarIndicatorLeadingMargin: NSLayoutConstraint!
@@ -28,6 +31,8 @@ class BottomSheetViewController: UIViewController {
     }
     
     func setupUI() {
+        downloadView.parentVC = self
+        
         scrollView.delegate = self
         
         tabBar.delegate = self

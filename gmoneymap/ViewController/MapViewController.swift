@@ -81,8 +81,12 @@ class MapViewController: BaseViewController {
             return
         }
         
-        searchThroughNetwork(city: selectedCity)
-//        searchThroughLocalDB()
+        print(GMapManager.shared.downloadedCityList)
+        if GMapManager.shared.downloadedCityList.contains(selectedCity) {
+            searchThroughLocalDB(city: selectedCity)
+        } else {
+            searchThroughNetwork(city: selectedCity)
+        }
     }
     
     private func setCircle(radius: Int) {
@@ -144,7 +148,7 @@ class MapViewController: BaseViewController {
             let index = listTotalCount / 100 + 1
 
             // 원 생성
-             self?.setCircle(radius: radius)
+            self?.setCircle(radius: radius)
             
             for i in 1...index {
                 self?.viewModel.requestAll(index: i, city: city) { vo in
@@ -195,11 +199,43 @@ class MapViewController: BaseViewController {
         }
     }
     
-    // TODO: 로컬DB에 저장된 데이터 불러오기
     private func searchThroughLocalDB(city: String) {
         let radius = 300
         
         setCircle(radius: radius)
+        
+        DispatchQueue.global().async {
+            if let jsonString = UserDefaults.standard.value(forKey: city) as? String {
+                
+                guard let data = jsonString.data(using: .utf8),
+                      let rows = try? JSONDecoder().decode([RowVO].self, from: data) else {
+                    print("엥")
+                    return
+                }
+                
+                // 한 데이터씩 확인
+                for row in rows {
+                    // 좌표값 확인
+                    if let latString = row.latitude,
+                       let lonString = row.longitude,
+                       let lat = Double(latString),
+                       let lon = Double(lonString) {
+                        // 내 위치와 거리 비교
+                        let distance = Int(sqrt(pow(lat-GMapManager.shared.latitude, 2) + pow(lon-GMapManager.shared.longitude, 2)) * 100000)
+                        // 거리가 radius 이내에 있는 값만 마커표시
+                        if distance < radius {
+                            DispatchQueue.main.async {
+                                self.setNewMarker(row: row)
+                            }
+                        }
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.hideIndicator()
+                    self.showToast("검색을 완료했습니다.", duration: .short)
+                }
+            }
+        }
     }
     
     private func initMap() {

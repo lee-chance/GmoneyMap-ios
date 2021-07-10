@@ -40,6 +40,7 @@ class BaseViewController: UIViewController {
             if tapToDismiss {
                 // 바깥클릭으로 닫기
                 let tap = UITapGestureRecognizer(target: self, action: #selector(self.didTappedOutside(_:)))
+                tap.cancelsTouchesInView = false
                 indicator.view.superview?.isUserInteractionEnabled = true
                 indicator.view.superview?.addGestureRecognizer(tap)
             }

@@ -16,10 +16,16 @@ class DownloadView: BaseViewWithXIB {
     
     let viewModel = SearchViewModel()
     let cityList = GMapDefine.City.allCases
-    var downloadedCityList = Array(GMapManager.shared.downloadedDatas.keys)
+    var downloadedCityList = GMapManager.shared.downloadedCityList
     
     override func setupView() {
         super.setupView()
+        
+        // 바깥클릭으로 닫기
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismiss))
+        tap.cancelsTouchesInView = false // table cell이 클릭 안되는 것 방지
+        view?.superview?.isUserInteractionEnabled = true
+        view?.superview?.addGestureRecognizer(tap)
         
         downloadedCityListTableView.delegate = self
         downloadedCityListTableView.dataSource = self
@@ -59,7 +65,7 @@ class DownloadView: BaseViewWithXIB {
     }
     
     private func downloadData(city: String) {
-        var dataModels: [DataModel] = []
+        var datas: [RowVO] = []
         
         self.showIndicator("불러오는 중...")
         
@@ -77,52 +83,68 @@ class DownloadView: BaseViewWithXIB {
             }
             let index = listTotalCount / 100 + 1
             
-            for i in 1...index {
-                self?.viewModel.requestAll(index: i, city: city) { [self] vo in
-                    
-                    // 결과코드가 성공인지 확인
-                    guard let heads = vo.RegionMnyFacltStus?[0].head,
-                          let code = heads[1].RESULT?.CODE,
-                          code == "INFO-000" else {
-                        print("code error")
-                        self?.parentVC.hideIndicator()
-                        return
-                    }
-
-                    // rows 데이터가 있는지 확인
-                    guard let rows = vo.RegionMnyFacltStus?[1].row else {
-                        print("no data")
-                        self?.parentVC.hideIndicator()
-                        return
-                    }
-
-                    // 한 데이터씩 확인
-                    for row in rows {
-                        let shopName = row.shopName
-                        let category = row.categoryName
-                        let roadAddress = row.roadAddress
-                        let locationAddress = row.locationAddress
-                        let telNumber = row.telNumber
-                        let latitude = row.latitude
-                        let longitude = row.longitude
-                        let dataModel = DataModel(CMPNM_NM: shopName, INDUTYPE_NM: category, REFINE_ROADNM_ADDR: roadAddress, REFINE_LOTNO_ADDR: locationAddress, TELNO: telNumber, REFINE_WGS84_LAT: latitude, REFINE_WGS84_LOGT: longitude)
-                        dataModels.append(dataModel)
-                        if dataModels.count != 0 {
-                            self?.indicator.message = "\(dataModels.count*100/listTotalCount)%\n\(dataModels.count)개의 데이터 저장중..."
+            print("listTotalCount: \(listTotalCount)")
+            
+            DispatchQueue.global().async {
+                for i in 1...index {
+                    self?.viewModel.requestAll(index: i, city: city) { [self] vo in
+                        
+                        // 결과코드가 성공인지 확인
+                        guard let heads = vo.RegionMnyFacltStus?[0].head,
+                              let code = heads[1].RESULT?.CODE,
+                              code == "INFO-000" else {
+                            print("code error")
+                            DispatchQueue.main.async {
+                                self?.parentVC.hideIndicator()
+                            }
+                            return
                         }
-                        if dataModels.count == listTotalCount {
-                            self?.parentVC.showToast("다운로드를 완료했습니다.", duration: .short)
+                        
+                        // rows 데이터가 있는지 확인
+                        guard let rows = vo.RegionMnyFacltStus?[1].row else {
+                            print("no data")
+                            DispatchQueue.main.async {
+                                self?.parentVC.hideIndicator()
+                            }
+                            return
+                        }
+                        
+                        // 한 데이터씩 확인
+                        for row in rows {
+                            let shopName = row.shopName
+                            let category = row.categoryName
+                            let roadAddress = row.roadAddress
+                            let locationAddress = row.locationAddress
+                            let telNumber = row.telNumber
+                            let latitude = row.latitude
+                            let longitude = row.longitude
+                            let cityCode = row.cityCode
+                            let cityName = row.cityName
+                            let data = RowVO(shopName: shopName, categoryName: category, telNumber: telNumber, locationAddress: locationAddress, roadAddress: roadAddress, longitude: longitude, latitude: latitude, cityCode: cityCode, cityName: cityName)
+                            datas.append(data)
+                            if datas.count != 0 {
+                                DispatchQueue.main.async {
+                                    self?.indicator.message = "\(datas.count*100/listTotalCount)%  \(datas.count)개의\n데이터 저장중..."
+                                }
+                            }
+                            if datas.count == listTotalCount {
+                                DispatchQueue.main.async {
+                                    self?.parentVC.showToast("다운로드를 완료했습니다.", duration: .short)
+                                    self?.parentVC.hideIndicator()
+                                    
+                                    self?.saveCityList(city: city)
+                                    self?.saveData(datas, city: city)
+                                    
+                                    self?.downloadedCityListTableView.reloadData()
+                                }
+                            }
+                        }
+                    } failed: {
+                        DispatchQueue.main.async {
                             self?.parentVC.hideIndicator()
-                            
-                            GMapManager.shared.downloadedDatas[city] = dataModels
-                            
-                            self?.downloadedCityList = Array(GMapManager.shared.downloadedDatas.keys)
-                            self?.downloadedCityListTableView.reloadData()
                         }
+                        print("error occurred!")
                     }
-                } failed: {
-                    self?.parentVC.hideIndicator()
-                    print("error occurred!")
                 }
             }
         } failed: {
@@ -130,8 +152,39 @@ class DownloadView: BaseViewWithXIB {
         }
     }
     
+    private func saveCityList(city: String) {
+        // 다운로드 받은 도시 리스트 저장
+        var list = downloadedCityList
+        if !list.contains(city) {
+            list.append(city)
+        }
+        let returnList = list.sorted()
+        GMapManager.shared.downloadedCityList = returnList
+        downloadedCityList = returnList
+    }
+    
+    private func saveData(_ datas: [RowVO], city: String) {
+        // 도시 데이터를 json string으로 변환 후 저장
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try! jsonEncoder.encode(datas)
+        let json = String(data: jsonData, encoding: .utf8)
+        UserDefaults.standard.set(json, forKey: city)
+    }
+    
+    private func removeData(city: String) {
+        // remove city list
+        let list = GMapManager.shared.downloadedCityList
+        if let index = list.firstIndex(of: city) {
+            GMapManager.shared.downloadedCityList.remove(at: index)
+        }
+        // remove city data
+        UserDefaults.standard.removeObject(forKey: city)
+        // reload table view
+        downloadedCityList = GMapManager.shared.downloadedCityList
+        downloadedCityListTableView.reloadData()
+    }
+    
     @IBAction func downloadButton(_ sender: UIButton) {
-        
         selectedCity.resignFirstResponder()
         
         guard let city = selectedCity.text,
@@ -141,14 +194,15 @@ class DownloadView: BaseViewWithXIB {
         }
         
         parentVC.customAlert(title: "데이터 다운로드",
-                           message: "\(city) 데이터를 다운로드 할까요?",
-                           okTitle: "확인",
-                           okHandler: { [weak self] action in
-                            self?.downloadData(city: city)
-                           },
-                           cancelTitle: "취소",
-                           cancelHandler: nil)
+                             message: "\(city) 데이터를 다운로드 할까요?",
+                             okTitle: "확인",
+                             okHandler: { [weak self] _ in
+                                self?.downloadData(city: city)
+                             },
+                             cancelTitle: "취소",
+                             cancelHandler: nil)
     }
+    
     
 }
 
@@ -157,16 +211,13 @@ extension DownloadView: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewD
         return 1
     }
 
-
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return cityList.count
     }
 
-
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return cityList[row].rawValue
     }
-
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedCity.text = cityList[row].rawValue
@@ -174,9 +225,20 @@ extension DownloadView: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewD
 }
 
 extension DownloadView: UITableViewDelegate, UITableViewDataSource {
-    // row when selected : 셀 터치시 회색 표시 없애기
+    // row when selected : 셀 터치시 회색 표시 없애기, 클릭 액션
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let city = downloadedCityList[indexPath.row]
+        
+        parentVC.customAlert(title: "데이터 삭제",
+                             message: "정말로 \(city) 데이터를 삭제하시겠습니까?",
+                             okTitle: "확인",
+                             okHandler: { [weak self] _ in
+                                self?.removeData(city: city)
+                             },
+                             cancelTitle: "취소",
+                             cancelHandler: nil)
     }
     
     // header height

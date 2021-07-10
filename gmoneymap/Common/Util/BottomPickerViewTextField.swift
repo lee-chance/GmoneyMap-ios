@@ -12,10 +12,6 @@ class BottomPickerViewTextField: UITextField {
     // disable all actions
     override public func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return false
-//        if action == #selector(copy(_:)) || action == #selector(paste(_:)) {
-//            return false
-//        }
-//        return true
     }
     
 }

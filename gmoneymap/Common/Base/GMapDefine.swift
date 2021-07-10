@@ -14,7 +14,6 @@ struct GMapDefine {
     }
     
     enum UserDefaultsKey: String {
-        case downloadedDatas
         case downloadedCityList
     }
     

@@ -30,6 +30,8 @@ class MapViewController: BaseViewController {
     var selectedSearchButton: SearchButton = .fromMe
     var isFullScreen: Bool = false
     
+    var rowList: [RowVO] = []
+    var tagNum = 0
     var stringList: [String] = []
     var map: [String:Int] = [:]
 //    var overlapCount: Int = 0
@@ -69,6 +71,9 @@ class MapViewController: BaseViewController {
         // 서클, 마커 삭제
         mapView?.removeAllCircles()
         mapView?.removeAllPOIItems()
+        // 검색 결과 리스트 삭제
+        rowList = []
+        tagNum = 0
         // 겹치는 마커 정보 데이터 리스트 삭제
         stringList = []
         map = [:]
@@ -101,10 +106,10 @@ class MapViewController: BaseViewController {
     
     private func setNewMarker(row: RowVO) {
         var overlapCount: Int
-//        rowList.add(row)
+        rowList.append(row)
         let marker = MTMapPOIItem()
 //        marker.userObject = row
-//        marker.tag = tagNum
+        marker.tag = tagNum
         if let latString = row.latitude,
            let lonString = row.longitude,
            let lat = Double(latString),
@@ -131,7 +136,7 @@ class MapViewController: BaseViewController {
             marker.mapPoint = mapPoint
             marker.customImageAnchorPointOffset = MTMapImageOffset(offsetX: Int32(0.5), offsetY: Int32(1.0))
             mapView?.add(marker)
-//            tagNum += 1
+            tagNum += 1
         }
     }
     

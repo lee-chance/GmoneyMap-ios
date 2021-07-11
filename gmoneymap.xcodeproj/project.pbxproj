@@ -12,6 +12,7 @@
 		2E1D775A267F270F00ED58F2 /* GMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D7759267F270F00ED58F2 /* GMapService.swift */; };
 		2E1D775C267F27DF00ED58F2 /* GMapService+TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D775B267F27DF00ED58F2 /* GMapService+TargetType.swift */; };
 		2E204A5126710961002C03C1 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E204A5026710961002C03C1 /* Screen.swift */; };
+		2E26B1FE269AED3A0099B754 /* DetailDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B1FD269AED3A0099B754 /* DetailDialogViewController.swift */; };
 		2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34A1022674A8F4002F31BF /* TabBarCell.swift */; };
 		2E34A1052674A8F4002F31BF /* TabBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E34A1032674A8F4002F31BF /* TabBarCell.xib */; };
 		2E34A1072674B90B002F31BF /* UICollectionViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */; };
@@ -100,6 +101,7 @@
 		2E1D7759267F270F00ED58F2 /* GMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapService.swift; sourceTree = "<group>"; };
 		2E1D775B267F27DF00ED58F2 /* GMapService+TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMapService+TargetType.swift"; sourceTree = "<group>"; };
 		2E204A5026710961002C03C1 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		2E26B1FD269AED3A0099B754 /* DetailDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDialogViewController.swift; sourceTree = "<group>"; };
 		2E34A1022674A8F4002F31BF /* TabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCell.swift; sourceTree = "<group>"; };
 		2E34A1032674A8F4002F31BF /* TabBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCell.xib; sourceTree = "<group>"; };
 		2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExt.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				2EFE23AD267470D300AFF2D1 /* BottomSheetViewController.swift */,
 				2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */,
 				2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */,
+				2E26B1FD269AED3A0099B754 /* DetailDialogViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				2E68E62C266F9BA600172E6F /* Keyboard.swift in Sources */,
 				2E8453932694EAE60097D868 /* BottomPickerViewTextField.swift in Sources */,
 				2E1D775A267F270F00ED58F2 /* GMapService.swift in Sources */,
+				2E26B1FE269AED3A0099B754 /* DetailDialogViewController.swift in Sources */,
 				2ED976D326678601009CCCC1 /* CategoryViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

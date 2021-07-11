@@ -41,9 +41,9 @@ extension MapViewController: MTMapViewDelegate {
     func mapView(_ mapView: MTMapView!, touchedCalloutBalloonOf poiItem: MTMapPOIItem!) {
         // TODO: 마커 클릭 이벤트 처리
         switch poiItem.markerType {
-        case MTMapPOIItemMarkerType.redPin:
-            print("redPin")
-        case MTMapPOIItemMarkerType.yellowPin:
+        case MTMapPOIItemMarkerType.redPin: // 단일결과
+            detailDialog(row: rowList[poiItem.tag])
+        case MTMapPOIItemMarkerType.yellowPin: // 다중결과, 검색결과
             print("yellowPin")
         case MTMapPOIItemMarkerType.bluePin:
             print("bluePin")
@@ -51,4 +51,21 @@ extension MapViewController: MTMapViewDelegate {
         }
     }
     
+}
+
+// custom dialog
+extension MapViewController {
+    
+    // 단일검색 다이얼로그
+    private func detailDialog(row: RowVO) {
+        
+        guard let vc = UIViewController.instantiate(viewController: DetailDialogViewController.rawString, in: .Main) as? DetailDialogViewController else {
+            return
+        }
+        
+        vc.loadViewIfNeeded() // vc initialize
+        let address = row.roadAddress != nil ? row.roadAddress : row.locationAddress
+        vc.setData(shopName: row.shopName, category: row.categoryName, address: address)
+        present(vc, animated: true, completion: nil)
+    }
 }

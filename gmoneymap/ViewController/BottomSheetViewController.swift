@@ -18,7 +18,7 @@ class BottomSheetViewController: BaseViewController {
     @IBOutlet var tabBarIndicatorWidth: NSLayoutConstraint!
     @IBOutlet var tabBarIndicatorLeadingMargin: NSLayoutConstraint!
     
-    let tabName = ["데이터", "검색", "메뉴"]
+    let tabName = ["다운로드", "검색", "메뉴"]
     let tabIcon = [UIImage(systemName: "square.and.arrow.down"), UIImage(systemName: "magnifyingglass"), UIImage(systemName: "line.horizontal.3")]
     
     var showBottomSheet: (()->Void)?

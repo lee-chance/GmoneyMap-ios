@@ -81,6 +81,8 @@
 		2EC38FDB266CD6F0008D2CE4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC38FDA266CD6F0008D2CE4 /* MapViewController.swift */; };
 		2EC38FE2266E6CCC008D2CE4 /* GMapDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC38FE1266E6CCC008D2CE4 /* GMapDefine.swift */; };
 		2ED224FF266A806100031090 /* hanullim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ED224FE266A806100031090 /* hanullim.ttf */; };
+		2ED2703B269B4D2E00ED749D /* OverlapDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2703A269B4D2E00ED749D /* OverlapDialogViewController.swift */; };
+		2ED2703D269B4D5400ED749D /* BasePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2703C269B4D5400ED749D /* BasePopupViewController.swift */; };
 		2ED976D026677CCE009CCCC1 /* BaseViewWithXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */; };
 		2ED976D326678601009CCCC1 /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED976D126678601009CCCC1 /* CategoryViewCell.swift */; };
 		2ED976D426678601009CCCC1 /* CategoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED976D226678601009CCCC1 /* CategoryViewCell.xib */; };
@@ -181,6 +183,8 @@
 		2EC38FDA266CD6F0008D2CE4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2EC38FE1266E6CCC008D2CE4 /* GMapDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapDefine.swift; sourceTree = "<group>"; };
 		2ED224FE266A806100031090 /* hanullim.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hanullim.ttf; sourceTree = "<group>"; };
+		2ED2703A269B4D2E00ED749D /* OverlapDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlapDialogViewController.swift; sourceTree = "<group>"; };
+		2ED2703C269B4D5400ED749D /* BasePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopupViewController.swift; sourceTree = "<group>"; };
 		2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewWithXIB.swift; sourceTree = "<group>"; };
 		2ED976D126678601009CCCC1 /* CategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewCell.swift; sourceTree = "<group>"; };
 		2ED976D226678601009CCCC1 /* CategoryViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewCell.xib; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@
 				2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */,
 				2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */,
 				2E26B1FD269AED3A0099B754 /* DetailDialogViewController.swift */,
+				2ED2703A269B4D2E00ED749D /* OverlapDialogViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 				2ED224FE266A806100031090 /* hanullim.ttf */,
 				2EC38FE1266E6CCC008D2CE4 /* GMapDefine.swift */,
 				2E9889D8268757AD00CC433F /* BaseViewController.swift */,
+				2ED2703C269B4D5400ED749D /* BasePopupViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -630,6 +636,7 @@
 				2EFE23AE267470D300AFF2D1 /* BottomSheetViewController.swift in Sources */,
 				2E466676267F58E600A57B8B /* SearchModel.swift in Sources */,
 				2EE040E8267E1AE8005D917D /* MapViewController+CLLocationManager.swift in Sources */,
+				2ED2703D269B4D5400ED749D /* BasePopupViewController.swift in Sources */,
 				2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */,
 				2EC11DDB26652A2B007C85F2 /* AppDelegate.swift in Sources */,
 				2E9D7A1726671BB800D8625A /* NSObjectExt.swift in Sources */,
@@ -642,6 +649,7 @@
 				2E9D7A1626671BB800D8625A /* UITableViewExt.swift in Sources */,
 				2E9D7A1C26671C4500D8625A /* CSUILabel.swift in Sources */,
 				2E9D7A1A26671BB800D8625A /* DynamicSize.swift in Sources */,
+				2ED2703B269B4D2E00ED749D /* OverlapDialogViewController.swift in Sources */,
 				2E46576826872A010078727B /* GMapManager.swift in Sources */,
 				2EF7A15026675FE800732BC3 /* CategoryScrollView.swift in Sources */,
 				2EC38FE2266E6CCC008D2CE4 /* GMapDefine.swift in Sources */,

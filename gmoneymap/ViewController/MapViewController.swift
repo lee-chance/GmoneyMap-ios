@@ -32,8 +32,7 @@ class MapViewController: BaseViewController {
     
     var rowList: [RowVO] = []
     var tagNum = 0
-    var stringList: [String] = []
-    var map: [String:Int] = [:]
+    var map: [String:[RowVO]] = [:]
 //    var overlapCount: Int = 0
     
     enum SearchButton {
@@ -75,7 +74,6 @@ class MapViewController: BaseViewController {
         rowList = []
         tagNum = 0
         // 겹치는 마커 정보 데이터 리스트 삭제
-        stringList = []
         map = [:]
         
         showIndicator("불러오는 중...", tapToDismiss: false)
@@ -86,7 +84,6 @@ class MapViewController: BaseViewController {
             return
         }
         
-        print(GMapManager.shared.downloadedCityList)
         if GMapManager.shared.downloadedCityList.contains(selectedCity) {
             searchThroughLocalDB(city: selectedCity)
         } else {
@@ -105,7 +102,6 @@ class MapViewController: BaseViewController {
     }
     
     private func setNewMarker(row: RowVO) {
-        var overlapCount: Int
         rowList.append(row)
         let marker = MTMapPOIItem()
 //        marker.userObject = row
@@ -116,20 +112,16 @@ class MapViewController: BaseViewController {
            let lon = Double(lonString) {
             let mapPoint = MTMapPoint.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon))
             let xyString = "\(latString) - \(lonString)"
-            if stringList.contains(xyString) {
+            if let overlapRowList = map[xyString] {
                 // 2개 이상의 검색결과는 옐로우핀으로 찍음
-                if let count = map[xyString] {
-                    overlapCount = count
-                } else {
-                    overlapCount = 1
-                }
-                overlapCount += 1
-                map[xyString] = overlapCount
-                marker.itemName = "\(overlapCount)개의 검색결과"
+                var tempList = overlapRowList
+                tempList.append(row)
+                map[xyString] = tempList
+                marker.itemName = "\(map[xyString]!.count)개의 검색결과"
                 marker.markerType = .yellowPin
             } else {
                 // 단일 검색결과는 레드핀으로 찍음
-                stringList.append(xyString)
+                map[xyString] = [row]
                 marker.itemName = row.shopName
                 marker.markerType = .redPin
             }

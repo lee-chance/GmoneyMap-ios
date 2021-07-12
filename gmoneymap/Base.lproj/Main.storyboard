@@ -394,7 +394,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xqO-Go-6Gi" firstAttribute="centerY" secondItem="4RB-4J-PAJ" secondAttribute="centerY" id="He1-Q8-hcE" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
-                            <constraint firstItem="xqO-Go-6Gi" firstAttribute="centerX" secondItem="4RB-4J-PAJ" secondAttribute="centerX" id="Vfr-Lr-co3" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="xqO-Go-6Gi" firstAttribute="leading" secondItem="1MI-uc-Etb" secondAttribute="leading" constant="30" id="cLU-JM-HoE" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="1MI-uc-Etb" firstAttribute="trailing" secondItem="xqO-Go-6Gi" secondAttribute="trailing" constant="30" id="cy3-Wo-7ZN" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                         </constraints>
@@ -410,6 +409,101 @@
             </objects>
             <point key="canvasLocation" x="437.68115942028987" y="838.39285714285711"/>
         </scene>
+        <!--Overlap Dialog View Controller-->
+        <scene sceneID="iHC-Ki-Dqw">
+            <objects>
+                <viewController storyboardIdentifier="OverlapDialogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DAc-D9-aeV" customClass="OverlapDialogViewController" customModule="gmoneymap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b81-TD-JIW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noH-x3-ZeW">
+                                <rect key="frame" x="30" y="186.5" width="354" height="523"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ns-Pu-h9M">
+                                        <rect key="frame" x="16" y="8" width="69.5" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="CLQ-HL-LYH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z41-bZ-Ar3" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="475" width="354" height="48"/>
+                                        <color key="backgroundColor" name="GMapBackBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="UNn-mw-4R7" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="확인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="DAc-D9-aeV" eventType="touchUpInside" id="C2b-Nj-Pcm"/>
+                                            <action selector="dismissButton:" destination="tf6-z5-Qkj" eventType="touchUpInside" id="WNq-yW-VZ7"/>
+                                        </connections>
+                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DmN-lQ-1a4">
+                                        <rect key="frame" x="0.0" y="40" width="354" height="435"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="435" id="n6q-H6-OCC" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shopNameCell" textLabel="kB4-9H-p6U" style="IBUITableViewCellStyleDefault" id="GOR-5f-4IX">
+                                                <rect key="frame" x="0.0" y="24.5" width="354" height="47.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GOR-5f-4IX" id="Cht-1j-Zjg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="47.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kB4-9H-p6U" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="0.0" width="314" height="47.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="DmN-lQ-1a4" secondAttribute="trailing" id="69M-LQ-ODR"/>
+                                    <constraint firstItem="8ns-Pu-h9M" firstAttribute="top" secondItem="noH-x3-ZeW" secondAttribute="top" constant="8" id="BI3-PJ-MdC"/>
+                                    <constraint firstItem="Z41-bZ-Ar3" firstAttribute="top" secondItem="DmN-lQ-1a4" secondAttribute="bottom" id="BLb-yc-C28"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z41-bZ-Ar3" secondAttribute="trailing" id="MpM-Ep-1oW"/>
+                                    <constraint firstItem="DmN-lQ-1a4" firstAttribute="leading" secondItem="noH-x3-ZeW" secondAttribute="leading" id="WPk-tk-Ssu"/>
+                                    <constraint firstItem="Z41-bZ-Ar3" firstAttribute="leading" secondItem="noH-x3-ZeW" secondAttribute="leading" id="sal-bO-dbw"/>
+                                    <constraint firstItem="DmN-lQ-1a4" firstAttribute="top" secondItem="8ns-Pu-h9M" secondAttribute="bottom" constant="8" id="veK-iy-etP"/>
+                                    <constraint firstItem="8ns-Pu-h9M" firstAttribute="leading" secondItem="noH-x3-ZeW" secondAttribute="leading" constant="16" id="yk2-wC-xYE"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z41-bZ-Ar3" secondAttribute="bottom" id="zdZ-DB-max"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Opa-KQ-qY8"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="noH-x3-ZeW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="b81-TD-JIW" secondAttribute="top" constant="120" id="6Cm-2m-7r1"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="noH-x3-ZeW" secondAttribute="bottom" constant="120" id="Htq-ag-ONC"/>
+                            <constraint firstItem="noH-x3-ZeW" firstAttribute="centerY" secondItem="b81-TD-JIW" secondAttribute="centerY" id="Wif-vT-s6K"/>
+                            <constraint firstItem="Opa-KQ-qY8" firstAttribute="trailing" secondItem="noH-x3-ZeW" secondAttribute="trailing" constant="30" id="gzA-s7-dCc"/>
+                            <constraint firstItem="noH-x3-ZeW" firstAttribute="leading" secondItem="Opa-KQ-qY8" secondAttribute="leading" constant="30" id="pEU-3l-saG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="DmN-lQ-1a4" id="Ifz-Vq-C86"/>
+                        <outlet property="tableViewHeight" destination="n6q-H6-OCC" id="0mj-w4-xfv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ld-zH-rTB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208.6956521739132" y="837.72321428571422"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="Efh-lI-ebX">
@@ -423,6 +517,9 @@
         </designable>
         <designable name="P1G-3e-fd0">
             <size key="intrinsicContentSize" width="86" height="36"/>
+        </designable>
+        <designable name="Z41-bZ-Ar3">
+            <size key="intrinsicContentSize" width="39" height="39"/>
         </designable>
         <designable name="nWT-WI-xCO">
             <size key="intrinsicContentSize" width="39.5" height="19.5"/>

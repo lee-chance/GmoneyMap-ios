@@ -21,13 +21,20 @@ class MenuView: BaseViewWithXIB {
         tableView.delegate = self
     }
     
+    // 공지사항
+    private func showNoticeList() {
+        guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
+            return
+        }
+    }
+    
     // 앱 정보
     private func showAppInfoPopup() {
         guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
             return
         }
         
-        guard let vc = UIViewController.instantiate(viewController: AppInfoPopupViewController.rawString, in: .Main) as? AppInfoPopupViewController else {
+        guard let vc = UIViewController.instantiate(viewController: AppInfoPopupViewController.rawString, in: .Popup) as? AppInfoPopupViewController else {
             return
         }
         
@@ -45,8 +52,7 @@ extension MenuView: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0: // 공지사항
-            // TODO: 공지사항
-            print(menuList[0])
+            showNoticeList()
         case 1: // 데이터 다운로드
             // TODO: 데이터 다운로드
             print(menuList[1])

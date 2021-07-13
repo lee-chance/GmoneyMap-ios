@@ -11,6 +11,7 @@ struct GMapDefine {
     
     enum Storyboard: String {
         case Main
+        case Popup
     }
     
     enum UserDefaultsKey: String {

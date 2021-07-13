@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail Dialog View Controller-->
+        <scene sceneID="Ctq-U4-LQ8">
+            <objects>
+                <viewController storyboardIdentifier="DetailDialogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O2G-kq-JJY" customClass="DetailDialogViewController" customModule="gmoneymap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EzA-ep-3vz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A23-xi-iGq">
+                                <rect key="frame" x="30" y="343.5" width="354" height="209"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000149011612" translatesAutoresizingMaskIntoConstraints="NO" id="uWh-Pi-fe6" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="24" width="322" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Miy-jq-MYq" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="46" y="77.5" width="292" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYh-Zr-jBM" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="46" y="117.5" width="292" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8J-iH-JyV" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="161" width="354" height="48"/>
+                                        <color key="backgroundColor" name="GMapBackBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="A9t-gb-vBX" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="확인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="O2G-kq-JJY" eventType="touchUpInside" id="gc8-nM-fha"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hWI-LY-gHp">
+                                        <rect key="frame" x="16" y="79" width="22" height="20"/>
+                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="RrO-nD-g71" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                            <constraint firstAttribute="width" secondItem="hWI-LY-gHp" secondAttribute="height" multiplier="11:10" id="ZEe-yh-aTh" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="location.north.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="omP-x7-gY7">
+                                        <rect key="frame" x="16" y="117.5" width="22" height="19.5"/>
+                                        <color key="tintColor" name="GMapMint"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="3OP-2F-Cgf" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                            <constraint firstAttribute="width" secondItem="omP-x7-gY7" secondAttribute="height" multiplier="11:10" id="3So-ab-c2X" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="tYh-Zr-jBM" firstAttribute="top" secondItem="Miy-jq-MYq" secondAttribute="bottom" constant="16" id="A15-DT-9ne" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="T8J-iH-JyV" firstAttribute="leading" secondItem="A23-xi-iGq" secondAttribute="leading" id="Cnj-8s-jEi" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="Miy-jq-MYq" firstAttribute="top" secondItem="uWh-Pi-fe6" secondAttribute="bottom" constant="20" id="JP5-QY-F9b" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="T8J-iH-JyV" firstAttribute="top" secondItem="tYh-Zr-jBM" secondAttribute="bottom" constant="24" id="QSy-IW-AFf" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="hWI-LY-gHp" firstAttribute="centerY" secondItem="Miy-jq-MYq" secondAttribute="centerY" id="RD5-kh-74J" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstAttribute="trailing" secondItem="T8J-iH-JyV" secondAttribute="trailing" id="RKh-DU-U0O" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="Miy-jq-MYq" firstAttribute="leading" secondItem="hWI-LY-gHp" secondAttribute="trailing" constant="8" id="U69-QB-ji1" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="omP-x7-gY7" firstAttribute="leading" secondItem="A23-xi-iGq" secondAttribute="leading" constant="16" id="YIQ-AN-hzj" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstAttribute="trailing" secondItem="Miy-jq-MYq" secondAttribute="trailing" constant="16" id="aRT-sv-x3L" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="tYh-Zr-jBM" firstAttribute="leading" secondItem="omP-x7-gY7" secondAttribute="trailing" constant="8" id="aaN-ob-4Az" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstAttribute="bottom" secondItem="T8J-iH-JyV" secondAttribute="bottom" id="cQN-GZ-Djb" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="omP-x7-gY7" firstAttribute="centerY" secondItem="tYh-Zr-jBM" secondAttribute="centerY" id="ckr-Gw-w22" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="hWI-LY-gHp" firstAttribute="leading" secondItem="A23-xi-iGq" secondAttribute="leading" constant="16" id="fCi-3Z-XoA" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="uWh-Pi-fe6" firstAttribute="top" secondItem="A23-xi-iGq" secondAttribute="top" constant="24" id="kSN-xh-x4b" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstItem="uWh-Pi-fe6" firstAttribute="leading" secondItem="A23-xi-iGq" secondAttribute="leading" constant="16" id="lU5-OB-Qvc" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstAttribute="trailing" secondItem="uWh-Pi-fe6" secondAttribute="trailing" constant="16" id="xZK-Ag-CS2" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                    <constraint firstAttribute="trailing" secondItem="tYh-Zr-jBM" secondAttribute="trailing" constant="16" id="zlw-QP-CMJ" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sh6-3X-W64"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sh6-3X-W64" firstAttribute="trailing" secondItem="A23-xi-iGq" secondAttribute="trailing" constant="30" id="KmH-uY-rFP" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="A23-xi-iGq" firstAttribute="leading" secondItem="sh6-3X-W64" secondAttribute="leading" constant="30" id="Lz2-PI-rli" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                            <constraint firstItem="A23-xi-iGq" firstAttribute="centerY" secondItem="EzA-ep-3vz" secondAttribute="centerY" id="vr0-g4-I9z" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="address" destination="tYh-Zr-jBM" id="SdS-MT-yaB"/>
+                        <outlet property="button" destination="T8J-iH-JyV" id="m7m-QO-bLM"/>
+                        <outlet property="category" destination="Miy-jq-MYq" id="dgH-7h-JaA"/>
+                        <outlet property="shopName" destination="uWh-Pi-fe6" id="m3u-ua-UwZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fhw-76-rtx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-729" y="212"/>
+        </scene>
+        <!--Overlap Dialog View Controller-->
+        <scene sceneID="nNN-YF-Ck8">
+            <objects>
+                <viewController storyboardIdentifier="OverlapDialogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZEI-wp-gQF" customClass="OverlapDialogViewController" customModule="gmoneymap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FTL-2v-DJq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmW-Nk-X0P">
+                                <rect key="frame" x="30" y="186.5" width="354" height="523"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McV-YU-VRv">
+                                        <rect key="frame" x="16" y="8" width="69.5" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="r6p-q2-Oxl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvu-Qj-6jk" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="475" width="354" height="48"/>
+                                        <color key="backgroundColor" name="GMapBackBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="sFn-r7-e6j" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="확인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="ZEI-wp-gQF" eventType="touchUpInside" id="4MI-Vl-SQq"/>
+                                            <action selector="dismissButton:" destination="O2G-kq-JJY" eventType="touchUpInside" id="fzZ-cV-Ccx"/>
+                                        </connections>
+                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6bD-Ad-f5b">
+                                        <rect key="frame" x="0.0" y="40" width="354" height="435"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="435" id="e56-A5-s86" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shopNameCell" textLabel="629-uj-YWH" style="IBUITableViewCellStyleDefault" id="raG-FQ-isK">
+                                                <rect key="frame" x="0.0" y="24.5" width="354" height="47.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="raG-FQ-isK" id="jFF-C5-WON">
+                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="47.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="629-uj-YWH" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="0.0" width="314" height="47.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6bD-Ad-f5b" secondAttribute="trailing" id="BH7-Qe-qG7"/>
+                                    <constraint firstItem="McV-YU-VRv" firstAttribute="top" secondItem="PmW-Nk-X0P" secondAttribute="top" constant="8" id="Ig4-CH-S5a"/>
+                                    <constraint firstItem="Rvu-Qj-6jk" firstAttribute="top" secondItem="6bD-Ad-f5b" secondAttribute="bottom" id="aLN-GN-vDc"/>
+                                    <constraint firstItem="6bD-Ad-f5b" firstAttribute="leading" secondItem="PmW-Nk-X0P" secondAttribute="leading" id="fp1-hv-W5s"/>
+                                    <constraint firstItem="Rvu-Qj-6jk" firstAttribute="leading" secondItem="PmW-Nk-X0P" secondAttribute="leading" id="g16-Hl-FfW"/>
+                                    <constraint firstItem="McV-YU-VRv" firstAttribute="leading" secondItem="PmW-Nk-X0P" secondAttribute="leading" constant="16" id="jg9-yv-EzB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rvu-Qj-6jk" secondAttribute="bottom" id="qUL-9P-FvU"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rvu-Qj-6jk" secondAttribute="trailing" id="xr8-jt-dfF"/>
+                                    <constraint firstItem="6bD-Ad-f5b" firstAttribute="top" secondItem="McV-YU-VRv" secondAttribute="bottom" constant="8" id="yFb-3m-9zb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LfI-Yi-HQa"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PmW-Nk-X0P" secondAttribute="bottom" constant="120" id="Ww1-GW-y9O"/>
+                            <constraint firstItem="LfI-Yi-HQa" firstAttribute="trailing" secondItem="PmW-Nk-X0P" secondAttribute="trailing" constant="30" id="aG8-J1-MOx"/>
+                            <constraint firstItem="PmW-Nk-X0P" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FTL-2v-DJq" secondAttribute="top" constant="120" id="fYg-Py-wDC"/>
+                            <constraint firstItem="PmW-Nk-X0P" firstAttribute="centerY" secondItem="FTL-2v-DJq" secondAttribute="centerY" id="mjF-0u-fJn"/>
+                            <constraint firstItem="PmW-Nk-X0P" firstAttribute="leading" secondItem="LfI-Yi-HQa" secondAttribute="leading" constant="30" id="rD8-z0-Gum"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="6bD-Ad-f5b" id="ujz-bF-26p"/>
+                        <outlet property="tableViewHeight" destination="e56-A5-s86" id="rvL-oh-dN1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8D-6w-aYy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="42" y="211"/>
+        </scene>
+        <!--App Info Popup View Controller-->
+        <scene sceneID="sfe-Ie-6vj">
+            <objects>
+                <viewController storyboardIdentifier="AppInfoPopupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3ar-fm-kbh" customClass="AppInfoPopupViewController" customModule="gmoneymap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zhu-6h-9HB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVH-0h-9Up">
+                                <rect key="frame" x="30" y="285.5" width="354" height="325"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어플리케이션 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A39-Us-mad" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
+                                        <color key="backgroundColor" name="GMapBackBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="cXj-gj-wSs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kd-Z7-zPd" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="277" width="354" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="IGB-m8-hxd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="확인">
+                                            <color key="titleColor" name="GMapBackBlue"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="3ar-fm-kbh" eventType="touchUpInside" id="JPX-Kf-Ux0"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱 버전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gg-7M-Jrm" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="68" width="52" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rj0-cr-2nc" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="98" width="37" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmf-Td-rH4" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="166" width="113" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보처리방침" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRM-62-wHo" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="204" width="125" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDS-Gl-d0K">
+                                        <rect key="frame" x="0.0" y="276" width="354" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="ELc-lc-01d"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bog-bB-b5b" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="234" width="69" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="PAF-9k-GUk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="전문보기">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showTermsAndConditions:" destination="3ar-fm-kbh" eventType="touchUpInside" id="ybX-cL-Eyr"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="폰트 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRv-wA-nhj" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="136" width="67" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Kmf-Td-rH4" firstAttribute="top" secondItem="oRv-wA-nhj" secondAttribute="bottom" constant="8" id="0GH-WI-e0S"/>
+                                    <constraint firstAttribute="trailing" secondItem="A39-Us-mad" secondAttribute="trailing" id="8Oe-VD-dls"/>
+                                    <constraint firstItem="1Kd-Z7-zPd" firstAttribute="leading" secondItem="FVH-0h-9Up" secondAttribute="leading" id="CgW-oc-xec"/>
+                                    <constraint firstItem="A39-Us-mad" firstAttribute="top" secondItem="FVH-0h-9Up" secondAttribute="top" id="Dnm-LK-Lx4"/>
+                                    <constraint firstItem="WDS-Gl-d0K" firstAttribute="leading" secondItem="FVH-0h-9Up" secondAttribute="leading" id="Nc5-2U-1O2"/>
+                                    <constraint firstItem="Rj0-cr-2nc" firstAttribute="leading" secondItem="FVH-0h-9Up" secondAttribute="leading" constant="40" id="ODu-yi-uP7"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Kd-Z7-zPd" secondAttribute="bottom" id="RhJ-aK-n6O"/>
+                                    <constraint firstItem="bog-bB-b5b" firstAttribute="top" secondItem="aRM-62-wHo" secondAttribute="bottom" constant="8" id="VBf-cJ-cjS"/>
+                                    <constraint firstAttribute="trailing" secondItem="WDS-Gl-d0K" secondAttribute="trailing" id="cA2-W0-dlk"/>
+                                    <constraint firstItem="Kmf-Td-rH4" firstAttribute="leading" secondItem="Rj0-cr-2nc" secondAttribute="leading" id="dqr-1d-hp6"/>
+                                    <constraint firstItem="A39-Us-mad" firstAttribute="leading" secondItem="FVH-0h-9Up" secondAttribute="leading" id="eGH-to-OaJ"/>
+                                    <constraint firstItem="Rj0-cr-2nc" firstAttribute="top" secondItem="7gg-7M-Jrm" secondAttribute="bottom" constant="8" id="hpY-CF-bl2"/>
+                                    <constraint firstItem="bog-bB-b5b" firstAttribute="leading" secondItem="Rj0-cr-2nc" secondAttribute="leading" id="hpf-b5-kZY"/>
+                                    <constraint firstItem="oRv-wA-nhj" firstAttribute="top" secondItem="Rj0-cr-2nc" secondAttribute="bottom" constant="16" id="pKP-kK-XA8"/>
+                                    <constraint firstItem="aRM-62-wHo" firstAttribute="leading" secondItem="oRv-wA-nhj" secondAttribute="leading" id="qPu-qn-hwa"/>
+                                    <constraint firstItem="1Kd-Z7-zPd" firstAttribute="top" secondItem="WDS-Gl-d0K" secondAttribute="bottom" id="rS8-PN-OEL"/>
+                                    <constraint firstItem="WDS-Gl-d0K" firstAttribute="top" secondItem="bog-bB-b5b" secondAttribute="bottom" constant="20" id="rep-fk-Pg4"/>
+                                    <constraint firstItem="oRv-wA-nhj" firstAttribute="leading" secondItem="7gg-7M-Jrm" secondAttribute="leading" id="s3F-WX-mpc"/>
+                                    <constraint firstItem="7gg-7M-Jrm" firstAttribute="top" secondItem="A39-Us-mad" secondAttribute="bottom" constant="20" id="sLk-LJ-UWR"/>
+                                    <constraint firstItem="7gg-7M-Jrm" firstAttribute="leading" secondItem="FVH-0h-9Up" secondAttribute="leading" constant="20" id="stf-aa-yTg"/>
+                                    <constraint firstItem="aRM-62-wHo" firstAttribute="top" secondItem="Kmf-Td-rH4" secondAttribute="bottom" constant="16" id="tay-vn-y5V"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Kd-Z7-zPd" secondAttribute="trailing" id="yrH-2r-Se6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="avL-94-V8a"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="avL-94-V8a" firstAttribute="trailing" secondItem="FVH-0h-9Up" secondAttribute="trailing" constant="30" id="YaH-Sx-GSR"/>
+                            <constraint firstItem="FVH-0h-9Up" firstAttribute="leading" secondItem="avL-94-V8a" secondAttribute="leading" constant="30" id="Z4M-3h-9nj"/>
+                            <constraint firstItem="FVH-0h-9Up" firstAttribute="centerY" secondItem="Zhu-6h-9HB" secondAttribute="centerY" id="ywy-Kk-yFA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I03-Vl-yBo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="212"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="1Kd-Z7-zPd">
+            <size key="intrinsicContentSize" width="39" height="39"/>
+        </designable>
+        <designable name="629-uj-YWH">
+            <size key="intrinsicContentSize" width="38" height="24"/>
+        </designable>
+        <designable name="7gg-7M-Jrm">
+            <size key="intrinsicContentSize" width="51.5" height="21.5"/>
+        </designable>
+        <designable name="A39-Us-mad">
+            <size key="intrinsicContentSize" width="143.5" height="24"/>
+        </designable>
+        <designable name="Kmf-Td-rH4">
+            <size key="intrinsicContentSize" width="113" height="21.5"/>
+        </designable>
+        <designable name="Miy-jq-MYq">
+            <size key="intrinsicContentSize" width="48" height="24"/>
+        </designable>
+        <designable name="Rj0-cr-2nc">
+            <size key="intrinsicContentSize" width="37" height="21.5"/>
+        </designable>
+        <designable name="Rvu-Qj-6jk">
+            <size key="intrinsicContentSize" width="39" height="39"/>
+        </designable>
+        <designable name="T8J-iH-JyV">
+            <size key="intrinsicContentSize" width="39" height="39"/>
+        </designable>
+        <designable name="aRM-62-wHo">
+            <size key="intrinsicContentSize" width="125" height="21.5"/>
+        </designable>
+        <designable name="bog-bB-b5b">
+            <size key="intrinsicContentSize" width="69" height="36"/>
+        </designable>
+        <designable name="oRv-wA-nhj">
+            <size key="intrinsicContentSize" width="67" height="21.5"/>
+        </designable>
+        <designable name="tYh-Zr-jBM">
+            <size key="intrinsicContentSize" width="39.5" height="19.5"/>
+        </designable>
+        <designable name="uWh-Pi-fe6">
+            <size key="intrinsicContentSize" width="66.5" height="33.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="location.north.fill" catalog="system" width="108" height="128"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="GMapBackBlue">
+            <color red="0.030999999493360519" green="0.28200000524520874" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GMapMint">
+            <color red="0.27799999713897705" green="0.72899997234344482" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

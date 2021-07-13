@@ -57,7 +57,7 @@ extension MapViewController {
     
     // 단일결과 다이얼로그
     func detailDialog(row: RowVO) {
-        guard let vc = UIViewController.instantiate(viewController: DetailDialogViewController.rawString, in: .Main) as? DetailDialogViewController else {
+        guard let vc = UIViewController.instantiate(viewController: DetailDialogViewController.rawString, in: .Popup) as? DetailDialogViewController else {
             return
         }
         
@@ -73,7 +73,7 @@ extension MapViewController {
             return
         }
         
-        guard let vc = UIViewController.instantiate(viewController: OverlapDialogViewController.rawString, in: .Main) as? OverlapDialogViewController else {
+        guard let vc = UIViewController.instantiate(viewController: OverlapDialogViewController.rawString, in: .Popup) as? OverlapDialogViewController else {
             return
         }
         

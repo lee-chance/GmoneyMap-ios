@@ -96,6 +96,7 @@
 		2EFE23B0267470EC00AFF2D1 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE23AF267470EC00AFF2D1 /* ContainerViewController.swift */; };
 		2EFE23B2267474E800AFF2D1 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE23B1267474E800AFF2D1 /* UIViewControllerExt.swift */; };
 		563196B9269D7195000640E5 /* AppInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563196B8269D7195000640E5 /* AppInfoPopupViewController.swift */; };
+		563196BC269D7888000640E5 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 563196BB269D7888000640E5 /* Popup.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -201,6 +202,7 @@
 		47B7F19941F55A771B633267 /* Pods_gmoneymap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gmoneymap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D547EF6617ADDFBCD207879 /* Pods-gmoneymap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gmoneymap.debug.xcconfig"; path = "Target Support Files/Pods-gmoneymap/Pods-gmoneymap.debug.xcconfig"; sourceTree = "<group>"; };
 		563196B8269D7195000640E5 /* AppInfoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoPopupViewController.swift; sourceTree = "<group>"; };
+		563196BB269D7888000640E5 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 				2ED976CE26677CB5009CCCC1 /* Base */,
 				2E9D7A0F26671BB800D8625A /* Util */,
 				2E46576726872A010078727B /* GMapManager.swift */,
+				2EC38FE1266E6CCC008D2CE4 /* GMapDefine.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -407,13 +410,13 @@
 		2EC11DD926652A2B007C85F2 /* gmoneymap */ = {
 			isa = PBXGroup;
 			children = (
+				563196BA269D785C000640E5 /* Storyboard */,
 				2E466674267F58DA00A57B8B /* Model */,
 				2E46666F267F48A600A57B8B /* ViewModel */,
 				2EC59883266692F8001C969D /* ViewController */,
 				2EF7A14D26675FA800732BC3 /* View */,
 				2E1D7757267F26EE00ED58F2 /* Common */,
 				2EC11DDA26652A2B007C85F2 /* AppDelegate.swift */,
-				2EC11DE026652A2B007C85F2 /* Main.storyboard */,
 				2EC11DE326652A2C007C85F2 /* Assets.xcassets */,
 				2EC11DE526652A2C007C85F2 /* LaunchScreen.storyboard */,
 				2EC11DE826652A2C007C85F2 /* Info.plist */,
@@ -442,9 +445,8 @@
 		2ED976CE26677CB5009CCCC1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */,
 				2ED224FE266A806100031090 /* hanullim.ttf */,
-				2EC38FE1266E6CCC008D2CE4 /* GMapDefine.swift */,
+				2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */,
 				2E9889D8268757AD00CC433F /* BaseViewController.swift */,
 				2ED2703C269B4D5400ED749D /* BasePopupViewController.swift */,
 			);
@@ -481,6 +483,15 @@
 				563196B8269D7195000640E5 /* AppInfoPopupViewController.swift */,
 			);
 			name = Popup;
+			sourceTree = "<group>";
+		};
+		563196BA269D785C000640E5 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2EC11DE026652A2B007C85F2 /* Main.storyboard */,
+				563196BB269D7888000640E5 /* Popup.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,6 +572,7 @@
 				2E9D79FF2667196000D8625A /* map_present_tracking.png in Resources */,
 				2E9D79F62667196000D8625A /* detail_button.png in Resources */,
 				2E9D7A092667196000D8625A /* noimage.png in Resources */,
+				563196BC269D7888000640E5 /* Popup.storyboard in Resources */,
 				2E9D79FB2667196000D8625A /* th_line.png in Resources */,
 				2E9D7A042667196000D8625A /* info_box_tail.png in Resources */,
 				2E9D79F32667196000D8625A /* map_pin_custom.png in Resources */,

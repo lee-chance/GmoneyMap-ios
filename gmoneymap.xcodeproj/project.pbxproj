@@ -95,6 +95,7 @@
 		2EFE23AE267470D300AFF2D1 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE23AD267470D300AFF2D1 /* BottomSheetViewController.swift */; };
 		2EFE23B0267470EC00AFF2D1 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE23AF267470EC00AFF2D1 /* ContainerViewController.swift */; };
 		2EFE23B2267474E800AFF2D1 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFE23B1267474E800AFF2D1 /* UIViewControllerExt.swift */; };
+		563196B9269D7195000640E5 /* AppInfoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563196B8269D7195000640E5 /* AppInfoPopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -199,6 +200,7 @@
 		2EFE23B1267474E800AFF2D1 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		47B7F19941F55A771B633267 /* Pods_gmoneymap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gmoneymap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D547EF6617ADDFBCD207879 /* Pods-gmoneymap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gmoneymap.debug.xcconfig"; path = "Target Support Files/Pods-gmoneymap/Pods-gmoneymap.debug.xcconfig"; sourceTree = "<group>"; };
+		563196B8269D7195000640E5 /* AppInfoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoPopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -425,6 +427,7 @@
 		2EC59883266692F8001C969D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				563196B7269D7168000640E5 /* Popup */,
 				2EFE23AF267470EC00AFF2D1 /* ContainerViewController.swift */,
 				2EC38FDA266CD6F0008D2CE4 /* MapViewController.swift */,
 				2EE040E5267E14FE005D917D /* MapViewController+MTMapView.swift */,
@@ -432,8 +435,6 @@
 				2EFE23AD267470D300AFF2D1 /* BottomSheetViewController.swift */,
 				2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */,
 				2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */,
-				2E26B1FD269AED3A0099B754 /* DetailDialogViewController.swift */,
-				2ED2703A269B4D2E00ED749D /* OverlapDialogViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -470,6 +471,16 @@
 				2EFE23AB26745CB000AFF2D1 /* BottomSheetContainerViewController.swift */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		563196B7269D7168000640E5 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				2E26B1FD269AED3A0099B754 /* DetailDialogViewController.swift */,
+				2ED2703A269B4D2E00ED749D /* OverlapDialogViewController.swift */,
+				563196B8269D7195000640E5 /* AppInfoPopupViewController.swift */,
+			);
+			name = Popup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -635,6 +646,7 @@
 				2EFE23AC26745CB000AFF2D1 /* BottomSheetContainerViewController.swift in Sources */,
 				2EFE23AE267470D300AFF2D1 /* BottomSheetViewController.swift in Sources */,
 				2E466676267F58E600A57B8B /* SearchModel.swift in Sources */,
+				563196B9269D7195000640E5 /* AppInfoPopupViewController.swift in Sources */,
 				2EE040E8267E1AE8005D917D /* MapViewController+CLLocationManager.swift in Sources */,
 				2ED2703D269B4D5400ED749D /* BasePopupViewController.swift in Sources */,
 				2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */,

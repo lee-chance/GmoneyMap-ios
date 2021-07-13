@@ -504,6 +504,131 @@
             </objects>
             <point key="canvasLocation" x="1208.6956521739132" y="837.72321428571422"/>
         </scene>
+        <!--App Info Popup View Controller-->
+        <scene sceneID="FDc-cs-2Nn">
+            <objects>
+                <viewController storyboardIdentifier="AppInfoPopupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bf1-Tk-FSu" customClass="AppInfoPopupViewController" customModule="gmoneymap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vZi-Yz-cIO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-qD-lYJ">
+                                <rect key="frame" x="30" y="285.5" width="354" height="325"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어플리케이션 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6p-Ym-N5x" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
+                                        <color key="backgroundColor" name="GMapBackBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="ylg-R7-PMn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLz-ez-07d" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="277" width="354" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="Nra-b3-okl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="확인">
+                                            <color key="titleColor" name="GMapBackBlue"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissButton:" destination="bf1-Tk-FSu" eventType="touchUpInside" id="aDA-bG-hJS"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱 버전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBh-vp-Tul" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="68" width="52" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj4-AT-vWT" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="98" width="37" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yve-jS-Lef" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="166" width="113" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보처리방침" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuS-0L-s0l" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="204" width="125" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41f-cZ-5zD">
+                                        <rect key="frame" x="0.0" y="276" width="354" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="la8-mK-zdX"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1B-L5-Yhp" customClass="DynamicUIButton" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="234" width="63" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="z5g-hO-HLU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="전문보기">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showTermsAndConditions:" destination="bf1-Tk-FSu" eventType="touchUpInside" id="jdS-tA-hpN"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="폰트 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utd-sh-61b" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="136" width="67" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sLz-ez-07d" secondAttribute="trailing" id="0aN-kU-phS"/>
+                                    <constraint firstItem="Utd-sh-61b" firstAttribute="leading" secondItem="CBh-vp-Tul" secondAttribute="leading" id="1k9-8q-u8d"/>
+                                    <constraint firstItem="CBh-vp-Tul" firstAttribute="leading" secondItem="V1o-qD-lYJ" secondAttribute="leading" constant="20" id="1vo-ES-P5V"/>
+                                    <constraint firstItem="Z1B-L5-Yhp" firstAttribute="leading" secondItem="lj4-AT-vWT" secondAttribute="leading" id="4aw-Bd-abM"/>
+                                    <constraint firstItem="CBh-vp-Tul" firstAttribute="top" secondItem="V6p-Ym-N5x" secondAttribute="bottom" constant="20" id="6Hl-gT-DWF"/>
+                                    <constraint firstAttribute="trailing" secondItem="41f-cZ-5zD" secondAttribute="trailing" id="Ade-65-FGy"/>
+                                    <constraint firstItem="lj4-AT-vWT" firstAttribute="top" secondItem="CBh-vp-Tul" secondAttribute="bottom" constant="8" id="C1D-25-fIP"/>
+                                    <constraint firstItem="yve-jS-Lef" firstAttribute="leading" secondItem="lj4-AT-vWT" secondAttribute="leading" id="GjB-tm-ajT"/>
+                                    <constraint firstItem="cuS-0L-s0l" firstAttribute="top" secondItem="yve-jS-Lef" secondAttribute="bottom" constant="16" id="Sc5-bD-cVk"/>
+                                    <constraint firstAttribute="trailing" secondItem="V6p-Ym-N5x" secondAttribute="trailing" id="Wfy-yA-Nm1"/>
+                                    <constraint firstItem="Z1B-L5-Yhp" firstAttribute="top" secondItem="cuS-0L-s0l" secondAttribute="bottom" constant="8" id="X1Z-gr-PJg"/>
+                                    <constraint firstItem="41f-cZ-5zD" firstAttribute="leading" secondItem="V1o-qD-lYJ" secondAttribute="leading" id="XAq-cl-mIi"/>
+                                    <constraint firstItem="V6p-Ym-N5x" firstAttribute="leading" secondItem="V1o-qD-lYJ" secondAttribute="leading" id="XJA-py-kHR"/>
+                                    <constraint firstItem="Utd-sh-61b" firstAttribute="top" secondItem="lj4-AT-vWT" secondAttribute="bottom" constant="16" id="dnv-QN-IRW"/>
+                                    <constraint firstAttribute="bottom" secondItem="sLz-ez-07d" secondAttribute="bottom" id="iof-Dp-bQJ"/>
+                                    <constraint firstItem="lj4-AT-vWT" firstAttribute="leading" secondItem="V1o-qD-lYJ" secondAttribute="leading" constant="40" id="jQ3-Sn-C4l"/>
+                                    <constraint firstItem="cuS-0L-s0l" firstAttribute="leading" secondItem="Utd-sh-61b" secondAttribute="leading" id="l8v-Qs-e26"/>
+                                    <constraint firstItem="V6p-Ym-N5x" firstAttribute="top" secondItem="V1o-qD-lYJ" secondAttribute="top" id="nFk-W1-mbr"/>
+                                    <constraint firstItem="sLz-ez-07d" firstAttribute="top" secondItem="41f-cZ-5zD" secondAttribute="bottom" id="ngH-tC-ZXu"/>
+                                    <constraint firstItem="yve-jS-Lef" firstAttribute="top" secondItem="Utd-sh-61b" secondAttribute="bottom" constant="8" id="obO-Of-ExA"/>
+                                    <constraint firstItem="sLz-ez-07d" firstAttribute="leading" secondItem="V1o-qD-lYJ" secondAttribute="leading" id="rsL-hw-e8G"/>
+                                    <constraint firstItem="41f-cZ-5zD" firstAttribute="top" secondItem="Z1B-L5-Yhp" secondAttribute="bottom" constant="20" id="tjy-dP-0Vh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tT2-Ut-TaB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="V1o-qD-lYJ" firstAttribute="centerY" secondItem="vZi-Yz-cIO" secondAttribute="centerY" id="CrG-BO-qhY"/>
+                            <constraint firstItem="tT2-Ut-TaB" firstAttribute="trailing" secondItem="V1o-qD-lYJ" secondAttribute="trailing" constant="30" id="XuY-1M-xnC"/>
+                            <constraint firstItem="V1o-qD-lYJ" firstAttribute="leading" secondItem="tT2-Ut-TaB" secondAttribute="leading" constant="30" id="ahc-qw-bI8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxw-iX-Hmq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1968.1159420289857" y="838.39285714285711"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="Efh-lI-ebX">
@@ -518,14 +643,23 @@
         <designable name="P1G-3e-fd0">
             <size key="intrinsicContentSize" width="86" height="36"/>
         </designable>
+        <designable name="V6p-Ym-N5x">
+            <size key="intrinsicContentSize" width="143.5" height="24"/>
+        </designable>
         <designable name="Z41-bZ-Ar3">
             <size key="intrinsicContentSize" width="39" height="39"/>
+        </designable>
+        <designable name="kB4-9H-p6U">
+            <size key="intrinsicContentSize" width="38" height="24"/>
         </designable>
         <designable name="nWT-WI-xCO">
             <size key="intrinsicContentSize" width="39.5" height="19.5"/>
         </designable>
         <designable name="qR3-4p-Rmr">
             <size key="intrinsicContentSize" width="168.36000000000001" height="48.024000000000001"/>
+        </designable>
+        <designable name="sLz-ez-07d">
+            <size key="intrinsicContentSize" width="39" height="39"/>
         </designable>
         <designable name="t8I-BF-nKz">
             <size key="intrinsicContentSize" width="104" height="36"/>

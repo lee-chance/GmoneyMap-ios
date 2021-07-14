@@ -26,6 +26,13 @@ class MenuView: BaseViewWithXIB {
         guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
             return
         }
+        
+        guard let vc = UIViewController.instantiate(viewController: NoticeListViewController.rawString, in: .Main) as? NoticeListViewController else {
+            return
+        }
+        
+        vc.loadViewIfNeeded()
+        rootVC.present(vc, animated: true, completion: nil)
     }
     
     // 앱 정보

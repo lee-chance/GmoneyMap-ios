@@ -8,5 +8,10 @@ target 'gmoneymap' do
   # Pods for gmoneymap
   pod 'Alamofire'
   pod 'Moya'
+  
+  # Firebase
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
 end

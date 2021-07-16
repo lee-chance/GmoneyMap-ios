@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>92132451671-9igiuiq43bf8ve7qm5673f2nttkk5pnt.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.92132451671-9igiuiq43bf8ve7qm5673f2nttkk5pnt</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>92132451671-9ajl420u4mtdq2q7qjb5id1hrhrji0km.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBNEyvG6a4ioNuVcyi-6Btyv_27NB6N5aQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>92132451671</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.chance.gmoneymap</string>
+	<key>PROJECT_ID</key>
+	<string>gmoneymap-9efc5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gmoneymap-9efc5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:92132451671:ios:9fb61d466c1a29645b8a12</string>
+	<key>DATABASE_URL</key>
+	<string>https://gmoneymap-9efc5.firebaseio.com</string>
+</dict>
+</plist>

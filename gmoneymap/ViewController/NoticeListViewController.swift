@@ -7,18 +7,23 @@
 
 import Foundation
 
+import Firebase
+
 class NoticeListViewController: BaseViewController {
     
     @IBOutlet weak var noticeListTableView: UITableView!
     @IBOutlet weak var statusBarHeight: NSLayoutConstraint!
     
-    // DEBUG: 파이어베이스 데이터로 변환 후 삭제
-    var noticeList = [
-        Notice(title: "title", content: "긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠긴 컨텐츠 긴 컨텐츠 긴 컨텐츠"),
-        Notice(title: "2", content: """
+    var noticeList = [Notice]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
+        setupFirebase()
+    }
+    
+    private func setup() {
         noticeListTableView.delegate = self
         noticeListTableView.dataSource = self
         noticeListTableView.register(UINib(nibName: NoticeListCell.rawString, bundle: nil), forCellReuseIdentifier: NoticeListCell.rawString)
@@ -28,23 +33,30 @@ class NoticeListViewController: BaseViewController {
         self.modalTransitionStyle = .crossDissolve
         self.modalPresentationStyle = .fullScreen
     }
-"""),
-        Notice(title: "3", content: "content2"),
-        Notice(title: "4444", content: "content3"),
-        Notice(title: "555", content: "content5")
-    ]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func setupFirebase() {
+        let db = Firestore.firestore()
         
-        noticeListTableView.delegate = self
-        noticeListTableView.dataSource = self
-        noticeListTableView.register(UINib(nibName: NoticeListCell.rawString, bundle: nil), forCellReuseIdentifier: NoticeListCell.rawString)
-        
-        statusBarHeight.constant = Screen.statusBar
-        
-        self.modalTransitionStyle = .crossDissolve
-        self.modalPresentationStyle = .fullScreen
+        db.collection("notices")
+            .order(by: "timestamp")
+            .getDocuments { querySnapshot, err in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        // get title
+                        let documentID = document.documentID
+                        let index = documentID.firstIndex(of: "_") ?? documentID.endIndex
+                        let title = String(documentID[..<index])
+                        // get content
+                        let contentData = document.data()["content"] as? String ?? "불러오는 중 오류가 발생했습니다."
+                        let content = contentData.replacingOccurrences(of: "!@#", with: "\n")
+                        
+                        self.noticeList.append(Notice(title: title, content: content))
+                    }
+                    self.noticeListTableView.reloadData()
+                }
+            }
     }
     
     @IBAction func dismissButton(_ sender: UIButton) {
@@ -59,7 +71,7 @@ extension NoticeListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if noticeList[section].opened == true {
+        if noticeList[section].opened {
             return 1 + 1 // title + content
         } else {
             return 1 // title
@@ -79,12 +91,14 @@ extension NoticeListViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: NoticeListCell.rawString, for: indexPath) as! NoticeListCell
             cell.cellTitle.text = noticeList[indexPath.section].title
             cell.backgroundColor = .white
-            // TODO: 열고 닫는 화살표 추가해야됨
+            cell.isSelected = noticeList[indexPath.section].opened
+            cell.showIcon()
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: NoticeListCell.rawString, for: indexPath) as! NoticeListCell
             cell.cellTitle.text = noticeList[indexPath.section].content
             cell.backgroundColor = .systemPink // FIXME: 옅은 회색
+            cell.hideIcon()
             return cell
         }
     }

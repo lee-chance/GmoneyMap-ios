@@ -10,6 +10,7 @@ import UIKit
 class NoticeListCell: UITableViewCell {
 
     @IBOutlet weak var cellTitle: UILabel!
+    @IBOutlet weak var expandableIcon: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +21,15 @@ class NoticeListCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func showIcon() {
+        expandableIcon.isHidden = false
+        expandableIcon.image = isSelected ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down")
+    }
+    
+    func hideIcon() {
+        expandableIcon.isHidden = true
     }
     
 }

@@ -100,6 +100,7 @@
 		564CC034269EC28100DD0968 /* NoticeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564CC033269EC28100DD0968 /* NoticeListViewController.swift */; };
 		564CC037269EC52E00DD0968 /* NoticeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564CC035269EC52E00DD0968 /* NoticeListCell.swift */; };
 		564CC038269EC52E00DD0968 /* NoticeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564CC036269EC52E00DD0968 /* NoticeListCell.xib */; };
+		56F0CE2726A154FF00467859 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56F0CE2626A154FF00467859 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +210,7 @@
 		564CC033269EC28100DD0968 /* NoticeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListViewController.swift; sourceTree = "<group>"; };
 		564CC035269EC52E00DD0968 /* NoticeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListCell.swift; sourceTree = "<group>"; };
 		564CC036269EC52E00DD0968 /* NoticeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeListCell.xib; sourceTree = "<group>"; };
+		56F0CE2626A154FF00467859 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +428,7 @@
 				2EC11DE326652A2C007C85F2 /* Assets.xcassets */,
 				2EC11DE526652A2C007C85F2 /* LaunchScreen.storyboard */,
 				2EC11DE826652A2C007C85F2 /* Info.plist */,
+				56F0CE2626A154FF00467859 /* GoogleService-Info.plist */,
 				2E9D79C72667180300D8625A /* Bridging-Header.h */,
 				2EFE23AA26745C8F00AFF2D1 /* Library */,
 				2EE040E9267E1D37005D917D /* TestLocation.gpx */,
@@ -603,6 +606,7 @@
 				2E9D7A0B2667196000D8625A /* daum_th_line.png in Resources */,
 				2ED976D426678601009CCCC1 /* CategoryViewCell.xib in Resources */,
 				2E9D79F52667196000D8625A /* map_pinup.png in Resources */,
+				56F0CE2726A154FF00467859 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

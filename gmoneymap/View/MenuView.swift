@@ -35,6 +35,20 @@ class MenuView: BaseViewWithXIB {
         rootVC.present(vc, animated: true, completion: nil)
     }
     
+    // 데이터 다운로드
+    private func showDataDownloadView() {
+        guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
+            return
+        }
+        
+        guard let vc = UIViewController.instantiate(viewController: DataDownloadViewController.rawString, in: .Main) as? DataDownloadViewController else {
+            return
+        }
+        
+        vc.loadViewIfNeeded()
+        rootVC.present(vc, animated: true, completion: nil)
+    }
+    
     // 앱 정보
     private func showAppInfoPopup() {
         guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
@@ -61,8 +75,7 @@ extension MenuView: UITableViewDataSource, UITableViewDelegate {
         case 0: // 공지사항
             showNoticeList()
         case 1: // 데이터 다운로드
-            // TODO: 데이터 다운로드
-            print(menuList[1])
+            showDataDownloadView()
         case 2: // 오류제보
             // TODO: 오류제보
             print(menuList[2])

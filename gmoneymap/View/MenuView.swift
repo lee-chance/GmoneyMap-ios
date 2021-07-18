@@ -7,6 +7,8 @@
 
 import UIKit
 
+import MessageUI
+
 class MenuView: BaseViewWithXIB {
     
     @IBOutlet weak var tableView: UITableView!
@@ -49,6 +51,46 @@ class MenuView: BaseViewWithXIB {
         rootVC.present(vc, animated: true, completion: nil)
     }
     
+    // 오류제보
+    private func sendEmail() {
+        guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
+            return
+        }
+        
+        if MFMailComposeViewController.canSendMail() {
+            let compseVC = MFMailComposeViewController()
+            compseVC.mailComposeDelegate = rootVC as! ContainerViewController
+            compseVC.setToRecipients(["729mail2@gmail.com"])
+            compseVC.setSubject("(경기지역화폐지도 오류제보)")
+            compseVC.setMessageBody(
+                """
+                앱 버전 :
+                
+                기기명 :
+                iOS :
+                내용 (Content) :
+                
+                """, isHTML: false)
+            
+            rootVC.present(compseVC, animated: true, completion: nil)
+        } else {
+            let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            sendMailErrorAlert.addAction(confirmAction)
+            rootVC.present(sendMailErrorAlert, animated: true, completion: nil)
+        }
+    }
+    
+    // TODO: 평점주기
+    private func moveToAppStore() {
+        
+    }
+    
+    // TODO: 공유하기
+    private func kakaoLink() {
+        
+    }
+    
     // 앱 정보
     private func showAppInfoPopup() {
         guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
@@ -77,14 +119,11 @@ extension MenuView: UITableViewDataSource, UITableViewDelegate {
         case 1: // 데이터 다운로드
             showDataDownloadView()
         case 2: // 오류제보
-            // TODO: 오류제보
-            print(menuList[2])
+            sendEmail()
         case 3: // 평점주기
-            // TODO: 평점주기
-            print(menuList[3])
+            moveToAppStore()
         case 4: // 공유하기
-            // TODO: 공유하기
-            print(menuList[4])
+            kakaoLink()
         case 5: // 앱 정보
             showAppInfoPopup()
         default:

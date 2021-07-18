@@ -7,6 +7,8 @@
 
 import UIKit
 
+import MessageUI
+
 class ContainerViewController: BottomSheetContainerViewController<MapViewController, BottomSheetViewController> {
 
     override func viewDidLoad() {
@@ -22,4 +24,12 @@ class ContainerViewController: BottomSheetContainerViewController<MapViewControl
 //        bottomSheetViewController.initBottomSheet = initBottomSheetClosure()
     }
 
+}
+
+extension ContainerViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
 }

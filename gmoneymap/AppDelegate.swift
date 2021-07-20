@@ -8,6 +8,7 @@
 import UIKit
 
 import Firebase
+import KakaoSDKCommon
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        KakaoSDKCommon.initSDK(appKey: "e2cca786ee8abe52f4210a35aebd0a7e")
         
         let mapVC = UIViewController.instantiate(viewController: MapViewController.rawString, in: .Main)
         let menuVC = UIViewController.instantiate(viewController: BottomSheetViewController.rawString, in: .Main)

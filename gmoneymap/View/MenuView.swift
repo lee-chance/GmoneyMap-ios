@@ -8,6 +8,9 @@
 import UIKit
 
 import MessageUI
+import KakaoSDKCommon
+import KakaoSDKLink
+import KakaoSDKTemplate
 
 class MenuView: BaseViewWithXIB {
     
@@ -86,9 +89,49 @@ class MenuView: BaseViewWithXIB {
         
     }
     
-    // TODO: 공유하기
+    // 공유하기
     private func kakaoLink() {
+        // 템플릿 만들기 (피드)
+        // FIXME: 이미지링크, 앱다운로드링크 변경 필요
+        let feedTemplateJsonStringData =
+            """
+            {
+                "object_type": "feed",
+                "content": {
+                    "title": "경기지역화폐지도",
+                    "description": "경기도민 필수어플!
+            지역화폐 가맹점을 쉽게 찾아보세요.",
+                    "image_url": "https://ifh.cc/g/ynfCDx.png",
+                    "link": {
+                        "mobile_web_url": "https://developers.kakao.com",
+                        "web_url": "https://developers.kakao.com"
+                    }
+                },
+                "buttons": [
+                    {
+                        "title": "앱다운로드",
+                        "link": {
+                            "mobile_web_url": "https://developers.kakao.com",
+                            "web_url": "https://developers.kakao.com"
+                        }
+                    }
+                ]
+            }
+            """.data(using: .utf8)!
         
+        // 기본 템플릿으로 카카오링크 보내기
+        if let templatable = try? SdkJSONDecoder.custom.decode(FeedTemplate.self, from: feedTemplateJsonStringData) {
+            LinkApi.shared.defaultLink(templatable: templatable) {(linkResult, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    if let linkResult = linkResult {
+                        UIApplication.shared.open(linkResult.url, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        }
     }
     
     // 앱 정보

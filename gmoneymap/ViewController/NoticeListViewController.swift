@@ -38,7 +38,7 @@ class NoticeListViewController: BaseViewController {
         let db = Firestore.firestore()
         
         db.collection("notices")
-            .order(by: "timestamp")
+            .order(by: "timestamp", descending: true)
             .getDocuments { querySnapshot, err in
                 if let err = err {
                     print("Error getting documents: \(err)")

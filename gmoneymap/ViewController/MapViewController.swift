@@ -238,7 +238,7 @@ class MapViewController: BaseViewController {
     private func initMap() {
         setupLocationManager()
         
-        mapView = MTMapView(frame: self.view.bounds)
+        mapView = MTMapView(frame: self.mapViewField.bounds)
         if let mapView = mapView {
             mapView.delegate = self
             mapView.baseMapType = .standard

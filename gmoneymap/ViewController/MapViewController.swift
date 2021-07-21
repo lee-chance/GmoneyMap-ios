@@ -33,7 +33,6 @@ class MapViewController: BaseViewController {
     var rowList: [RowVO] = []
     var tagNum = 0
     var map: [String:[RowVO]] = [:]
-//    var overlapCount: Int = 0
     
     enum SearchButton {
         case fromMe
@@ -53,6 +52,37 @@ class MapViewController: BaseViewController {
         locationButtonHeight.constant = Screen.bottomSafeArea + 76.ratioConstant
     }
     
+    private func clearMapView() {
+        // 서클, 마커 삭제
+        mapView?.removeAllCircles()
+        mapView?.removeAllPOIItems()
+    }
+    
+    func search(vo: RowVO) {
+        print(1)
+        guard let latString = vo.latitude,
+              let lonString = vo.longitude,
+              let lat = Double(latString),
+              let lon = Double(lonString) else {
+            print(2)
+            return
+        }
+              
+        clearMapView()
+        let mapPoint = MTMapPoint.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon))
+        mapView?.setMapCenter(mapPoint, animated: true)
+        
+        print(3)
+        let marker = MTMapPOIItem()
+        marker.tag = tagNum
+        marker.itemName = vo.shopName
+        marker.markerType = .redPin
+        marker.mapPoint = mapPoint
+        marker.customImageAnchorPointOffset = MTMapImageOffset(offsetX: Int32(0.5), offsetY: Int32(1.0))
+        mapView?.add(marker)
+        print(4)
+    }
+    
     private func search(tag category: Int) {
         
         print("tag: \(category)") // 100 ~ 119
@@ -66,10 +96,7 @@ class MapViewController: BaseViewController {
             }
         }
         
-        // TODO: 데이터 초기화(?)
-        // 서클, 마커 삭제
-        mapView?.removeAllCircles()
-        mapView?.removeAllPOIItems()
+        clearMapView()
         // 검색 결과 리스트 삭제
         rowList = []
         tagNum = 0

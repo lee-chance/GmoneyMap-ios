@@ -68,16 +68,25 @@ class SearchView: BaseViewWithXIB {
     }
     
     private func search() {
-        print("=========================")
-        print("도시: \(selectedCity.text)")
-        print("타입: \(searchType.text)")
-        print("검색: \(searchTextField.text)")
-        
         guard let city = selectedCity.text,
               city != "" else {
             print("지역을 선택해 주세요!")
             return
         }
+        let type = searchType.text!
+        let keyword = searchTextField.text!
+        
+        guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
+            return
+        }
+        
+        guard let vc = UIViewController.instantiate(viewController: ResultViewController.rawString, in: .Main) as? ResultViewController else {
+            return
+        }
+        
+        vc.loadViewIfNeeded()
+        vc.searchKeyword = (city, type, keyword)
+        rootVC.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func onClick(_ sender: UIButton) {

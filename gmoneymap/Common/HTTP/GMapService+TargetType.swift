@@ -17,8 +17,8 @@ extension GMapService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getList:
-            return .get
+        case .getList
+        : return .get
         }
     }
     
@@ -38,7 +38,8 @@ extension GMapService: TargetType {
     
     var headers: [String : String]? {
         switch self {
-        case .getList: return ["Content-type":"application/json;charset=UTF-8"]
+        case .getList
+        : return ["Content-type":"application/json;charset=UTF-8"]
         }
     }
     

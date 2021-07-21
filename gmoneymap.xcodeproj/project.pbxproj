@@ -23,6 +23,7 @@
 		2E68E62C266F9BA600172E6F /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68E62B266F9BA600172E6F /* Keyboard.swift */; };
 		2E76B5F6267A46BB00E033EB /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76B5F4267A46BB00E033EB /* MenuTableViewCell.swift */; };
 		2E76B5F7267A46BB00E033EB /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E76B5F5267A46BB00E033EB /* MenuTableViewCell.xib */; };
+		2E81436626A7ECFE007DD828 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81436526A7ECFE007DD828 /* ResultViewController.swift */; };
 		2E8453932694EAE60097D868 /* BottomPickerViewTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8453922694EAE60097D868 /* BottomPickerViewTextField.swift */; };
 		2E9889D9268757AD00CC433F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9889D8268757AD00CC433F /* BaseViewController.swift */; };
 		2E9D5B57267A400A0071589C /* BottomSheetViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */; };
@@ -74,6 +75,8 @@
 		2E9D7A20266741BE00D8625A /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D7A1F266741BE00D8625A /* UIViewExt.swift */; };
 		2EA338912676683E00D8E9FA /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA338902676683E00D8E9FA /* DownloadView.swift */; };
 		2EA3389426766AE100D8E9FA /* DownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EA338922676684D00D8E9FA /* DownloadView.xib */; };
+		2EBC1C1D26A7E91A0009FF2B /* ResultListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC1C1B26A7E91A0009FF2B /* ResultListCell.swift */; };
+		2EBC1C1E26A7E91A0009FF2B /* ResultListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC1C1C26A7E91A0009FF2B /* ResultListCell.xib */; };
 		2EC11DDB26652A2B007C85F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC11DDA26652A2B007C85F2 /* AppDelegate.swift */; };
 		2EC11DE226652A2B007C85F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC11DE026652A2B007C85F2 /* Main.storyboard */; };
 		2EC11DE426652A2C007C85F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC11DE326652A2C007C85F2 /* Assets.xcassets */; };
@@ -121,6 +124,7 @@
 		2E68E62B266F9BA600172E6F /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		2E76B5F4267A46BB00E033EB /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		2E76B5F5267A46BB00E033EB /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		2E81436526A7ECFE007DD828 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		2E8453922694EAE60097D868 /* BottomPickerViewTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPickerViewTextField.swift; sourceTree = "<group>"; };
 		2E9889D8268757AD00CC433F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+UICollectionView.swift"; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 		2E9D7A1F266741BE00D8625A /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		2EA338902676683E00D8E9FA /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		2EA338922676684D00D8E9FA /* DownloadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadView.xib; sourceTree = "<group>"; };
+		2EBC1C1B26A7E91A0009FF2B /* ResultListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListCell.swift; sourceTree = "<group>"; };
+		2EBC1C1C26A7E91A0009FF2B /* ResultListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultListCell.xib; sourceTree = "<group>"; };
 		2EC11DD726652A2B007C85F2 /* gmoneymap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gmoneymap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC11DDA26652A2B007C85F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EC11DE126652A2B007C85F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -451,6 +457,7 @@
 				2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */,
 				564CC033269EC28100DD0968 /* NoticeListViewController.swift */,
 				56F0CE2826A15E1500467859 /* DataDownloadViewController.swift */,
+				2E81436526A7ECFE007DD828 /* ResultViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -478,6 +485,8 @@
 				2E34A1032674A8F4002F31BF /* TabBarCell.xib */,
 				564CC035269EC52E00DD0968 /* NoticeListCell.swift */,
 				564CC036269EC52E00DD0968 /* NoticeListCell.xib */,
+				2EBC1C1B26A7E91A0009FF2B /* ResultListCell.swift */,
+				2EBC1C1C26A7E91A0009FF2B /* ResultListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -601,6 +610,7 @@
 				2E9D7A052667196000D8625A /* noimage256.png in Resources */,
 				2E9D5B61267A42B50071589C /* SearchView.xib in Resources */,
 				2EF7A15126675FE800732BC3 /* CategoryScrollView.xib in Resources */,
+				2EBC1C1E26A7E91A0009FF2B /* ResultListCell.xib in Resources */,
 				2E9D79F42667196000D8625A /* shadow_balloon.png in Resources */,
 				2EA3389426766AE100D8E9FA /* DownloadView.xib in Resources */,
 				2E76B5F7267A46BB00E033EB /* MenuTableViewCell.xib in Resources */,
@@ -668,8 +678,10 @@
 				2E1D775C267F27DF00ED58F2 /* GMapService+TargetType.swift in Sources */,
 				564CC034269EC28100DD0968 /* NoticeListViewController.swift in Sources */,
 				564CC037269EC52E00DD0968 /* NoticeListCell.swift in Sources */,
+				2EBC1C1D26A7E91A0009FF2B /* ResultListCell.swift in Sources */,
 				2EFE23B0267470EC00AFF2D1 /* ContainerViewController.swift in Sources */,
 				2E9889D9268757AD00CC433F /* BaseViewController.swift in Sources */,
+				2E81436626A7ECFE007DD828 /* ResultViewController.swift in Sources */,
 				2EE040E6267E14FE005D917D /* MapViewController+MTMapView.swift in Sources */,
 				2E0251E5267CDFCF00396486 /* UIColorExt.swift in Sources */,
 				2EFE23B2267474E800AFF2D1 /* UIViewControllerExt.swift in Sources */,

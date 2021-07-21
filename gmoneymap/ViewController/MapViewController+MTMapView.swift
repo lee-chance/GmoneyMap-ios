@@ -42,7 +42,7 @@ extension MapViewController: MTMapViewDelegate {
         switch poiItem.markerType {
         case MTMapPOIItemMarkerType.redPin: // 단일결과
             detailDialog(row: rowList[poiItem.tag])
-        case MTMapPOIItemMarkerType.yellowPin: // 다중결과, 검색결과
+        case MTMapPOIItemMarkerType.yellowPin: // 다중결과
             overlapDialog(item: rowList[poiItem.tag])
         case MTMapPOIItemMarkerType.bluePin: // not use
             print("bluePin")

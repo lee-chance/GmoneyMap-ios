@@ -8,6 +8,7 @@ target 'gmoneymap' do
   # Pods for gmoneymap
   pod 'Alamofire'
   pod 'Moya'
+  pod 'DropDown'
   
   # Firebase
   pod 'Firebase/Analytics'

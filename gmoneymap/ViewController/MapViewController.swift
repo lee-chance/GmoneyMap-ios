@@ -58,21 +58,29 @@ class MapViewController: BaseViewController {
         mapView?.removeAllPOIItems()
     }
     
+    private func removeResultListData() {
+        // 검색 결과 리스트 삭제
+        rowList = []
+        tagNum = 0
+    }
+    
     func search(vo: RowVO) {
-        print(1)
         guard let latString = vo.latitude,
               let lonString = vo.longitude,
               let lat = Double(latString),
               let lon = Double(lonString) else {
-            print(2)
             return
         }
               
         clearMapView()
-        let mapPoint = MTMapPoint.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon))
-        mapView?.setMapCenter(mapPoint, animated: true)
+        removeResultListData()
+        rowList.append(vo)
         
-        print(3)
+        let mapPoint = MTMapPoint.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon))
+        delay(interval: 0.5) {
+            self.mapView?.setMapCenter(mapPoint, animated: true)
+        }
+        
         let marker = MTMapPOIItem()
         marker.tag = tagNum
         marker.itemName = vo.shopName
@@ -80,7 +88,6 @@ class MapViewController: BaseViewController {
         marker.mapPoint = mapPoint
         marker.customImageAnchorPointOffset = MTMapImageOffset(offsetX: Int32(0.5), offsetY: Int32(1.0))
         mapView?.add(marker)
-        print(4)
     }
     
     private func search(tag category: Int) {
@@ -97,9 +104,7 @@ class MapViewController: BaseViewController {
         }
         
         clearMapView()
-        // 검색 결과 리스트 삭제
-        rowList = []
-        tagNum = 0
+        removeResultListData()
         // 겹치는 마커 정보 데이터 리스트 삭제
         map = [:]
         
@@ -131,7 +136,6 @@ class MapViewController: BaseViewController {
     private func setNewMarker(row: RowVO) {
         rowList.append(row)
         let marker = MTMapPOIItem()
-//        marker.userObject = row
         marker.tag = tagNum
         if let latString = row.latitude,
            let lonString = row.longitude,

@@ -38,7 +38,6 @@ extension MapViewController: MTMapViewDelegate {
     // MARK: - POI Item
     // [POI Item] 단말 사용자가 POI Item 아이콘(마커) 위에 나타난 말풍선(Callout Balloon)을 터치한 경우 호출된다.
     func mapView(_ mapView: MTMapView!, touchedCalloutBalloonOf poiItem: MTMapPOIItem!) {
-        // TODO: 마커 클릭 이벤트 처리 left.검색결과
         switch poiItem.markerType {
         case MTMapPOIItemMarkerType.redPin: // 단일결과
             detailDialog(row: rowList[poiItem.tag])

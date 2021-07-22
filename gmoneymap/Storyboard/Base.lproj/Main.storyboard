@@ -602,7 +602,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색결과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eq2-az-BAi" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색중..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eq2-az-BAi" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
                                 <rect key="frame" x="349.5" y="88" width="48.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -640,6 +640,9 @@
     <designables>
         <designable name="6N0-PD-PFM">
             <size key="intrinsicContentSize" width="42" height="19.5"/>
+        </designable>
+        <designable name="Eq2-az-BAi">
+            <size key="intrinsicContentSize" width="48.5" height="17"/>
         </designable>
         <designable name="P1G-3e-fd0">
             <size key="intrinsicContentSize" width="86" height="36"/>

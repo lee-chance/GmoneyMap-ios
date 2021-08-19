@@ -20,7 +20,7 @@ struct Screen {
     static var statusBar: CGFloat {
         if #available(iOS 13.0, *) {
             let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-//            return window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0 // has bug in IPhone 12 mini
+//            return window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0 // has a bug in IPhone 12 mini
             return window?.safeAreaInsets.top ?? 0
         } else {
             return UIApplication.shared.statusBarFrame.height

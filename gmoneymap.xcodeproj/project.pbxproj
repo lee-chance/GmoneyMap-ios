@@ -16,6 +16,7 @@
 		2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34A1022674A8F4002F31BF /* TabBarCell.swift */; };
 		2E34A1052674A8F4002F31BF /* TabBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E34A1032674A8F4002F31BF /* TabBarCell.xib */; };
 		2E34A1072674B90B002F31BF /* UICollectionViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */; };
+		2E3E29DD26CEA5A600DA4A2E /* ResultViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3E29DC26CEA5A600DA4A2E /* ResultViewController+Search.swift */; };
 		2E46576826872A010078727B /* GMapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E46576726872A010078727B /* GMapManager.swift */; };
 		2E466671267F48DE00A57B8B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466670267F48DE00A57B8B /* SearchViewModel.swift */; };
 		2E466673267F494500A57B8B /* VerbosePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466672267F494500A57B8B /* VerbosePlugin.swift */; };
@@ -117,6 +118,7 @@
 		2E34A1022674A8F4002F31BF /* TabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCell.swift; sourceTree = "<group>"; };
 		2E34A1032674A8F4002F31BF /* TabBarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCell.xib; sourceTree = "<group>"; };
 		2E34A1062674B90B002F31BF /* UICollectionViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExt.swift; sourceTree = "<group>"; };
+		2E3E29DC26CEA5A600DA4A2E /* ResultViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultViewController+Search.swift"; sourceTree = "<group>"; };
 		2E46576726872A010078727B /* GMapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapManager.swift; sourceTree = "<group>"; };
 		2E466670267F48DE00A57B8B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		2E466672267F494500A57B8B /* VerbosePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbosePlugin.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */,
 				564CC033269EC28100DD0968 /* NoticeListViewController.swift */,
 				56F0CE2826A15E1500467859 /* DataDownloadViewController.swift */,
+				2E3E29DC26CEA5A600DA4A2E /* ResultViewController+Search.swift */,
 				2E81436526A7ECFE007DD828 /* ResultViewController.swift */,
 			);
 			path = ViewController;
@@ -692,6 +695,7 @@
 				563196B9269D7195000640E5 /* AppInfoPopupViewController.swift in Sources */,
 				2EE040E8267E1AE8005D917D /* MapViewController+CLLocationManager.swift in Sources */,
 				2ED2703D269B4D5400ED749D /* BasePopupViewController.swift in Sources */,
+				2E3E29DD26CEA5A600DA4A2E /* ResultViewController+Search.swift in Sources */,
 				2E34A1042674A8F4002F31BF /* TabBarCell.swift in Sources */,
 				2EC11DDB26652A2B007C85F2 /* AppDelegate.swift in Sources */,
 				2E9D7A1726671BB800D8625A /* NSObjectExt.swift in Sources */,

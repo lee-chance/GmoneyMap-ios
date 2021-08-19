@@ -7,9 +7,6 @@
 
 import UIKit
 
-let STANDARD_IPHONE_WIDTH: CGFloat = 375
-let SCREEN_WIDTH_RADIO: CGFloat = Screen.width / STANDARD_IPHONE_WIDTH
-
 @IBDesignable
 class DynamicUILabel: UILabel {
     override var font: UIFont! {

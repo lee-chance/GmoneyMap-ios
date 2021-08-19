@@ -7,6 +7,9 @@
 
 import UIKit
 
+let STANDARD_IPHONE_WIDTH: CGFloat = 375
+let SCREEN_WIDTH_RADIO: CGFloat = UIScreen.main.bounds.width / STANDARD_IPHONE_WIDTH
+
 extension Double {
     var ratioConstant: CGFloat { return  CGFloat(self) * SCREEN_WIDTH_RADIO }
 }

@@ -28,15 +28,16 @@ class ResultViewController: BaseViewController {
         
         datas = []
         
-        // TODO: 데이터베이스에서 가져오기 구현
+        let selectedCity = searchKeyword.0
         let type = searchKeyword.1
-        switch type {
-        case "상호명":
-            searchShopName()
-        case "주소":
-            searchAddress()
-        default: break
+        
+        // TODO: 데이터베이스에서 가져오기 구현
+        if GMapManager.shared.downloadedCityList.contains(selectedCity) {
+            searchThroughLocalDB(city: selectedCity, type: type)
+        } else {
+            searchThroughNetwork(city: selectedCity, type: type)
         }
+        
     }
     
     private func setup() {
@@ -48,9 +49,68 @@ class ResultViewController: BaseViewController {
         self.modalPresentationStyle = .fullScreen
     }
     
+    private func searchThroughLocalDB(city: String, type: String) {
+        switch type {
+        case "상호명":
+            searchShopNameFromDB(city: city)
+        case "주소":
+            searchAddressFromDB(city: city)
+        default: break
+        }
+    }
+    
+    private func searchShopNameFromDB(city: String) {
+        DispatchQueue.global().async {
+            
+            if let jsonString = UserDefaults.standard.value(forKey: city) as? String {
+                
+                guard let data = jsonString.data(using: .utf8),
+                      let rows = try? JSONDecoder().decode([RowVO].self, from: data) else {
+                    print("엥")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.showIndicator("불러오는 중...")
+                }
+                
+                // 한 데이터씩 확인
+                for row in rows {
+                    self.checkShopNameAndAppend(row: row)
+                    
+                    if self.datas.count != 0 {
+                        DispatchQueue.main.async {
+                            self.resultCountLabel.text = "\(self.datas.count)개의 검색결과"
+                            
+                            self.resultListTableView.reloadData()
+                        }
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.hideIndicator()
+                    self.showToast("검색을 완료했습니다.", duration: .short)
+                    
+                    self.resultListTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    private func searchAddressFromDB(city: String) {}
+    
+    private func searchThroughNetwork(city: String, type: String) {
+        switch type {
+        case "상호명":
+            searchShopName(city: city)
+        case "주소":
+            searchAddress(city: city)
+        default: break
+        }
+    }
+    
     // FIXME: 클린코드 필요..ㅠ
-    private func searchAddress() {
-        let city = searchKeyword.0
+    private func searchAddress(city: String) {
         var rowCount = 0
         
         self.showIndicator("불러오는 중...")
@@ -127,8 +187,7 @@ class ResultViewController: BaseViewController {
         }
     }
     
-    private func searchShopName() {
-        let city = searchKeyword.0
+    private func searchShopName(city: String) {
         var rowCount = 0
         
         self.showIndicator("불러오는 중...")

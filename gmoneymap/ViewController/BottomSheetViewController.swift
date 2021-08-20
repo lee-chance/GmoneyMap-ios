@@ -32,6 +32,7 @@ class BottomSheetViewController: BaseViewController {
     
     func setupUI() {
         downloadView.parentVC = self
+        searchView.parentVC = self
         
         scrollView.delegate = self
         

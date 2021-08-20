@@ -27,6 +27,11 @@ class ResultViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         datas = []
+        showIndicator("불러오는 중...")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         let selectedCity = searchKeyword.0
         let type = searchKeyword.1
@@ -36,7 +41,6 @@ class ResultViewController: BaseViewController {
         } else {
             searchThroughNetwork(city: selectedCity, type: type)
         }
-        
     }
     
     private func setup() {

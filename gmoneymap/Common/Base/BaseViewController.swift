@@ -47,8 +47,8 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func hideIndicator() {
-        dismiss(animated: true, completion: nil)
+    func hideIndicator(completion: (() -> Void)? = nil) {
+        dismiss(animated: true, completion: completion)
     }
     
     @objc

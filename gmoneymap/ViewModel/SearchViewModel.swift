@@ -47,7 +47,7 @@ class SearchViewModel {
                     failed?()
                 }
             case .failure(let error):
-                print("erro: \(error)")
+                print("error: \(error)")
                 failed?()
             }
         }
@@ -73,7 +73,7 @@ class SearchViewModel {
                     failed?()
                 }
             case .failure(let error):
-                print("erro: \(error)")
+                print("error: \(error)")
                 failed?()
             }
         }

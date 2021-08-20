@@ -45,7 +45,6 @@ extension ResultViewController {
     
     // MARK: - Search Local DB
     func searchThroughLocalDB(city: String, type: String) {
-        showIndicator("불러오는 중...")
         switch type {
         case "상호명":
             searchShopNameFromDB(city: city)
@@ -61,7 +60,13 @@ extension ResultViewController {
                 
                 guard let data = jsonString.data(using: .utf8),
                       let rows = try? JSONDecoder().decode([RowVO].self, from: data) else {
-                    print("엥")
+                    print("Data Error!")
+                    self.hideIndicator {
+                        self.customAlert(title: "불러오기 오류!",
+                                         message: "재시도 하거나 데이터를 다시 다운로드 받아주세요.",
+                                         okTitle: "확인",
+                                         hasCancel: false)
+                    }
                     return
                 }
                 
@@ -73,10 +78,7 @@ extension ResultViewController {
                 self.resultCountLabel.text = "\(self.datas.count)개의 검색결과"
                 self.resultListTableView.reloadData()
                 self.showToast("검색을 완료했습니다.", duration: .short)
-                
-                self.delay(interval: 0.5) {
-                    self.hideIndicator()
-                }
+                self.hideIndicator()
             }
         }
     }
@@ -87,7 +89,13 @@ extension ResultViewController {
                 
                 guard let data = jsonString.data(using: .utf8),
                       let rows = try? JSONDecoder().decode([RowVO].self, from: data) else {
-                    print("엥")
+                    print("Data Error!")
+                    self.hideIndicator {
+                        self.customAlert(title: "불러오기 오류!",
+                                         message: "재시도 하거나 데이터를 다시 다운로드 받아주세요.",
+                                         okTitle: "확인",
+                                         hasCancel: false)
+                    }
                     return
                 }
                 
@@ -99,10 +107,7 @@ extension ResultViewController {
                 self.resultCountLabel.text = "\(self.datas.count)개의 검색결과"
                 self.resultListTableView.reloadData()
                 self.showToast("검색을 완료했습니다.", duration: .short)
-                
-                self.delay(interval: 0.5) {
-                    self.hideIndicator()
-                }
+                self.hideIndicator()
             }
         }
     }
@@ -121,15 +126,12 @@ extension ResultViewController {
     private func searchAddress(city: String) {
         var rowCount = 0
         
-        self.showIndicator("불러오는 중...")
-        
         self.viewModel.checkHasData(city: city, onAction: {
-            self.hideIndicator()
-            self.customAlert(title: nil,
-                             message: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
-                             okTitle: "확인",
-                             okHandler: nil,
-                             hasCancel: false)
+            self.hideIndicator {
+                self.customAlert(title: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
+                                 okTitle: "확인",
+                                 hasCancel: false)
+            }
         }, completion: { [weak self] index, listTotalCount in
             for i in 1...index {
                 self?.viewModel.requestAll(index: i, city: city, hideIndicator: {
@@ -159,15 +161,12 @@ extension ResultViewController {
     private func searchShopName(city: String) {
         var rowCount = 0
         
-        self.showIndicator("불러오는 중...")
-        
         self.viewModel.checkHasData(city: city, onAction: {
-            self.hideIndicator()
-            self.customAlert(title: nil,
-                             message: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
-                             okTitle: "확인",
-                             okHandler: nil,
-                             hasCancel: false)
+            self.hideIndicator {
+                self.customAlert(title: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
+                                 okTitle: "확인",
+                                 hasCancel: false)
+            }
         }, completion: { [weak self] index, listTotalCount in
             for i in 1...index {
                 self?.viewModel.requestAll(index: i, city: city, hideIndicator: {

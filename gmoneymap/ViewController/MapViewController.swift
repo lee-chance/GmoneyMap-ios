@@ -113,8 +113,9 @@ class MapViewController: BaseViewController {
         
         // FIXME: 타 지역에서 현재위치 검색시 타 지역 city로 검색 시도함
         guard let selectedCity = GMapManager.shared.selectedCity else {
-            print("현재위치는 경기도가 아닙니다.")
-            hideIndicator()
+            hideIndicator {
+                self.customAlert(title: "현재위치는 경기도가 아닙니다.", hasCancel: false)
+            }
             return
         }
         
@@ -223,7 +224,15 @@ class MapViewController: BaseViewController {
                 
                 guard let data = jsonString.data(using: .utf8),
                       let rows = try? JSONDecoder().decode([RowVO].self, from: data) else {
-                    print("엥")
+                    print("Data Error!")
+                    DispatchQueue.main.async {
+                        self.hideIndicator {
+                            self.customAlert(title: "불러오기 오류!",
+                                             message: "재시도 하거나 데이터를 다시 다운로드 받아주세요.",
+                                             okTitle: "확인",
+                                             hasCancel: false)
+                        }
+                    }
                     return
                 }
                 
@@ -382,7 +391,7 @@ class MapViewController: BaseViewController {
             selectedSearchButton = .byMap
         // current location
         case 104:
-            print("location button")
+            // TODO: 위치권한 인증
 //            locationManager.requestWhenInUseAuthorization()
             setMapCenter()
         default:

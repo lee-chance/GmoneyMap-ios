@@ -14,7 +14,6 @@ struct VerbosePlugin: PluginType {
     
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         
-        //오픈베타 끝난 이후 파일로그 기록 저장하지 않기 by hjk
         if verbose {
 //            #if DEBUG
             print("Request:\(request.debugDescription)")

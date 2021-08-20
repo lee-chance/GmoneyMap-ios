@@ -36,7 +36,6 @@ class SearchView: BaseViewWithXIB {
         dropDown.anchorView = searchTypeButton
         dropDown.bottomOffset = CGPoint(x: 0, y: dropDown.anchorView?.plainView.bounds.height ?? 0)
         dropDown.selectionAction = { [unowned self] index, item in
-            print("\(item), \(index)")
             searchType.text = item
             dropDown.clearSelection()
         }
@@ -52,13 +51,20 @@ class SearchView: BaseViewWithXIB {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(self.dismiss))
+        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(self.selected))
         toolBar.setItems([space, button], animated: true)
         toolBar.isUserInteractionEnabled = true
         selectedCity.inputAccessoryView = toolBar
     }
     
     @objc func dismiss() {
+        dismissKeyboard()
+    }
+    
+    @objc func selected() {
+        if selectedCity.text == "" {
+            selectedCity.text = cityList[0].rawValue
+        }
         dismissKeyboard()
     }
     
@@ -70,7 +76,7 @@ class SearchView: BaseViewWithXIB {
     private func search() {
         guard let city = selectedCity.text,
               city != "" else {
-            print("지역을 선택해 주세요!")
+            parentVC.customAlert(title: "지역을 선택해 주세요!", hasCancel: false)
             return
         }
         let type = searchType.text!

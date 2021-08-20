@@ -44,13 +44,20 @@ class DownloadView: BaseViewWithXIB {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(self.dismiss))
+        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(self.selected))
         toolBar.setItems([space, button], animated: true)
         toolBar.isUserInteractionEnabled = true
         selectedCity.inputAccessoryView = toolBar
     }
     
     @objc func dismiss() {
+        selectedCity.endEditing(true)
+    }
+    
+    @objc func selected() {
+        if selectedCity.text == "" {
+            selectedCity.text = cityList[0].rawValue
+        }
         selectedCity.endEditing(true)
     }
     
@@ -151,7 +158,7 @@ class DownloadView: BaseViewWithXIB {
         
         guard let city = selectedCity.text,
               city != "" else {
-            print("지역을 선택해 주세요!")
+            parentVC.customAlert(title: "지역을 선택해 주세요!", hasCancel: false)
             return
         }
         

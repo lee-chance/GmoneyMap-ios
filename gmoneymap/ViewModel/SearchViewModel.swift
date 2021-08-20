@@ -31,7 +31,7 @@ class SearchViewModel {
                 do {
                     let res = try JSONDecoder().decode(ResponseVO.self, from: response.data)
                     
-                    guard let regionMnyFacltStus = res.RegionMnyFacltStus else {
+                    guard let regionMnyFacltStus = res.response else {
                         print("no longer provide data")
                         failed?()
                         return

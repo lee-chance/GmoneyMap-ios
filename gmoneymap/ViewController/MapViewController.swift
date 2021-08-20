@@ -78,7 +78,8 @@ class MapViewController: BaseViewController {
         
         let mapPoint = MTMapPoint.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon))
         delay(interval: 0.5) {
-            self.mapView?.setMapCenter(mapPoint, animated: true)
+            self.mapView?.setMapCenter(mapPoint, zoomLevel: 1, animated: true)
+            self.locationButton.tintColor = .lightGray
         }
         
         let marker = MTMapPOIItem()
@@ -169,7 +170,7 @@ class MapViewController: BaseViewController {
         
         self.viewModel.checkHasData(city: city) { [weak self] vo in
             guard let heads = vo.head,
-                  let listTotalCount = heads[0].list_total_count else {
+                  let listTotalCount = heads[0].listTotalCount else {
                 self?.hideIndicator()
                 return
             }
@@ -182,8 +183,8 @@ class MapViewController: BaseViewController {
                 self?.viewModel.requestAll(index: i, city: city) { vo in
                     
                     // 결과코드가 성공인지 확인
-                    guard let heads = vo.RegionMnyFacltStus?[0].head,
-                          let code = heads[1].RESULT?.CODE,
+                    guard let heads = vo.response?[0].head,
+                          let code = heads[1].resultVO?.code,
                           code == "INFO-000" else {
                         print("code error")
                         self?.hideIndicator()
@@ -191,7 +192,7 @@ class MapViewController: BaseViewController {
                     }
 
                     // rows 데이터가 있는지 확인
-                    guard let rows = vo.RegionMnyFacltStus?[1].row else {
+                    guard let rows = vo.response?[1].row else {
                         print("no data")
                         self?.hideIndicator()
                         return

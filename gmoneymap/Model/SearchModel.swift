@@ -8,7 +8,11 @@
 import Foundation
 
 struct ResponseVO: Codable {
-    var RegionMnyFacltStus: [RegionMnyFacltStusVO]?
+    var response: [RegionMnyFacltStusVO]?
+    
+    enum CodingKeys: String, CodingKey {
+        case response = "RegionMnyFacltStus"
+    }
 }
 
 struct RegionMnyFacltStusVO: Codable {
@@ -17,9 +21,15 @@ struct RegionMnyFacltStusVO: Codable {
 }
 
 struct HeadVO: Codable {
-    var list_total_count: Int?
-    var RESULT: ResultVO?
-    var api_version: String?
+    var listTotalCount: Int?
+    var resultVO: ResultVO?
+    var apiVersion: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case listTotalCount = "list_total_count"
+        case resultVO = "RESULT"
+        case apiVersion = "api_version"
+    }
 }
 
 struct RowVO: Codable {
@@ -48,6 +58,11 @@ struct RowVO: Codable {
 }
 
 struct ResultVO: Codable {
-    var CODE: String?
-    var MESSAGE: String?
+    var code: String?
+    var message: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case code = "CODE"
+        case message = "MESSAGE"
+    }
 }

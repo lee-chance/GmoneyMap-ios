@@ -43,7 +43,7 @@ class BottomSheetViewController: BaseViewController {
         tabBar.roundCorners(radius: 20, corner: .top)
         view.roundCorners(radius: 20, corner: .top)
         
-        bottomSafeAreaHeight.constant = Screen.bottomSafeArea
+        bottomSafeAreaHeight.constant = Screen.bottomSafeArea + 3
         tabBarIndicatorWidth.constant = Screen.width / 3
     }
     

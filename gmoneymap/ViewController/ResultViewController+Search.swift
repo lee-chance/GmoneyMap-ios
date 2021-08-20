@@ -74,7 +74,7 @@ extension ResultViewController {
                 self.resultListTableView.reloadData()
                 self.showToast("검색을 완료했습니다.", duration: .short)
                 
-                self.delay(interval: 0.3) {
+                self.delay(interval: 0.5) {
                     self.hideIndicator()
                 }
             }
@@ -100,7 +100,7 @@ extension ResultViewController {
                 self.resultListTableView.reloadData()
                 self.showToast("검색을 완료했습니다.", duration: .short)
                 
-                self.delay(interval: 0.3) {
+                self.delay(interval: 0.5) {
                     self.hideIndicator()
                 }
             }
@@ -118,51 +118,26 @@ extension ResultViewController {
         }
     }
     
-    // FIXME: 클린코드 필요..ㅠ
     private func searchAddress(city: String) {
         var rowCount = 0
         
         self.showIndicator("불러오는 중...")
         
-        self.viewModel.checkHasData(city: city) { [weak self] vo in
-            guard let heads = vo.head,
-                  let listTotalCount = heads[0].listTotalCount else {
-                self?.hideIndicator()
-                
-                self?.customAlert(title: nil,
-                                  message: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
-                                  okTitle: "확인",
-                                  okHandler: nil,
-                                  hasCancel: false)
-                return
-            }
-            let index = listTotalCount / 100 + 1
-            
+        self.viewModel.checkHasData(city: city, onAction: {
+            self.hideIndicator()
+            self.customAlert(title: nil,
+                             message: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
+                             okTitle: "확인",
+                             okHandler: nil,
+                             hasCancel: false)
+        }, completion: { [weak self] index, listTotalCount in
             for i in 1...index {
-                self?.viewModel.requestAll(index: i, city: city) { [self] vo in
-                    
-                    // 결과코드가 성공인지 확인
-                    guard let heads = vo.response?[0].head,
-                          let code = heads[1].resultVO?.code,
-                          code == "INFO-000" else {
-                        print("code error")
-                        self?.hideIndicator()
-                        return
-                    }
-                    
-                    // rows 데이터가 있는지 확인
-                    guard let rows = vo.response?[1].row else {
-                        print("no data")
-                        self?.hideIndicator()
-                        return
-                    }
-                    
-                    // 한 데이터씩 확인
-                    for row in rows {
-                        rowCount += 1
-                        self?.checkAddressAndAppend(row: row)
-                    }
-                    
+                self?.viewModel.requestAll(index: i, city: city, hideIndicator: {
+                    self?.hideIndicator()
+                }, onAction: { row in
+                    rowCount += 1
+                    self?.checkAddressAndAppend(row: row)
+                }, doneAction: {
                     self?.resultCountLabel.text = "\(self?.datas.count ?? 0)개의 검색결과"
                     self?.resultListTableView.reloadData()
                     
@@ -170,15 +145,15 @@ extension ResultViewController {
                         self?.showToast("검색을 완료했습니다.", duration: .short)
                         self?.hideIndicator()
                     }
-                    
-                } failed: {
+                }, failed: {
                     self?.hideIndicator()
-                    print("error occurred!")
-                }
+                    print("requestAll error occurred!")
+                })
             }
-        } failed: {
+        }, failed: {
             self.hideIndicator()
-        }
+            print("checkHasData error occurred!")
+        })
     }
     
     private func searchShopName(city: String) {
@@ -186,45 +161,21 @@ extension ResultViewController {
         
         self.showIndicator("불러오는 중...")
         
-        self.viewModel.checkHasData(city: city) { [weak self] vo in
-            guard let heads = vo.head,
-                  let listTotalCount = heads[0].listTotalCount else {
-                self?.hideIndicator()
-                
-                self?.customAlert(title: nil,
-                                  message: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
-                                  okTitle: "확인",
-                                  okHandler: nil,
-                                  hasCancel: false)
-                return
-            }
-            let index = listTotalCount / 100 + 1
-            
+        self.viewModel.checkHasData(city: city, onAction: {
+            self.hideIndicator()
+            self.customAlert(title: nil,
+                             message: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
+                             okTitle: "확인",
+                             okHandler: nil,
+                             hasCancel: false)
+        }, completion: { [weak self] index, listTotalCount in
             for i in 1...index {
-                self?.viewModel.requestAll(index: i, city: city) { [self] vo in
-                    
-                    // 결과코드가 성공인지 확인
-                    guard let heads = vo.response?[0].head,
-                          let code = heads[1].resultVO?.code,
-                          code == "INFO-000" else {
-                        print("code error")
-                        self?.hideIndicator()
-                        return
-                    }
-                    
-                    // rows 데이터가 있는지 확인
-                    guard let rows = vo.response?[1].row else {
-                        print("no data")
-                        self?.hideIndicator()
-                        return
-                    }
-                    
-                    // 한 데이터씩 확인
-                    for row in rows {
-                        rowCount += 1
-                        self?.checkShopNameAndAppend(row: row)
-                    }
-                    
+                self?.viewModel.requestAll(index: i, city: city, hideIndicator: {
+                    self?.hideIndicator()
+                }, onAction: { row in
+                    rowCount += 1
+                    self?.checkShopNameAndAppend(row: row)
+                }, doneAction: {
                     self?.resultCountLabel.text = "\(self?.datas.count ?? 0)개의 검색결과"
                     self?.resultListTableView.reloadData()
                     
@@ -232,14 +183,14 @@ extension ResultViewController {
                         self?.showToast("검색을 완료했습니다.", duration: .short)
                         self?.hideIndicator()
                     }
-                    
-                } failed: {
+                }, failed: {
                     self?.hideIndicator()
-                    print("error occurred!")
-                }
+                    print("requestAll error occurred!")
+                })
             }
-        } failed: {
+        }, failed: {
             self.hideIndicator()
-        }
+            print("checkHasData error occurred!")
+        })
     }
 }

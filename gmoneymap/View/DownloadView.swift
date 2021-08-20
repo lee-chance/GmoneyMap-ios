@@ -69,87 +69,49 @@ class DownloadView: BaseViewWithXIB {
         
         self.showIndicator("불러오는 중...")
         
-        self.viewModel.checkHasData(city: city) { [weak self] vo in
-            guard let heads = vo.head,
-                  let listTotalCount = heads[0].listTotalCount else {
-                self?.parentVC.hideIndicator()
-                
-                self?.parentVC.customAlert(title: nil,
-                                         message: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
-                                         okTitle: "확인",
-                                         okHandler: nil,
-                                         hasCancel: false)
-                return
-            }
-            let index = listTotalCount / 100 + 1
-            
-            print("listTotalCount: \(listTotalCount)")
-            
-            DispatchQueue.global().async {
-                for i in 1...index {
-                    self?.viewModel.requestAll(index: i, city: city) { [self] vo in
-                        
-                        // 결과코드가 성공인지 확인
-                        guard let heads = vo.response?[0].head,
-                              let code = heads[1].resultVO?.code,
-                              code == "INFO-000" else {
-                            print("code error")
-                            DispatchQueue.main.async {
-                                self?.parentVC.hideIndicator()
-                            }
-                            return
-                        }
-                        
-                        // rows 데이터가 있는지 확인
-                        guard let rows = vo.response?[1].row else {
-                            print("no data")
-                            DispatchQueue.main.async {
-                                self?.parentVC.hideIndicator()
-                            }
-                            return
-                        }
-                        
-                        // 한 데이터씩 확인
-                        for row in rows {
-                            let shopName = row.shopName
-                            let category = row.categoryName
-                            let roadAddress = row.roadAddress
-                            let locationAddress = row.locationAddress
-                            let telNumber = row.telNumber
-                            let latitude = row.latitude
-                            let longitude = row.longitude
-                            let cityCode = row.cityCode
-                            let cityName = row.cityName
-                            let data = RowVO(shopName: shopName, categoryName: category, telNumber: telNumber, locationAddress: locationAddress, roadAddress: roadAddress, longitude: longitude, latitude: latitude, cityCode: cityCode, cityName: cityName)
-                            datas.append(data)
-                            if datas.count != 0 {
-                                DispatchQueue.main.async {
-                                    self?.indicator.message = "\(datas.count*100/listTotalCount)%  \(datas.count)개의\n데이터 저장중..."
-                                }
-                            }
-                            if datas.count == listTotalCount {
-                                DispatchQueue.main.async {
-                                    self?.parentVC.showToast("다운로드를 완료했습니다.", duration: .short)
-                                    self?.parentVC.hideIndicator()
-                                    
-                                    self?.saveCityList(city: city)
-                                    self?.saveData(datas, city: city)
-                                    
-                                    self?.downloadedCityListTableView.reloadData()
-                                }
-                            }
-                        }
-                    } failed: {
-                        DispatchQueue.main.async {
-                            self?.parentVC.hideIndicator()
-                        }
-                        print("error occurred!")
-                    }
-                }
-            }
-        } failed: {
+        self.viewModel.checkHasData(city: city, onAction: {
             self.parentVC.hideIndicator()
-        }
+            self.parentVC.customAlert(title: nil,
+                                      message: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
+                                      okTitle: "확인",
+                                      okHandler: nil,
+                                      hasCancel: false)
+        }, completion: { [weak self] index, listTotalCount in
+            for i in 1...index {
+                self?.viewModel.requestAll(index: i, city: city, hideIndicator: {
+                    self?.parentVC.hideIndicator()
+                }, onAction: { row in
+                    let shopName = row.shopName
+                    let category = row.categoryName
+                    let roadAddress = row.roadAddress
+                    let locationAddress = row.locationAddress
+                    let telNumber = row.telNumber
+                    let latitude = row.latitude
+                    let longitude = row.longitude
+                    let cityCode = row.cityCode
+                    let cityName = row.cityName
+                    let data = RowVO(shopName: shopName, categoryName: category, telNumber: telNumber, locationAddress: locationAddress, roadAddress: roadAddress, longitude: longitude, latitude: latitude, cityCode: cityCode, cityName: cityName)
+                    datas.append(data)
+                }, doneAction: {
+                    self?.indicator.message = "\(datas.count*100/listTotalCount)%  \(datas.count)개의\n데이터 저장중..."
+                    if datas.count == listTotalCount {
+                        self?.parentVC.showToast("다운로드를 완료했습니다.", duration: .short)
+                        self?.parentVC.hideIndicator()
+                        
+                        self?.saveCityList(city: city)
+                        self?.saveData(datas, city: city)
+                        
+                        self?.downloadedCityListTableView.reloadData()
+                    }
+                }, failed: {
+                    self?.parentVC.hideIndicator()
+                    print("requestAll error occurred!")
+                })
+            }
+        }, failed: {
+            self.parentVC.hideIndicator()
+            print("checkHasData error occurred!")
+        })
     }
     
     private func saveCityList(city: String) {

@@ -111,6 +111,7 @@ class MapViewController: BaseViewController {
         
         showIndicator("불러오는 중...", tapToDismiss: false)
         
+        // FIXME: 타 지역에서 현재위치 검색시 타 지역 city로 검색 시도함
         guard let selectedCity = GMapManager.shared.selectedCity else {
             print("현재위치는 경기도가 아닙니다.")
             hideIndicator()
@@ -168,64 +169,48 @@ class MapViewController: BaseViewController {
         var rowCount = 0
         let radius = 300
         
-        self.viewModel.checkHasData(city: city) { [weak self] vo in
-            guard let heads = vo.head,
-                  let listTotalCount = heads[0].listTotalCount else {
-                self?.hideIndicator()
-                return
-            }
-            let index = listTotalCount / 100 + 1
-
-            // 원 생성
-            self?.setCircle(radius: radius)
-            
-            for i in 1...index {
-                self?.viewModel.requestAll(index: i, city: city) { vo in
-                    
-                    // 결과코드가 성공인지 확인
-                    guard let heads = vo.response?[0].head,
-                          let code = heads[1].resultVO?.code,
-                          code == "INFO-000" else {
-                        print("code error")
-                        self?.hideIndicator()
-                        return
-                    }
-
-                    // rows 데이터가 있는지 확인
-                    guard let rows = vo.response?[1].row else {
-                        print("no data")
-                        self?.hideIndicator()
-                        return
-                    }
-
-                    // 한 데이터씩 확인
-                    for row in rows {
-                        rowCount += 1
-                        // 좌표값 확인
-                        if let latString = row.latitude,
-                           let lonString = row.longitude,
-                           let lat = Double(latString),
-                           let lon = Double(lonString) {
-                            // 내 위치와 거리 비교
-                            let distance = Int(sqrt(pow(lat-GMapManager.shared.latitude, 2) + pow(lon-GMapManager.shared.longitude, 2)) * 100000)
-                            // 거리가 radius 이내에 있는 값만 마커표시
-                            if distance < radius {
-                                self?.setNewMarker(row: row)
-                            }
-                        }
-                        if rowCount == listTotalCount {
-                            self?.hideIndicator()
-                            self?.showToast("검색을 완료했습니다.", duration: .short)
-                        }
-                    }
-                } failed: {
-                    self?.hideIndicator()
-                    print("error occurred!")
-                }
-            }
-        } failed: {
+        self.viewModel.checkHasData(city: city, onAction: {
             self.hideIndicator()
-        }
+            self.customAlert(title: nil,
+                             message: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
+                             okTitle: "확인",
+                             okHandler: nil,
+                             hasCancel: false)
+        }, otherAction: {
+            // 원 생성
+            self.setCircle(radius: radius)
+        }, completion: { [weak self] index, listTotalCount in
+            for i in 1...index {
+                self?.viewModel.requestAll(index: i, city: city, hideIndicator: {
+                    self?.hideIndicator()
+                }, onAction: { row in
+                    rowCount += 1
+                    // 좌표값 확인
+                    if let latString = row.latitude,
+                       let lonString = row.longitude,
+                       let lat = Double(latString),
+                       let lon = Double(lonString) {
+                        // 내 위치와 거리 비교
+                        let distance = Int(sqrt(pow(lat-GMapManager.shared.latitude, 2) + pow(lon-GMapManager.shared.longitude, 2)) * 100000)
+                        // 거리가 radius 이내에 있는 값만 마커표시
+                        if distance < radius {
+                            self?.setNewMarker(row: row)
+                        }
+                    }
+                }, doneAction: {
+                    if rowCount == listTotalCount {
+                        self?.hideIndicator()
+                        self?.showToast("검색을 완료했습니다.", duration: .short)
+                    }
+                }, failed: {
+                    self?.hideIndicator()
+                    print("requestAll error occurred!")
+                })
+            }
+        }, failed: {
+            self.hideIndicator()
+            print("checkHasData error occurred!")
+        })
     }
     
     private func searchThroughLocalDB(city: String) {

@@ -1,5 +1,5 @@
 //
-//  PaddingLabel.swift
+//  CustomKit.swift
 //  Util
 //
 //  Created by Changsu Lee on 2021/06/02.
@@ -28,4 +28,8 @@ class CSUILabel: DynamicUILabel {
         return CGSize(width: (size.width + leftInset + rightInset).ratioConstant,
                       height: (size.height + topInset + bottomInset).ratioConstant)
     }
+}
+
+
+class CSUIButton: DynamicUIButton {
 }

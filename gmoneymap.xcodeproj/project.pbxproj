@@ -22,6 +22,7 @@
 		2E466673267F494500A57B8B /* VerbosePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466672267F494500A57B8B /* VerbosePlugin.swift */; };
 		2E466676267F58E600A57B8B /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466675267F58E600A57B8B /* SearchModel.swift */; };
 		2E68E62C266F9BA600172E6F /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68E62B266F9BA600172E6F /* Keyboard.swift */; };
+		2E75121726D96C8800828316 /* hanullim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E75121626D96C8800828316 /* hanullim.ttf */; };
 		2E76B5F6267A46BB00E033EB /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76B5F4267A46BB00E033EB /* MenuTableViewCell.swift */; };
 		2E76B5F7267A46BB00E033EB /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E76B5F5267A46BB00E033EB /* MenuTableViewCell.xib */; };
 		2E81436626A7ECFE007DD828 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81436526A7ECFE007DD828 /* ResultViewController.swift */; };
@@ -84,7 +85,6 @@
 		2EC11DE726652A2C007C85F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC11DE526652A2C007C85F2 /* LaunchScreen.storyboard */; };
 		2EC38FDB266CD6F0008D2CE4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC38FDA266CD6F0008D2CE4 /* MapViewController.swift */; };
 		2EC38FE2266E6CCC008D2CE4 /* GMapDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC38FE1266E6CCC008D2CE4 /* GMapDefine.swift */; };
-		2ED224FF266A806100031090 /* hanullim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ED224FE266A806100031090 /* hanullim.ttf */; };
 		2ED2703B269B4D2E00ED749D /* OverlapDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2703A269B4D2E00ED749D /* OverlapDialogViewController.swift */; };
 		2ED2703D269B4D5400ED749D /* BasePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2703C269B4D5400ED749D /* BasePopupViewController.swift */; };
 		2ED976D026677CCE009CCCC1 /* BaseViewWithXIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */; };
@@ -124,6 +124,7 @@
 		2E466672267F494500A57B8B /* VerbosePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbosePlugin.swift; sourceTree = "<group>"; };
 		2E466675267F58E600A57B8B /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		2E68E62B266F9BA600172E6F /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		2E75121626D96C8800828316 /* hanullim.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hanullim.ttf; sourceTree = "<group>"; };
 		2E76B5F4267A46BB00E033EB /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		2E76B5F5267A46BB00E033EB /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		2E81436526A7ECFE007DD828 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +198,6 @@
 		2EC11DE826652A2C007C85F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC38FDA266CD6F0008D2CE4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2EC38FE1266E6CCC008D2CE4 /* GMapDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapDefine.swift; sourceTree = "<group>"; };
-		2ED224FE266A806100031090 /* hanullim.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hanullim.ttf; sourceTree = "<group>"; };
 		2ED2703A269B4D2E00ED749D /* OverlapDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlapDialogViewController.swift; sourceTree = "<group>"; };
 		2ED2703C269B4D5400ED749D /* BasePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopupViewController.swift; sourceTree = "<group>"; };
 		2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewWithXIB.swift; sourceTree = "<group>"; };
@@ -468,7 +468,7 @@
 		2ED976CE26677CB5009CCCC1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				2ED224FE266A806100031090 /* hanullim.ttf */,
+				2E75121626D96C8800828316 /* hanullim.ttf */,
 				2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */,
 				2E9889D8268757AD00CC433F /* BaseViewController.swift */,
 				2ED2703C269B4D5400ED749D /* BasePopupViewController.swift */,
@@ -604,9 +604,9 @@
 				2E9D79FB2667196000D8625A /* th_line.png in Resources */,
 				2E9D7A042667196000D8625A /* info_box_tail.png in Resources */,
 				2E9D79F32667196000D8625A /* map_pin_custom.png in Resources */,
-				2ED224FF266A806100031090 /* hanullim.ttf in Resources */,
 				2E9D7A032667196000D8625A /* map_pinup_custom.png in Resources */,
 				2E9D79F82667196000D8625A /* map_pinup@3x.png in Resources */,
+				2E75121726D96C8800828316 /* hanullim.ttf in Resources */,
 				2E9D7A022667196000D8625A /* point_sprite.png in Resources */,
 				2E9D7A0A2667196000D8625A /* map_present_background_update.png in Resources */,
 				2E9D7A062667196000D8625A /* map_present_direction.png in Resources */,

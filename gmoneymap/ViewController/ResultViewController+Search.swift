@@ -161,29 +161,29 @@ extension ResultViewController {
     private func searchShopName(city: String) {
         var rowCount = 0
         
-        self.viewModel.checkHasData(city: city, onAction: {
+        viewModel.checkHasData(city: city, onAction: {
             self.hideIndicator {
                 self.customAlert(title: "\(city)는 더 이상 데이터를 제공하지 않습니다.",
                                  okTitle: "확인",
                                  hasCancel: false)
             }
-        }, completion: { [weak self] index, listTotalCount in
+        }, completion: { index, listTotalCount in
             for i in 1...index {
-                self?.viewModel.requestAll(index: i, city: city, hideIndicator: {
-                    self?.hideIndicator()
+                self.viewModel.requestAll(index: i, city: city, hideIndicator: {
+                    self.hideIndicator()
                 }, onAction: { row in
                     rowCount += 1
-                    self?.checkShopNameAndAppend(row: row)
+                    self.checkShopNameAndAppend(row: row)
                 }, doneAction: {
-                    self?.resultCountLabel.text = "\(self?.datas.count ?? 0)개의 검색결과"
-                    self?.resultListTableView.reloadData()
+                    self.resultCountLabel.text = "\(self.datas.count)개의 검색결과"
+                    self.resultListTableView.reloadData()
                     
                     if rowCount == listTotalCount {
-                        self?.showToast("검색을 완료했습니다.", duration: .short)
-                        self?.hideIndicator()
+                        self.showToast("검색을 완료했습니다.", duration: .short)
+                        self.hideIndicator()
                     }
                 }, failed: {
-                    self?.hideIndicator()
+                    self.hideIndicator()
                     print("requestAll error occurred!")
                 })
             }

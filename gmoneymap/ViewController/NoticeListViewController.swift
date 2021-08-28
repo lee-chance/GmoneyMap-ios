@@ -97,7 +97,7 @@ extension NoticeListViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: NoticeListCell.rawString, for: indexPath) as! NoticeListCell
             cell.cellTitle.text = noticeList[indexPath.section].content
-            cell.backgroundColor = .lightGray
+            cell.backgroundColor = UIColor.appColor(.LightGray)
             cell.hideIcon()
             return cell
         }

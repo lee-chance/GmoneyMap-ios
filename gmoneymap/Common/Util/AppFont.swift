@@ -41,7 +41,8 @@ extension UIFont {
 //        }
         
         let fontName = AppFontName.hanullim
-        self.init(name: fontName, size: fontDescriptor.pointSize)!
+        let fontSize = fontDescriptor.pointSize.ratioConstant
+        self.init(name: fontName, size: fontSize)!
     }
     
     class func overrideInitialize() {

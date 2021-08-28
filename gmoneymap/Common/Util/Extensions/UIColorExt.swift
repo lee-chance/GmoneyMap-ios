@@ -13,6 +13,7 @@ extension UIColor {
         case GMapDarkBlue
         case GMapGreen
         case GMapMint
+        case LightGray
         case PrimaryLighter
     }
     

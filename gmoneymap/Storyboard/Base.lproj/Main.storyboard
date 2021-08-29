@@ -270,7 +270,7 @@
                             <constraint firstItem="6e7-p4-lcY" firstAttribute="width" secondItem="nhB-g3-eaZ" secondAttribute="width" id="AcA-vR-2UO" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstAttribute="width" secondItem="HK2-Y9-tyY" secondAttribute="width" id="Jgr-sY-PBP" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="D6t-PP-A5g" firstAttribute="top" secondItem="D4W-mk-jE7" secondAttribute="bottom" id="NCw-AO-KYo" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
-                            <constraint firstItem="D6t-PP-A5g" firstAttribute="leading" secondItem="nhB-g3-eaZ" secondAttribute="leading" id="PAy-8v-1fa"/>
+                            <constraint firstItem="D6t-PP-A5g" firstAttribute="leading" secondItem="nhB-g3-eaZ" secondAttribute="leading" id="PAy-8v-1fa" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="D4W-mk-jE7" firstAttribute="top" secondItem="nhB-g3-eaZ" secondAttribute="top" id="TGw-ob-JJS" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="1Nt-V8-nx6" firstAttribute="leading" secondItem="vEb-Xq-Zql" secondAttribute="leading" id="Txb-N9-my0" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="hoj-21-E36" firstAttribute="width" secondItem="nhB-g3-eaZ" secondAttribute="width" id="Ty7-hW-ZR4" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
@@ -510,40 +510,40 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="114.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상호명" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dg0-I0-1nl" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="16" width="42" height="19.5"/>
+                                                            <rect key="frame" x="16" y="16" width="48" height="19.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="42" id="BX9-3J-cCB"/>
+                                                                <constraint firstAttribute="width" constant="48" id="BX9-3J-cCB" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="업종명" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtY-f6-OFK" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="47.5" width="42" height="19.5"/>
+                                                            <rect key="frame" x="16" y="47.5" width="48" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X90-MA-mSd" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                                            <rect key="frame" x="16" y="79" width="42" height="20"/>
+                                                            <rect key="frame" x="16" y="79" width="48" height="20"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상호명" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQA-KW-YC3" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                                            <rect key="frame" x="66" y="16" width="300" height="19.5"/>
+                                                            <rect key="frame" x="72" y="16" width="294" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상호명" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6N0-PD-PFM" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                                            <rect key="frame" x="66" y="47.5" width="300" height="19.5"/>
+                                                            <rect key="frame" x="72" y="47.5" width="294" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상호명" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmU-Hg-z9F" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                                            <rect key="frame" x="66" y="79" width="300" height="19.5"/>
+                                                            <rect key="frame" x="72" y="79" width="294" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -551,24 +551,24 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="jQA-KW-YC3" firstAttribute="centerY" secondItem="dg0-I0-1nl" secondAttribute="centerY" id="2Vy-tQ-h9h"/>
-                                                        <constraint firstItem="jQA-KW-YC3" firstAttribute="leading" secondItem="dg0-I0-1nl" secondAttribute="trailing" constant="8" id="500-v1-fDd"/>
-                                                        <constraint firstItem="6N0-PD-PFM" firstAttribute="trailing" secondItem="jQA-KW-YC3" secondAttribute="trailing" id="75M-k8-qVz"/>
-                                                        <constraint firstItem="PmU-Hg-z9F" firstAttribute="top" secondItem="6N0-PD-PFM" secondAttribute="bottom" constant="12" id="AF8-Pi-SvY"/>
-                                                        <constraint firstItem="X90-MA-mSd" firstAttribute="leading" secondItem="dg0-I0-1nl" secondAttribute="leading" id="Cu7-Vy-6Xt"/>
-                                                        <constraint firstItem="PmU-Hg-z9F" firstAttribute="trailing" secondItem="jQA-KW-YC3" secondAttribute="trailing" id="EPb-99-qmk"/>
-                                                        <constraint firstItem="jQA-KW-YC3" firstAttribute="top" secondItem="MNc-5F-KfH" secondAttribute="top" constant="16" id="EfH-W1-6pa"/>
-                                                        <constraint firstItem="dg0-I0-1nl" firstAttribute="leading" secondItem="MNc-5F-KfH" secondAttribute="leading" constant="16" id="IaN-8E-ruM"/>
-                                                        <constraint firstItem="6N0-PD-PFM" firstAttribute="centerY" secondItem="YtY-f6-OFK" secondAttribute="centerY" id="K9y-Mr-oiI"/>
-                                                        <constraint firstItem="YtY-f6-OFK" firstAttribute="leading" secondItem="dg0-I0-1nl" secondAttribute="leading" id="Kfe-b0-YnF"/>
-                                                        <constraint firstItem="X90-MA-mSd" firstAttribute="trailing" secondItem="dg0-I0-1nl" secondAttribute="trailing" id="Wie-jh-bqV"/>
-                                                        <constraint firstItem="YtY-f6-OFK" firstAttribute="trailing" secondItem="dg0-I0-1nl" secondAttribute="trailing" id="cTw-dm-UiR"/>
-                                                        <constraint firstItem="6N0-PD-PFM" firstAttribute="leading" secondItem="jQA-KW-YC3" secondAttribute="leading" id="hfT-sH-Dck"/>
-                                                        <constraint firstItem="PmU-Hg-z9F" firstAttribute="centerY" secondItem="X90-MA-mSd" secondAttribute="centerY" id="l11-yk-qxF"/>
-                                                        <constraint firstItem="6N0-PD-PFM" firstAttribute="top" secondItem="jQA-KW-YC3" secondAttribute="bottom" constant="12" id="rhJ-Gj-ZAw"/>
-                                                        <constraint firstAttribute="bottom" secondItem="PmU-Hg-z9F" secondAttribute="bottom" constant="16" id="sRt-0y-uwF"/>
-                                                        <constraint firstItem="PmU-Hg-z9F" firstAttribute="leading" secondItem="jQA-KW-YC3" secondAttribute="leading" id="tZl-rK-i2Z"/>
-                                                        <constraint firstAttribute="trailing" secondItem="jQA-KW-YC3" secondAttribute="trailing" constant="16" id="vtz-8m-Y2P"/>
+                                                        <constraint firstItem="jQA-KW-YC3" firstAttribute="centerY" secondItem="dg0-I0-1nl" secondAttribute="centerY" id="2Vy-tQ-h9h" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="jQA-KW-YC3" firstAttribute="leading" secondItem="dg0-I0-1nl" secondAttribute="trailing" constant="8" id="500-v1-fDd" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="6N0-PD-PFM" firstAttribute="trailing" secondItem="jQA-KW-YC3" secondAttribute="trailing" id="75M-k8-qVz" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="PmU-Hg-z9F" firstAttribute="top" secondItem="6N0-PD-PFM" secondAttribute="bottom" constant="12" id="AF8-Pi-SvY" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="X90-MA-mSd" firstAttribute="leading" secondItem="dg0-I0-1nl" secondAttribute="leading" id="Cu7-Vy-6Xt" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="PmU-Hg-z9F" firstAttribute="trailing" secondItem="jQA-KW-YC3" secondAttribute="trailing" id="EPb-99-qmk" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="jQA-KW-YC3" firstAttribute="top" secondItem="MNc-5F-KfH" secondAttribute="top" constant="16" id="EfH-W1-6pa" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="dg0-I0-1nl" firstAttribute="leading" secondItem="MNc-5F-KfH" secondAttribute="leading" constant="16" id="IaN-8E-ruM" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="6N0-PD-PFM" firstAttribute="centerY" secondItem="YtY-f6-OFK" secondAttribute="centerY" id="K9y-Mr-oiI" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="YtY-f6-OFK" firstAttribute="leading" secondItem="dg0-I0-1nl" secondAttribute="leading" id="Kfe-b0-YnF" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="X90-MA-mSd" firstAttribute="trailing" secondItem="dg0-I0-1nl" secondAttribute="trailing" id="Wie-jh-bqV" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="YtY-f6-OFK" firstAttribute="trailing" secondItem="dg0-I0-1nl" secondAttribute="trailing" id="cTw-dm-UiR" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="6N0-PD-PFM" firstAttribute="leading" secondItem="jQA-KW-YC3" secondAttribute="leading" id="hfT-sH-Dck" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="PmU-Hg-z9F" firstAttribute="centerY" secondItem="X90-MA-mSd" secondAttribute="centerY" id="l11-yk-qxF" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="6N0-PD-PFM" firstAttribute="top" secondItem="jQA-KW-YC3" secondAttribute="bottom" constant="12" id="rhJ-Gj-ZAw" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PmU-Hg-z9F" secondAttribute="bottom" constant="16" id="sRt-0y-uwF" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstItem="PmU-Hg-z9F" firstAttribute="leading" secondItem="jQA-KW-YC3" secondAttribute="leading" id="tZl-rK-i2Z" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                        <constraint firstAttribute="trailing" secondItem="jQA-KW-YC3" secondAttribute="trailing" constant="16" id="vtz-8m-Y2P" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -588,10 +588,10 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="MNc-5F-KfH" secondAttribute="bottom" constant="8" id="73e-Jh-x0w"/>
-                                                <constraint firstItem="MNc-5F-KfH" firstAttribute="leading" secondItem="mbh-bS-cr4" secondAttribute="leading" constant="16" id="ZPM-SC-bUR"/>
-                                                <constraint firstAttribute="trailing" secondItem="MNc-5F-KfH" secondAttribute="trailing" constant="16" id="ae2-3B-Fgn"/>
-                                                <constraint firstItem="MNc-5F-KfH" firstAttribute="top" secondItem="mbh-bS-cr4" secondAttribute="top" constant="8" id="f0V-t1-0Z8"/>
+                                                <constraint firstAttribute="bottom" secondItem="MNc-5F-KfH" secondAttribute="bottom" constant="8" id="73e-Jh-x0w" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                <constraint firstItem="MNc-5F-KfH" firstAttribute="leading" secondItem="mbh-bS-cr4" secondAttribute="leading" constant="16" id="ZPM-SC-bUR" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                <constraint firstAttribute="trailing" secondItem="MNc-5F-KfH" secondAttribute="trailing" constant="16" id="ae2-3B-Fgn" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
+                                                <constraint firstItem="MNc-5F-KfH" firstAttribute="top" secondItem="mbh-bS-cr4" secondAttribute="top" constant="8" id="f0V-t1-0Z8" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -614,16 +614,16 @@
                         <constraints>
                             <constraint firstItem="yZ9-pm-PNx" firstAttribute="top" secondItem="6sc-hJ-7Pa" secondAttribute="top" id="2Y6-0Q-FFn" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="yZ9-pm-PNx" firstAttribute="leading" secondItem="6sc-hJ-7Pa" secondAttribute="leading" id="9Ye-FG-htS" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
-                            <constraint firstItem="Eq2-az-BAi" firstAttribute="top" secondItem="nmL-Ai-3O2" secondAttribute="bottom" id="EU2-lr-3vt"/>
+                            <constraint firstItem="Eq2-az-BAi" firstAttribute="top" secondItem="nmL-Ai-3O2" secondAttribute="bottom" id="EU2-lr-3vt" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="Vyf-ay-pfJ" firstAttribute="leading" secondItem="akw-sm-Pl7" secondAttribute="leading" id="KfM-Pa-RUo" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="nmL-Ai-3O2" firstAttribute="top" secondItem="akw-sm-Pl7" secondAttribute="top" id="LDX-lF-ERR" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="akw-sm-Pl7" firstAttribute="trailing" secondItem="nmL-Ai-3O2" secondAttribute="trailing" id="T2c-t3-0Tl" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstAttribute="bottom" secondItem="Vyf-ay-pfJ" secondAttribute="bottom" id="TkS-Yp-p1x" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="nmL-Ai-3O2" firstAttribute="leading" secondItem="akw-sm-Pl7" secondAttribute="leading" id="iPE-7K-oXC" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
-                            <constraint firstItem="akw-sm-Pl7" firstAttribute="trailing" secondItem="Eq2-az-BAi" secondAttribute="trailing" constant="16" id="lXl-db-PM2"/>
+                            <constraint firstItem="akw-sm-Pl7" firstAttribute="trailing" secondItem="Eq2-az-BAi" secondAttribute="trailing" constant="16" id="lXl-db-PM2" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstAttribute="trailing" secondItem="yZ9-pm-PNx" secondAttribute="trailing" id="p4M-i1-SHH" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                             <constraint firstItem="akw-sm-Pl7" firstAttribute="trailing" secondItem="Vyf-ay-pfJ" secondAttribute="trailing" id="rT5-BU-wF0" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
-                            <constraint firstItem="Vyf-ay-pfJ" firstAttribute="top" secondItem="Eq2-az-BAi" secondAttribute="bottom" id="wTx-eW-vLA"/>
+                            <constraint firstItem="Vyf-ay-pfJ" firstAttribute="top" secondItem="Eq2-az-BAi" secondAttribute="bottom" id="wTx-eW-vLA" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                         </constraints>
                     </view>
                     <connections>

@@ -30,19 +30,22 @@ class BaseViewController: UIViewController {
     
     // MARK: - indicator
     func showIndicator(_ message: String, tapToDismiss: Bool = false) {
-        let indicator = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = .medium
         loadingIndicator.startAnimating()
-        indicator.view.addSubview(loadingIndicator)
-        present(indicator, animated: true) {
+        alert.view.addSubview(loadingIndicator)
+        // TODO: 불러오는 중 취소 구현
+//        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: { _ in })
+//        alert.addAction(cancelAction)
+        present(alert, animated: true) {
             if tapToDismiss {
                 // 바깥클릭으로 닫기
                 let tap = UITapGestureRecognizer(target: self, action: #selector(self.didTappedOutside(_:)))
                 tap.cancelsTouchesInView = false
-                indicator.view.superview?.isUserInteractionEnabled = true
-                indicator.view.superview?.addGestureRecognizer(tap)
+                alert.view.superview?.isUserInteractionEnabled = true
+                alert.view.superview?.addGestureRecognizer(tap)
             }
         }
     }

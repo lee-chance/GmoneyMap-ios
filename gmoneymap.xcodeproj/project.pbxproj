@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E96674ED66961AE7D6E29D3 /* Pods_gmoneymap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B7F19941F55A771B633267 /* Pods_gmoneymap.framework */; };
 		2E0251E5267CDFCF00396486 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0251E4267CDFCF00396486 /* UIColorExt.swift */; };
+		2E0ABADF26DD056100050130 /* shoplist.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 2E0ABADE26DD056100050130 /* shoplist.xlsx */; };
 		2E1D775A267F270F00ED58F2 /* GMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D7759267F270F00ED58F2 /* GMapService.swift */; };
 		2E1D775C267F27DF00ED58F2 /* GMapService+TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D775B267F27DF00ED58F2 /* GMapService+TargetType.swift */; };
 		2E204A5126710961002C03C1 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E204A5026710961002C03C1 /* Screen.swift */; };
@@ -21,6 +22,8 @@
 		2E466671267F48DE00A57B8B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466670267F48DE00A57B8B /* SearchViewModel.swift */; };
 		2E466673267F494500A57B8B /* VerbosePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466672267F494500A57B8B /* VerbosePlugin.swift */; };
 		2E466676267F58E600A57B8B /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E466675267F58E600A57B8B /* SearchModel.swift */; };
+		2E48E77726DB1F6500A805C2 /* UIDeviceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48E77626DB1F6500A805C2 /* UIDeviceExt.swift */; };
+		2E48E77C26DBADD800A805C2 /* MapViewController+XLSParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48E77B26DBADD800A805C2 /* MapViewController+XLSParse.swift */; };
 		2E68E62C266F9BA600172E6F /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68E62B266F9BA600172E6F /* Keyboard.swift */; };
 		2E75121726D96C8800828316 /* hanullim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E75121626D96C8800828316 /* hanullim.ttf */; };
 		2E76B5F6267A46BB00E033EB /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E76B5F4267A46BB00E033EB /* MenuTableViewCell.swift */; };
@@ -112,6 +115,7 @@
 /* Begin PBXFileReference section */
 		1D7E68B229E83DB032524148 /* Pods-gmoneymap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gmoneymap.release.xcconfig"; path = "Target Support Files/Pods-gmoneymap/Pods-gmoneymap.release.xcconfig"; sourceTree = "<group>"; };
 		2E0251E4267CDFCF00396486 /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		2E0ABADE26DD056100050130 /* shoplist.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoplist.xlsx; sourceTree = "<group>"; };
 		2E1D7759267F270F00ED58F2 /* GMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapService.swift; sourceTree = "<group>"; };
 		2E1D775B267F27DF00ED58F2 /* GMapService+TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMapService+TargetType.swift"; sourceTree = "<group>"; };
 		2E204A5026710961002C03C1 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 		2E466670267F48DE00A57B8B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		2E466672267F494500A57B8B /* VerbosePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbosePlugin.swift; sourceTree = "<group>"; };
 		2E466675267F58E600A57B8B /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		2E48E77626DB1F6500A805C2 /* UIDeviceExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExt.swift; sourceTree = "<group>"; };
+		2E48E77B26DBADD800A805C2 /* MapViewController+XLSParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+XLSParse.swift"; sourceTree = "<group>"; };
 		2E68E62B266F9BA600172E6F /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		2E75121626D96C8800828316 /* hanullim.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hanullim.ttf; sourceTree = "<group>"; };
 		2E76B5F4267A46BB00E033EB /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -263,6 +269,7 @@
 				2EFE23B1267474E800AFF2D1 /* UIViewControllerExt.swift */,
 				2E0251E4267CDFCF00396486 /* UIColorExt.swift */,
 				2E9D7A1126671BB800D8625A /* NSObjectExt.swift */,
+				2E48E77626DB1F6500A805C2 /* UIDeviceExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -270,6 +277,7 @@
 		2E1D7757267F26EE00ED58F2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2E48E77826DBAD6F00A805C2 /* Asset */,
 				2E1D7758267F270200ED58F2 /* HTTP */,
 				2ED976CE26677CB5009CCCC1 /* Base */,
 				2E9D7A0F26671BB800D8625A /* Util */,
@@ -303,6 +311,15 @@
 				2E466675267F58E600A57B8B /* SearchModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2E48E77826DBAD6F00A805C2 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				2E0ABADE26DD056100050130 /* shoplist.xlsx */,
+				2E75121626D96C8800828316 /* hanullim.ttf */,
+			);
+			path = Asset;
 			sourceTree = "<group>";
 		};
 		2E9D79B92667171D00D8625A /* Frameworks */ = {
@@ -457,6 +474,7 @@
 				2EC38FDA266CD6F0008D2CE4 /* MapViewController.swift */,
 				2EE040E5267E14FE005D917D /* MapViewController+MTMapView.swift */,
 				2EE040E7267E1AE8005D917D /* MapViewController+CLLocationManager.swift */,
+				2E48E77B26DBADD800A805C2 /* MapViewController+XLSParse.swift */,
 				2EFE23AD267470D300AFF2D1 /* BottomSheetViewController.swift */,
 				2E9D5B56267A400A0071589C /* BottomSheetViewController+UICollectionView.swift */,
 				2E9D5B58267A403B0071589C /* BottomSheetViewController+UIScrollView.swift */,
@@ -471,7 +489,6 @@
 		2ED976CE26677CB5009CCCC1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				2E75121626D96C8800828316 /* hanullim.ttf */,
 				2ED976CF26677CCE009CCCC1 /* BaseViewWithXIB.swift */,
 				2E9889D8268757AD00CC433F /* BaseViewController.swift */,
 				2ED2703C269B4D5400ED749D /* BasePopupViewController.swift */,
@@ -611,6 +628,7 @@
 				2E9D79F82667196000D8625A /* map_pinup@3x.png in Resources */,
 				2E75121726D96C8800828316 /* hanullim.ttf in Resources */,
 				2E9D7A022667196000D8625A /* point_sprite.png in Resources */,
+				2E0ABADF26DD056100050130 /* shoplist.xlsx in Resources */,
 				2E9D7A0A2667196000D8625A /* map_present_background_update.png in Resources */,
 				2E9D7A062667196000D8625A /* map_present_direction.png in Resources */,
 				2E9D7A052667196000D8625A /* noimage256.png in Resources */,
@@ -713,6 +731,7 @@
 				2E9D7A1C26671C4500D8625A /* CustomKit.swift in Sources */,
 				2E9D7A1A26671BB800D8625A /* DynamicSize.swift in Sources */,
 				2ED2703B269B4D2E00ED749D /* OverlapDialogViewController.swift in Sources */,
+				2E48E77726DB1F6500A805C2 /* UIDeviceExt.swift in Sources */,
 				2E46576826872A010078727B /* GMapManager.swift in Sources */,
 				56F0CE2926A15E1500467859 /* DataDownloadViewController.swift in Sources */,
 				2EF7A15026675FE800732BC3 /* CategoryScrollView.swift in Sources */,
@@ -725,6 +744,7 @@
 				2E8453932694EAE60097D868 /* BottomPickerViewTextField.swift in Sources */,
 				2E1D775A267F270F00ED58F2 /* GMapService.swift in Sources */,
 				2E26B1FE269AED3A0099B754 /* DetailDialogViewController.swift in Sources */,
+				2E48E77C26DBADD800A805C2 /* MapViewController+XLSParse.swift in Sources */,
 				2ED976D326678601009CCCC1 /* CategoryViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

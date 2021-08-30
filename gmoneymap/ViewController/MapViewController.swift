@@ -32,7 +32,7 @@ class MapViewController: BaseViewController {
     
     var rowList: [RowVO] = []
     var tagNum = 0
-    var map: [String:[RowVO]] = [:]
+    var map: [String : [RowVO]] = [:]
     
     enum SearchButton {
         case fromMe
@@ -42,6 +42,7 @@ class MapViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setCategoryMap()
         initView()
         initMap()
     }
@@ -93,8 +94,6 @@ class MapViewController: BaseViewController {
     
     private func search(tag category: Int) {
         
-        print("tag: \(category)") // 100 ~ 119
-        
         if selectedSearchButton == .fromMe {
             setMapCenter()
         } else {
@@ -119,10 +118,12 @@ class MapViewController: BaseViewController {
             return
         }
         
+        let category = category - 100
+        
         if GMapManager.shared.downloadedCityList.contains(selectedCity) {
-            searchThroughLocalDB(city: selectedCity)
+            searchThroughLocalDB(city: selectedCity, category: category)
         } else {
-            searchThroughNetwork(city: selectedCity)
+            searchThroughNetwork(city: selectedCity, category: category)
         }
     }
     
@@ -166,7 +167,8 @@ class MapViewController: BaseViewController {
         }
     }
     
-    private func searchThroughNetwork(city: String) {
+    private func searchThroughNetwork(city: String, category: Int) {
+        let categoryList = GMapManager.shared.categoryMap?["\(category)"]
         var rowCount = 0
         let radius = 300
         
@@ -195,7 +197,13 @@ class MapViewController: BaseViewController {
                         let distance = Int(sqrt(pow(lat-GMapManager.shared.latitude, 2) + pow(lon-GMapManager.shared.longitude, 2)) * 100000)
                         // 거리가 radius 이내에 있는 값만 마커표시
                         if distance < radius {
-                            self?.setNewMarker(row: row)
+                            if category == 0 {
+                                self?.setNewMarker(row: row)
+                            } else if let categoryList = categoryList,
+                                      let categoryName = row.categoryName,
+                                      categoryList.contains(categoryName) {
+                                self?.setNewMarker(row: row)
+                            }
                         }
                     }
                 }, doneAction: {
@@ -214,7 +222,8 @@ class MapViewController: BaseViewController {
         })
     }
     
-    private func searchThroughLocalDB(city: String) {
+    private func searchThroughLocalDB(city: String, category: Int) {
+        let categoryList = GMapManager.shared.categoryMap?["\(category)"]
         let radius = 300
         
         setCircle(radius: radius)
@@ -247,8 +256,16 @@ class MapViewController: BaseViewController {
                         let distance = Int(sqrt(pow(lat-GMapManager.shared.latitude, 2) + pow(lon-GMapManager.shared.longitude, 2)) * 100000)
                         // 거리가 radius 이내에 있는 값만 마커표시
                         if distance < radius {
-                            DispatchQueue.main.async {
-                                self.setNewMarker(row: row)
+                            if category == 0 {
+                                DispatchQueue.main.async {
+                                    self.setNewMarker(row: row)
+                                }
+                            } else if let categoryList = categoryList,
+                                      let categoryName = row.categoryName,
+                                      categoryList.contains(categoryName) {
+                                DispatchQueue.main.async {
+                                    self.setNewMarker(row: row)
+                                }
                             }
                         }
                     }

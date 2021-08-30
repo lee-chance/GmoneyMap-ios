@@ -61,23 +61,24 @@ class MenuView: BaseViewWithXIB {
         }
         
         if MFMailComposeViewController.canSendMail() {
+            guard let dictionary = Bundle.main.infoDictionary,
+                  let version = dictionary["CFBundleShortVersionString"] as? String else { return }
+            
             let compseVC = MFMailComposeViewController()
             compseVC.mailComposeDelegate = rootVC as! ContainerViewController
             compseVC.setToRecipients(["729mail2@gmail.com"])
-            compseVC.setSubject("(경기지역화폐지도 오류제보)")
+            compseVC.setSubject("경기지역화폐지도 오류제보")
             compseVC.setMessageBody(
                 """
-                앱 버전 :
-                
-                기기명 :
-                iOS :
-                내용 (Content) :
+                앱버전 : \(version)
+                기기명 : \(UIDevice.modelName) - \(UIDevice.current.systemVersion)
+                오류내용 :
                 
                 """, isHTML: false)
             
             rootVC.present(compseVC, animated: true, completion: nil)
         } else {
-            let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+            let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
             let confirmAction = UIAlertAction(title: "확인", style: .default, handler: nil)
             sendMailErrorAlert.addAction(confirmAction)
             rootVC.present(sendMailErrorAlert, animated: true, completion: nil)
@@ -91,8 +92,9 @@ class MenuView: BaseViewWithXIB {
     
     // 공유하기
     private func kakaoLink() {
+        let imageUrl = "https://lee-chance.github.io/gmoneymap.github.io/kakaoLink.png"
+        let directUrl = "https://lee-chance.github.io/gmoneymap.github.io/shareApp.html"
         // 템플릿 만들기 (피드)
-        // FIXME: 이미지링크, 앱다운로드링크 변경 필요
         let feedTemplateJsonStringData =
             """
             {
@@ -101,18 +103,18 @@ class MenuView: BaseViewWithXIB {
                     "title": "경기지역화폐지도",
                     "description": "경기도민 필수어플!
             지역화폐 가맹점을 쉽게 찾아보세요.",
-                    "image_url": "https://ifh.cc/g/ynfCDx.png",
+                    "image_url": \(imageUrl),
                     "link": {
-                        "mobile_web_url": "https://developers.kakao.com",
-                        "web_url": "https://developers.kakao.com"
+                        "mobile_web_url": \(directUrl),
+                        "web_url": \(directUrl)
                     }
                 },
                 "buttons": [
                     {
                         "title": "앱다운로드",
                         "link": {
-                            "mobile_web_url": "https://developers.kakao.com",
-                            "web_url": "https://developers.kakao.com"
+                            "mobile_web_url": \(directUrl),
+                            "web_url": \(directUrl)
                         }
                     }
                 ]

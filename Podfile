@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.0'
 
 target 'gmoneymap' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -9,6 +9,7 @@ target 'gmoneymap' do
   pod 'Alamofire'
   pod 'Moya'
   pod 'DropDown'
+  pod 'CoreXLSX'
   
   # Firebase
   pod 'Firebase/Analytics'

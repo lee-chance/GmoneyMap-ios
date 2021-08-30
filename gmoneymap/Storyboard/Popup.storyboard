@@ -257,8 +257,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmf-Td-rH4" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="166" width="113" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한울림체" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmf-Td-rH4" customClass="DynamicUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="166" width="63" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -331,6 +331,9 @@
                             <constraint firstItem="FVH-0h-9Up" firstAttribute="centerY" secondItem="Zhu-6h-9HB" secondAttribute="centerY" id="ywy-Kk-yFA" customClass="DynamicLayoutConstraint" customModule="gmoneymap" customModuleProvider="target"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="appVersion" destination="Rj0-cr-2nc" id="GKd-lo-iTp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I03-Vl-yBo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -351,7 +354,7 @@
             <size key="intrinsicContentSize" width="143.5" height="24"/>
         </designable>
         <designable name="Kmf-Td-rH4">
-            <size key="intrinsicContentSize" width="113" height="21.5"/>
+            <size key="intrinsicContentSize" width="62.5" height="21.5"/>
         </designable>
         <designable name="Miy-jq-MYq">
             <size key="intrinsicContentSize" width="48" height="24"/>
@@ -385,7 +388,7 @@
         <image name="location.north.fill" catalog="system" width="108" height="128"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="GMapBackBlue">
-            <color red="0.030999999493360519" green="0.28200000524520874" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.027450980392156862" green="0.27843137254901962" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GMapMint">
             <color red="0.27799999713897705" green="0.72899997234344482" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

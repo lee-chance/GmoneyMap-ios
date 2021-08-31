@@ -21,7 +21,6 @@ class AppInfoPopupViewController: BasePopupViewController {
     }
     
     @IBAction func showTermsAndConditions(_ sender: DynamicUIButton) {
-        // FIXME: 링크 정비 필요
         let privacyPolicy = "https://sites.google.com/view/chance-gmoney-privacy-policy/%ED%99%88"
         if let url = URL(string: privacyPolicy) {
             UIApplication.shared.open(url, options: [:])

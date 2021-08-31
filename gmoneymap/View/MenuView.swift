@@ -66,7 +66,7 @@ class MenuView: BaseViewWithXIB {
             
             let compseVC = MFMailComposeViewController()
             compseVC.mailComposeDelegate = rootVC as! ContainerViewController
-            compseVC.setToRecipients(["729mail2@gmail.com"])
+            compseVC.setToRecipients(["729mail1@gmail.com"])
             compseVC.setSubject("경기지역화폐지도 오류제보")
             compseVC.setMessageBody(
                 """

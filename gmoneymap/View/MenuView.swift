@@ -11,6 +11,7 @@ import MessageUI
 import KakaoSDKCommon
 import KakaoSDKLink
 import KakaoSDKTemplate
+import SafariServices
 
 class MenuView: BaseViewWithXIB {
     
@@ -28,30 +29,22 @@ class MenuView: BaseViewWithXIB {
     
     // 공지사항
     private func showNoticeList() {
-        guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
-            return
-        }
-        
         guard let vc = UIViewController.instantiate(viewController: NoticeListViewController.rawString, in: .Main) as? NoticeListViewController else {
             return
         }
         
         vc.loadViewIfNeeded()
-        rootVC.present(vc, animated: true, completion: nil)
+        parentVC.present(vc, animated: true, completion: nil)
     }
     
     // 데이터 다운로드
     private func showDataDownloadView() {
-        guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
-            return
-        }
-        
         guard let vc = UIViewController.instantiate(viewController: DataDownloadViewController.rawString, in: .Main) as? DataDownloadViewController else {
             return
         }
         
         vc.loadViewIfNeeded()
-        rootVC.present(vc, animated: true, completion: nil)
+        parentVC.present(vc, animated: true, completion: nil)
     }
     
     // 오류제보
@@ -94,6 +87,7 @@ class MenuView: BaseViewWithXIB {
     private func kakaoLink() {
         let imageUrl = "https://lee-chance.github.io/gmoneymap.github.io/kakaoLink.png"
         let directUrl = "https://lee-chance.github.io/gmoneymap.github.io/shareApp.html"
+            
         // 템플릿 만들기 (피드)
         let feedTemplateJsonStringData =
             """
@@ -101,20 +95,19 @@ class MenuView: BaseViewWithXIB {
                 "object_type": "feed",
                 "content": {
                     "title": "경기지역화폐지도",
-                    "description": "경기도민 필수어플!
-            지역화폐 가맹점을 쉽게 찾아보세요.",
-                    "image_url": \(imageUrl),
+                    "description": "경기도민 필수어플!\\n지역화폐 가맹점을 쉽게 찾아보세요.",
+                    "image_url": "\(imageUrl)",
                     "link": {
-                        "mobile_web_url": \(directUrl),
-                        "web_url": \(directUrl)
+                        "mobile_web_url": "\(directUrl)",
+                        "web_url": "\(directUrl)"
                     }
                 },
                 "buttons": [
                     {
-                        "title": "앱다운로드",
+                        "title": "앱 다운로드",
                         "link": {
-                            "mobile_web_url": \(directUrl),
-                            "web_url": \(directUrl)
+                            "mobile_web_url": "\(directUrl)",
+                            "web_url": "\(directUrl)"
                         }
                     }
                 ]
@@ -122,7 +115,9 @@ class MenuView: BaseViewWithXIB {
             """.data(using: .utf8)!
         
         // 기본 템플릿으로 카카오링크 보내기
-        if let templatable = try? SdkJSONDecoder.custom.decode(FeedTemplate.self, from: feedTemplateJsonStringData) {
+        guard let templatable = try? SdkJSONDecoder.custom.decode(FeedTemplate.self, from: feedTemplateJsonStringData) else { return }
+        
+        if LinkApi.isKakaoLinkAvailable() {
             LinkApi.shared.defaultLink(templatable: templatable) {(linkResult, error) in
                 if let error = error {
                     print(error)
@@ -133,21 +128,24 @@ class MenuView: BaseViewWithXIB {
                     }
                 }
             }
+        } else {
+            if let url = LinkApi.shared.makeSharerUrlforDefaultLink(templatable: templatable) {
+                let safariViewController = SFSafariViewController(url: url)
+                safariViewController.modalTransitionStyle = .crossDissolve
+                safariViewController.modalPresentationStyle = .overCurrentContext
+                parentVC.present(safariViewController, animated: true)
+            }
         }
     }
     
     // 앱 정보
     private func showAppInfoPopup() {
-        guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
-            return
-        }
-        
         guard let vc = UIViewController.instantiate(viewController: AppInfoPopupViewController.rawString, in: .Popup) as? AppInfoPopupViewController else {
             return
         }
         
         vc.loadViewIfNeeded()
-        rootVC.present(vc, animated: true, completion: nil)
+        parentVC.present(vc, animated: true, completion: nil)
     }
     
 }
@@ -182,7 +180,6 @@ extension MenuView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-//        let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.rawString, for: indexPath) as! MenuTableViewCell
         
         cell.textLabel?.text = menuList[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20.ratioConstant)

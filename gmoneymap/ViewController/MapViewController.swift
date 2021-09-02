@@ -310,12 +310,12 @@ class MapViewController: BaseViewController {
     private func setupLocationManager() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest // 배터리에 맞게 권장되는 최적의 정확도
         locationManager.startUpdatingLocation()
     }
     
     private func setMapCenter() {
+        locationSettingAlert()
         if let lat = locationManager.location?.coordinate.latitude,
            let lon = locationManager.location?.coordinate.longitude {
             mapView?.setMapCenter(.init(geoCoord: MTMapPointGeo(latitude: lat, longitude: lon)), animated: true)
@@ -408,8 +408,6 @@ class MapViewController: BaseViewController {
             selectedSearchButton = .byMap
         // current location
         case 104:
-            // TODO: 위치권한 인증
-//            locationManager.requestWhenInUseAuthorization()
             setMapCenter()
         default:
             break

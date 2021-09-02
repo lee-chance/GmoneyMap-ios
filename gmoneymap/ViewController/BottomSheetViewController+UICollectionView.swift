@@ -29,7 +29,7 @@ extension BottomSheetViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarCell.rawString, for: indexPath) as! TabBarCell
         
         cell.setText(tabName[indexPath.row])
-        cell.setIcon(tabIcon[indexPath.row] ?? UIImage(imageLiteralResourceName: "logo")) // FIXME: 디폴트 이미지
+        cell.setIcon(tabIcon[indexPath.row])
         
         if indexPath.row == 0 {
             cell.isSelected = true

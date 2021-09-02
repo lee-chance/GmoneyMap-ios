@@ -29,7 +29,7 @@ class TabBarCell: UICollectionViewCell {
         tab.textColor = .black
     }
     
-    func setIcon(_ image: UIImage) {
+    func setIcon(_ image: UIImage?) {
         icon.image = image
         icon.tintColor = .black
     }

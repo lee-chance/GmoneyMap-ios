@@ -71,16 +71,21 @@ class MenuView: BaseViewWithXIB {
             
             rootVC.present(compseVC, animated: true, completion: nil)
         } else {
-            let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-            sendMailErrorAlert.addAction(confirmAction)
-            rootVC.present(sendMailErrorAlert, animated: true, completion: nil)
+            parentVC.customAlert(title: "메일 전송 실패",
+                                 message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.",
+                                 hasCancel: false)
         }
     }
     
-    // TODO: 평점주기
     private func moveToAppStore() {
-        
+        let appID = "1584224506"
+        if let reviewURL = URL(string: "itms-apps://itunes.apple.com/app/itunes-u/id\(appID)?ls=1&mt=8&action=write-review"), UIApplication.shared.canOpenURL(reviewURL) { // 유효한 URL인지 검사합니다.
+            UIApplication.shared.open(reviewURL, options: [:], completionHandler: nil)
+        } else {
+            parentVC.customAlert(title: "오류 발생",
+                                 message: "알 수 없는 오류가 발생했습니다 😭",
+                                 hasCancel: false)
+        }
     }
     
     // 공유하기

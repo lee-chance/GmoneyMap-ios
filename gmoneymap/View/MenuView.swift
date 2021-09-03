@@ -79,6 +79,7 @@ class MenuView: BaseViewWithXIB {
     
     private func moveToAppStore() {
         let appID = "1584224506"
+        
         if let reviewURL = URL(string: "itms-apps://itunes.apple.com/app/itunes-u/id\(appID)?ls=1&mt=8&action=write-review"), UIApplication.shared.canOpenURL(reviewURL) { // 유효한 URL인지 검사합니다.
             UIApplication.shared.open(reviewURL, options: [:], completionHandler: nil)
         } else {

@@ -171,6 +171,8 @@ class MapViewController: BaseViewController {
         let categoryList = GMapManager.shared.categoryMap?["\(category)"]
         var rowCount = 0
         let radius = 300
+        let currentLat = GMapManager.shared.latitude
+        let currentLon = GMapManager.shared.longitude
         
         self.viewModel.checkHasData(city: city, onAction: {
             self.hideIndicator()
@@ -194,7 +196,7 @@ class MapViewController: BaseViewController {
                        let lat = Double(latString),
                        let lon = Double(lonString) {
                         // 내 위치와 거리 비교
-                        let distance = Int(sqrt(pow(lat-GMapManager.shared.latitude, 2) + pow(lon-GMapManager.shared.longitude, 2)) * 100000)
+                        let distance = Int(sqrt(pow(lat-currentLat, 2) + pow(lon-currentLon, 2)) * 100000)
                         // 거리가 radius 이내에 있는 값만 마커표시
                         if distance < radius {
                             if category == 0 {

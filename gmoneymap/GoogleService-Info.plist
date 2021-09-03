@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>92132451671-9igiuiq43bf8ve7qm5673f2nttkk5pnt.apps.googleusercontent.com</string>
+	<string>92132451671-hlmjgaa9kt3ni1llqdphos6177v3h837.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.92132451671-9igiuiq43bf8ve7qm5673f2nttkk5pnt</string>
+	<string>com.googleusercontent.apps.92132451671-hlmjgaa9kt3ni1llqdphos6177v3h837</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>92132451671-9ajl420u4mtdq2q7qjb5id1hrhrji0km.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.chance.gmoneymap</string>
+	<string>com.cslab.gmoneymap</string>
 	<key>PROJECT_ID</key>
 	<string>gmoneymap-9efc5</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:92132451671:ios:9fb61d466c1a29645b8a12</string>
+	<string>1:92132451671:ios:5ec1a7a767b8cacc5b8a12</string>
 	<key>DATABASE_URL</key>
 	<string>https://gmoneymap-9efc5.firebaseio.com</string>
 </dict>

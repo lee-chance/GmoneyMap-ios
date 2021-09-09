@@ -30,7 +30,9 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>KAKAO_APP_KEY</key>
 	<string>e2cca786ee8abe52f4210a35aebd0a7e</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -42,9 +44,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>내 위치 확인을 위해 권한이 필요합니다.</string>
+	<string>내 주변 경기지역 화폐 가맹점을 찾기 위해 위치 권한 동의가 필요합니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>내 위치 확인을 위해 권한이 필요합니다.</string>
+	<string>내 주변 경기지역 화폐 가맹점을 찾기 위해 위치 권한 동의가 필요합니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>hanullim.ttf</string>

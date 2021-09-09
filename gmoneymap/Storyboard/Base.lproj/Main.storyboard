@@ -26,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHp-zI-IDb">
                                 <rect key="frame" x="30" y="60" width="354" height="48"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current address 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR3-4p-Rmr" customClass="CSUILabel" customModule="gmoneymap" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR3-4p-Rmr" customClass="CSUILabel" customModule="gmoneymap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -663,7 +663,7 @@
             <size key="intrinsicContentSize" width="42" height="19.5"/>
         </designable>
         <designable name="qR3-4p-Rmr">
-            <size key="intrinsicContentSize" width="168.36000000000001" height="48.024000000000001"/>
+            <size key="intrinsicContentSize" width="41.400000000000006" height="48.024000000000001"/>
         </designable>
         <designable name="t8I-BF-nKz">
             <size key="intrinsicContentSize" width="104" height="36"/>
